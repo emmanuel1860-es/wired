@@ -1,0 +1,1737 @@
+{
+ "wired": {
+  "triggers": [],
+  "selectors": [],
+  "conditions": [],
+  "effects": [],
+  "addons": [],
+  "variables": [],
+  "variables_map": {}
+ },
+ "bindings": [],
+ "furni": [
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[0]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+   },
+   "id": 1
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[1]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 0
+   },
+   "id": 2
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[0]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 0
+   },
+   "id": 3
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[2]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 0,
+    "y": 6,
+    "z": 0
+   },
+   "id": 4
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[3]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 0,
+    "y": 8,
+    "z": 0
+   },
+   "id": 5
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[4]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 2,
+    "y": 0,
+    "z": 0
+   },
+   "id": 6
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[5]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 0
+   },
+   "id": 7
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[1]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 0
+   },
+   "id": 8
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[6]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 2,
+    "y": 6,
+    "z": 0
+   },
+   "id": 9
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[7]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 2,
+    "y": 8,
+    "z": 0
+   },
+   "id": 10
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[8]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 4,
+    "y": 0,
+    "z": 0
+   },
+   "id": 11
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[9]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 4,
+    "y": 2,
+    "z": 0
+   },
+   "id": 12
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[2]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 4,
+    "y": 4,
+    "z": 0
+   },
+   "id": 13
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[10]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 4,
+    "y": 6,
+    "z": 0
+   },
+   "id": 14
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[11]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 4,
+    "y": 8,
+    "z": 0
+   },
+   "id": 15
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[12]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 6,
+    "y": 0,
+    "z": 0
+   },
+   "id": 16
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[13]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 6,
+    "y": 2,
+    "z": 0
+   },
+   "id": 17
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[3]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 6,
+    "y": 4,
+    "z": 0
+   },
+   "id": 18
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[14]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 6,
+    "y": 6,
+    "z": 0
+   },
+   "id": 19
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[15]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 6,
+    "y": 8,
+    "z": 0
+   },
+   "id": 20
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[16]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 8,
+    "y": 0,
+    "z": 0
+   },
+   "id": 21
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[17]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 0
+   },
+   "id": 22
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[4]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 8,
+    "y": 4,
+    "z": 0
+   },
+   "id": 23
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[18]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 8,
+    "y": 6,
+    "z": 0
+   },
+   "id": 24
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[19]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 8,
+    "y": 8,
+    "z": 0
+   },
+   "id": 25
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[20]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 10,
+    "y": 0,
+    "z": 0
+   },
+   "id": 26
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[21]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 10,
+    "y": 2,
+    "z": 0
+   },
+   "id": 27
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[5]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 10,
+    "y": 4,
+    "z": 0
+   },
+   "id": 28
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[22]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 10,
+    "y": 6,
+    "z": 0
+   },
+   "id": 29
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[23]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 10,
+    "y": 8,
+    "z": 0
+   },
+   "id": 30
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[24]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 12,
+    "y": 0,
+    "z": 0
+   },
+   "id": 31
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[25]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 12,
+    "y": 2,
+    "z": 0
+   },
+   "id": 32
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[6]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 12,
+    "y": 4,
+    "z": 0
+   },
+   "id": 33
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[26]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 12,
+    "y": 6,
+    "z": 0
+   },
+   "id": 34
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[27]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 12,
+    "y": 8,
+    "z": 0
+   },
+   "id": 35
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[28]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 14,
+    "y": 0,
+    "z": 0
+   },
+   "id": 36
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[29]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 14,
+    "y": 2,
+    "z": 0
+   },
+   "id": 37
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_darkschoolhallfloor[7]",
+   "className": "hween_c24_darkschoolhallfloor",
+   "location": {
+    "x": 14,
+    "y": 4,
+    "z": 0
+   },
+   "id": 38
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[30]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 14,
+    "y": 6,
+    "z": 0
+   },
+   "id": 39
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[31]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 14,
+    "y": 8,
+    "z": 0
+   },
+   "id": 40
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[0]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 16,
+    "y": 0,
+    "z": 0
+   },
+   "id": 41
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[1]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 16,
+    "y": 2,
+    "z": 0
+   },
+   "id": 42
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[2]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 16,
+    "y": 4,
+    "z": 0
+   },
+   "id": 43
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[32]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 16,
+    "y": 6,
+    "z": 0
+   },
+   "id": 44
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[33]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 16,
+    "y": 8,
+    "z": 0
+   },
+   "id": 45
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[3]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 18,
+    "y": 0,
+    "z": 0
+   },
+   "id": 46
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[4]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 18,
+    "y": 2,
+    "z": 0
+   },
+   "id": 47
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[5]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 18,
+    "y": 4,
+    "z": 0
+   },
+   "id": 48
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[34]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 18,
+    "y": 6,
+    "z": 0
+   },
+   "id": 49
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[35]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 18,
+    "y": 8,
+    "z": 0
+   },
+   "id": 50
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[6]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 20,
+    "y": 0,
+    "z": 0
+   },
+   "id": 51
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[7]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 20,
+    "y": 2,
+    "z": 0
+   },
+   "id": 52
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[8]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 20,
+    "y": 4,
+    "z": 0
+   },
+   "id": 53
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[36]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 20,
+    "y": 6,
+    "z": 0
+   },
+   "id": 54
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[37]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 20,
+    "y": 8,
+    "z": 0
+   },
+   "id": 55
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[9]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 22,
+    "y": 0,
+    "z": 0
+   },
+   "id": 56
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[10]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 22,
+    "y": 2,
+    "z": 0
+   },
+   "id": 57
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_marblefloor[11]",
+   "className": "hween_c22_marblefloor",
+   "location": {
+    "x": 22,
+    "y": 4,
+    "z": 0
+   },
+   "id": 58
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[38]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 22,
+    "y": 6,
+    "z": 0
+   },
+   "id": 59
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_mossyfloor[39]",
+   "className": "hween_c25_mossyfloor",
+   "location": {
+    "x": 22,
+    "y": 8,
+    "z": 0
+   },
+   "id": 60
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[0]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+   },
+   "id": 61
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[1]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 2,
+    "y": 0,
+    "z": 0
+   },
+   "id": 62
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[2]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 4,
+    "y": 0,
+    "z": 0
+   },
+   "id": 63
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwallwindows[0]",
+   "className": "hween_c25_oldwallwindows",
+   "location": {
+    "x": 6,
+    "y": 0,
+    "z": 0
+   },
+   "id": 64
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[3]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 8,
+    "y": 0,
+    "z": 0
+   },
+   "id": 65
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[4]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 10,
+    "y": 0,
+    "z": 0
+   },
+   "id": 66
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[5]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 12,
+    "y": 0,
+    "z": 0
+   },
+   "id": 67
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwallwindows[1]",
+   "className": "hween_c25_oldwallwindows",
+   "location": {
+    "x": 14,
+    "y": 0,
+    "z": 0
+   },
+   "id": 68
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[6]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 16,
+    "y": 0,
+    "z": 0
+   },
+   "id": 69
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwallwindows[2]",
+   "className": "hween_c25_oldwallwindows",
+   "location": {
+    "x": 18,
+    "y": 0,
+    "z": 0
+   },
+   "id": 70
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwall[7]",
+   "className": "hween_c25_oldwall",
+   "location": {
+    "x": 20,
+    "y": 0,
+    "z": 0
+   },
+   "id": 71
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c25_oldwallwindows[3]",
+   "className": "hween_c25_oldwallwindows",
+   "location": {
+    "x": 22,
+    "y": 0,
+    "z": 0
+   },
+   "id": 72
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_tombslab[0]",
+   "className": "hween_c23_tombslab",
+   "location": {
+    "x": 1,
+    "y": 1,
+    "z": 0
+   },
+   "id": 73
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_tombslab[1]",
+   "className": "hween_c23_tombslab",
+   "location": {
+    "x": 4,
+    "y": 1,
+    "z": 0
+   },
+   "id": 74
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_tombslab[2]",
+   "className": "hween_c23_tombslab",
+   "location": {
+    "x": 1,
+    "y": 6,
+    "z": 0
+   },
+   "id": 75
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_tombslab[3]",
+   "className": "hween_c23_tombslab",
+   "location": {
+    "x": 4,
+    "y": 6,
+    "z": 0
+   },
+   "id": 76
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_tombslab[4]",
+   "className": "hween_c23_tombslab",
+   "location": {
+    "x": 6,
+    "y": 3,
+    "z": 0
+   },
+   "id": 77
+  },
+  {
+   "rotation": 0,
+   "name": "autumn_c20_tree1[0]",
+   "className": "autumn_c20_tree1",
+   "location": {
+    "x": 6,
+    "y": 7,
+    "z": 0
+   },
+   "id": 78
+  },
+  {
+   "rotation": 0,
+   "name": "autumn_c20_tree5[0]",
+   "className": "autumn_c20_tree5",
+   "location": {
+    "x": 0,
+    "y": 7,
+    "z": 0
+   },
+   "id": 79
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[0]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 3,
+    "y": 3,
+    "z": 0.001
+   },
+   "id": 80
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[1]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 5,
+    "y": 5,
+    "z": 0.001
+   },
+   "id": 81
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[2]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 3,
+    "y": 8,
+    "z": 0.001
+   },
+   "id": 82
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[3]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 7,
+    "y": 6,
+    "z": 0.001
+   },
+   "id": 83
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_bedofmushrooms[0]",
+   "className": "hween_c25_bedofmushrooms",
+   "location": {
+    "x": 2,
+    "y": 5,
+    "z": 0
+   },
+   "id": 84
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_bedofmushrooms[1]",
+   "className": "hween_c25_bedofmushrooms",
+   "location": {
+    "x": 4,
+    "y": 3,
+    "z": 0
+   },
+   "id": 85
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_darkskull[0]",
+   "className": "hween_c22_darkskull",
+   "location": {
+    "x": 3,
+    "y": 1,
+    "z": 0
+   },
+   "id": 86
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_zombiehand[0]",
+   "className": "hween_c22_zombiehand",
+   "location": {
+    "x": 4,
+    "y": 8,
+    "z": 0
+   },
+   "id": 87
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_rat[0]",
+   "className": "hween_c17_rat",
+   "location": {
+    "x": 5,
+    "y": 9,
+    "z": 0
+   },
+   "id": 88
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicblock[0]",
+   "className": "hween_c22_gothicblock",
+   "location": {
+    "x": 7,
+    "y": 1,
+    "z": 0
+   },
+   "id": 89
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicblock[1]",
+   "className": "hween_c22_gothicblock",
+   "location": {
+    "x": 7,
+    "y": 2,
+    "z": 0
+   },
+   "id": 90
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[0]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 2,
+    "y": 3,
+    "z": 0
+   },
+   "id": 91
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[1]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 5,
+    "y": 3,
+    "z": 0
+   },
+   "id": 92
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[2]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 2,
+    "y": 8,
+    "z": 0
+   },
+   "id": 93
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicrug[0]",
+   "className": "hween_c22_gothicrug",
+   "location": {
+    "x": 10,
+    "y": 4,
+    "z": 0
+   },
+   "id": 94
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothictable[0]",
+   "className": "hween_c22_gothictable",
+   "location": {
+    "x": 10,
+    "y": 4,
+    "z": 0.1
+   },
+   "id": 95
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_bloodchalice[0]",
+   "className": "hween_c22_bloodchalice",
+   "location": {
+    "x": 10,
+    "y": 4,
+    "z": 1.6
+   },
+   "id": 96
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_candybowl[0]",
+   "className": "hween_c24_candybowl",
+   "location": {
+    "x": 11,
+    "y": 4,
+    "z": 1.6
+   },
+   "id": 97
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_undeadfood[0]",
+   "className": "hween_c22_undeadfood",
+   "location": {
+    "x": 10,
+    "y": 5,
+    "z": 1.6
+   },
+   "id": 98
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicteaset[0]",
+   "className": "hween_c22_gothicteaset",
+   "location": {
+    "x": 11,
+    "y": 5,
+    "z": 1.6
+   },
+   "id": 99
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c24_eyejar[0]",
+   "className": "hween_c24_eyejar",
+   "location": {
+    "x": 10,
+    "y": 6,
+    "z": 1.6
+   },
+   "id": 100
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_bookofdead[0]",
+   "className": "hween_c22_bookofdead",
+   "location": {
+    "x": 11,
+    "y": 6,
+    "z": 1.6
+   },
+   "id": 101
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c19_bewitchedchair[0]",
+   "className": "hween_c19_bewitchedchair",
+   "location": {
+    "x": 10,
+    "y": 3,
+    "z": 0
+   },
+   "id": 102
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c21_chair[0]",
+   "className": "hween_c21_chair",
+   "location": {
+    "x": 11,
+    "y": 3,
+    "z": 0
+   },
+   "id": 103
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c21_chair[1]",
+   "className": "hween_c21_chair",
+   "location": {
+    "x": 10,
+    "y": 7,
+    "z": 0
+   },
+   "id": 104
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c19_bewitchedchair[1]",
+   "className": "hween_c19_bewitchedchair",
+   "location": {
+    "x": 11,
+    "y": 7,
+    "z": 0
+   },
+   "id": 105
+  },
+  {
+   "rotation": 2,
+   "name": "hween_c19_bewitchedchair[2]",
+   "className": "hween_c19_bewitchedchair",
+   "location": {
+    "x": 9,
+    "y": 4,
+    "z": 0
+   },
+   "id": 106
+  },
+  {
+   "rotation": 2,
+   "name": "hween_c21_chair[2]",
+   "className": "hween_c21_chair",
+   "location": {
+    "x": 9,
+    "y": 6,
+    "z": 0
+   },
+   "id": 107
+  },
+  {
+   "rotation": 6,
+   "name": "hween_c21_chair[3]",
+   "className": "hween_c21_chair",
+   "location": {
+    "x": 12,
+    "y": 4,
+    "z": 0
+   },
+   "id": 108
+  },
+  {
+   "rotation": 6,
+   "name": "hween_c19_bewitchedchair[3]",
+   "className": "hween_c19_bewitchedchair",
+   "location": {
+    "x": 12,
+    "y": 6,
+    "z": 0
+   },
+   "id": 109
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_sculptureofanubis[0]",
+   "className": "hween_c23_sculptureofanubis",
+   "location": {
+    "x": 10,
+    "y": 1,
+    "z": 0
+   },
+   "id": 110
+  },
+  {
+   "rotation": 0,
+   "name": "gothiccandelabra[0]",
+   "className": "gothiccandelabra",
+   "location": {
+    "x": 9,
+    "y": 1,
+    "z": 0
+   },
+   "id": 111
+  },
+  {
+   "rotation": 0,
+   "name": "gothiccandelabra[1]",
+   "className": "gothiccandelabra",
+   "location": {
+    "x": 12,
+    "y": 1,
+    "z": 0
+   },
+   "id": 112
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c26_gothcandle[0]",
+   "className": "hween_c26_gothcandle",
+   "location": {
+    "x": 8,
+    "y": 3,
+    "z": 0
+   },
+   "id": 113
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c26_gothcandle[1]",
+   "className": "hween_c26_gothcandle",
+   "location": {
+    "x": 13,
+    "y": 3,
+    "z": 0
+   },
+   "id": 114
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_pitofsouls[0]",
+   "className": "hween_c22_pitofsouls",
+   "location": {
+    "x": 13,
+    "y": 7,
+    "z": 0
+   },
+   "id": 115
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicstatue[0]",
+   "className": "hween_c22_gothicstatue",
+   "location": {
+    "x": 8,
+    "y": 8,
+    "z": 0
+   },
+   "id": 116
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_lucifer[0]",
+   "className": "hween_c22_lucifer",
+   "location": {
+    "x": 15,
+    "y": 8,
+    "z": 0
+   },
+   "id": 117
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[3]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 9,
+    "y": 2,
+    "z": 0
+   },
+   "id": 118
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[4]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 12,
+    "y": 3,
+    "z": 0
+   },
+   "id": 119
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[5]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 8,
+    "y": 6,
+    "z": 0
+   },
+   "id": 120
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[6]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 14,
+    "y": 5,
+    "z": 0
+   },
+   "id": 121
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c26_readingcouch[0]",
+   "className": "hween_c26_readingcouch",
+   "location": {
+    "x": 17,
+    "y": 1,
+    "z": 0
+   },
+   "id": 122
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_gothicrug[1]",
+   "className": "hween_c22_gothicrug",
+   "location": {
+    "x": 17,
+    "y": 3,
+    "z": 0
+   },
+   "id": 123
+  },
+  {
+   "rotation": 6,
+   "name": "hween_c26_readingchair[0]",
+   "className": "hween_c26_readingchair",
+   "location": {
+    "x": 20,
+    "y": 3,
+    "z": 0
+   },
+   "id": 124
+  },
+  {
+   "rotation": 6,
+   "name": "hween_c26_readingchair[1]",
+   "className": "hween_c26_readingchair",
+   "location": {
+    "x": 20,
+    "y": 4,
+    "z": 0
+   },
+   "id": 125
+  },
+  {
+   "rotation": 4,
+   "name": "hween_c26_bookshelf[0]",
+   "className": "hween_c26_bookshelf",
+   "location": {
+    "x": 21,
+    "y": 1,
+    "z": 0
+   },
+   "id": 126
+  },
+  {
+   "rotation": 6,
+   "name": "hween_c26_glassdisplay[0]",
+   "className": "hween_c26_glassdisplay",
+   "location": {
+    "x": 22,
+    "y": 3,
+    "z": 0
+   },
+   "id": 127
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c26_gothcandle[2]",
+   "className": "hween_c26_gothcandle",
+   "location": {
+    "x": 16,
+    "y": 1,
+    "z": 0
+   },
+   "id": 128
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c26_ivystatue[0]",
+   "className": "hween_c26_ivystatue",
+   "location": {
+    "x": 23,
+    "y": 1,
+    "z": 0
+   },
+   "id": 129
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c26_hauntedmirror[0]",
+   "className": "hween_c26_hauntedmirror",
+   "location": {
+    "x": 16,
+    "y": 5,
+    "z": 0
+   },
+   "id": 130
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_torturebed[0]",
+   "className": "hween_c17_torturebed",
+   "location": {
+    "x": 18,
+    "y": 7,
+    "z": 0
+   },
+   "id": 131
+  },
+  {
+   "rotation": 0,
+   "name": "autumn_c20_tree2[0]",
+   "className": "autumn_c20_tree2",
+   "location": {
+    "x": 21,
+    "y": 7,
+    "z": 0
+   },
+   "id": 132
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c23_ancientweb[0]",
+   "className": "hween_c23_ancientweb",
+   "location": {
+    "x": 23,
+    "y": 8,
+    "z": 0
+   },
+   "id": 133
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[4]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 17,
+    "y": 9,
+    "z": 0.001
+   },
+   "id": 134
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c25_weed1[5]",
+   "className": "hween_c25_weed1",
+   "location": {
+    "x": 20,
+    "y": 9,
+    "z": 0.001
+   },
+   "id": 135
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c22_zombiehand[1]",
+   "className": "hween_c22_zombiehand",
+   "location": {
+    "x": 16,
+    "y": 9,
+    "z": 0
+   },
+   "id": 136
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[7]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 17,
+    "y": 6,
+    "z": 0
+   },
+   "id": 137
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[8]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 22,
+    "y": 9,
+    "z": 0
+   },
+   "id": 138
+  },
+  {
+   "rotation": 0,
+   "name": "hween10_fog[9]",
+   "className": "hween10_fog",
+   "location": {
+    "x": 19,
+    "y": 5,
+    "z": 0
+   },
+   "id": 139
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[0]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 0.002
+   },
+   "id": 140,
+   "state": "5"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[1]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 4,
+    "y": 5,
+    "z": 0.002
+   },
+   "id": 141,
+   "state": "1"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[2]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 7,
+    "y": 4,
+    "z": 0.002
+   },
+   "id": 142,
+   "state": "5"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[3]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 10,
+    "y": 5,
+    "z": 0.002
+   },
+   "id": 143,
+   "state": "1"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[4]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 13,
+    "y": 4,
+    "z": 0.002
+   },
+   "id": 144,
+   "state": "5"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[5]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 16,
+    "y": 5,
+    "z": 0.002
+   },
+   "id": 145,
+   "state": "1"
+  },
+  {
+   "rotation": 0,
+   "name": "hween13_bldtrail[6]",
+   "className": "hween13_bldtrail",
+   "location": {
+    "x": 19,
+    "y": 4,
+    "z": 0.002
+   },
+   "id": 146,
+   "state": "5"
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c18_bloodfloorstreak[0]",
+   "className": "hween_c18_bloodfloorstreak",
+   "location": {
+    "x": 14,
+    "y": 2,
+    "z": 0.003
+   },
+   "id": 147
+  },
+  {
+   "rotation": 2,
+   "name": "hween_c18_bloodfloorstreak[1]",
+   "className": "hween_c18_bloodfloorstreak",
+   "location": {
+    "x": 15,
+    "y": 5,
+    "z": 0.003
+   },
+   "id": 148
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c18_bloodfloorstreak[2]",
+   "className": "hween_c18_bloodfloorstreak",
+   "location": {
+    "x": 8,
+    "y": 5,
+    "z": 0.003
+   },
+   "id": 149
+  },
+  {
+   "rotation": 2,
+   "name": "hween_c18_bloodfloorstreak[3]",
+   "className": "hween_c18_bloodfloorstreak",
+   "location": {
+    "x": 5,
+    "y": 7,
+    "z": 0.003
+   },
+   "id": 150
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_lichen[0]",
+   "className": "hween_c17_lichen",
+   "location": {
+    "x": 0,
+    "y": 9,
+    "z": 0.004
+   },
+   "id": 151,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_lichen[1]",
+   "className": "hween_c17_lichen",
+   "location": {
+    "x": 23,
+    "y": 0,
+    "z": 0.004
+   },
+   "id": 152,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_lichen[2]",
+   "className": "hween_c17_lichen",
+   "location": {
+    "x": 0,
+    "y": 1,
+    "z": 0.004
+   },
+   "id": 153,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_lichen[3]",
+   "className": "hween_c17_lichen",
+   "location": {
+    "x": 15,
+    "y": 9,
+    "z": 0.004
+   },
+   "id": 154,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "hween_c17_lichen[4]",
+   "className": "hween_c17_lichen",
+   "location": {
+    "x": 11,
+    "y": 9,
+    "z": 0.004
+   },
+   "id": 155,
+   "state": "0"
+  }
+ ],
+ "wallFurni": [],
+ "exportOrigin": {
+  "x": 0,
+  "y": 0,
+  "floor": 0
+ }
+}
