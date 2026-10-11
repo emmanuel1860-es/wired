@@ -4,7 +4,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 9,
+    "wiredId": 15,
     "userSources": [],
     "variableIds": [],
     "options": [],
@@ -14,17 +14,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 12,
-    "userSources": [],
-    "variableIds": [],
-    "options": [],
-    "config": "",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 16,
+    "wiredId": 19,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -38,7 +28,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 23,
+    "wiredId": 26,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -52,20 +42,6 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 27,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":vida",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
     "wiredId": 30,
     "userSources": [],
     "variableIds": [],
@@ -74,6 +50,20 @@
      1,
      1
     ],
+    "config": ":vidas",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 33,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     0,
+     1,
+     1
+    ],
     "config": ":vida",
     "items": []
    },
@@ -82,33 +72,19 @@
     "furniSources": [
      100
     ],
-    "wiredId": 34,
+    "wiredId": 36,
     "userSources": [],
     "variableIds": [],
     "options": [],
     "config": "",
     "items": [
-     8
-    ]
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 39,
-    "userSources": [],
-    "variableIds": [],
-    "options": [],
-    "config": "",
-    "items": [
-     8
+     13
     ]
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 41,
+    "wiredId": 40,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -124,61 +100,19 @@
     "furniSources": [
      100
     ],
-    "wiredId": 45,
+    "wiredId": 43,
     "userSources": [],
     "variableIds": [],
     "options": [],
     "config": "",
     "items": [
-     8
+     14
     ]
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 51,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 54,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 57,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 61,
+    "wiredId": 47,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -206,7 +140,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 69,
+    "wiredId": 68,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -214,13 +148,13 @@
      1,
      1
     ],
-    "config": ":tiempovip",
+    "config": ":regalar",
     "items": []
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 73,
+    "wiredId": 71,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -228,13 +162,13 @@
      1,
      1
     ],
-    "config": ":tiempovip",
+    "config": ":regalar",
     "items": []
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 77,
+    "wiredId": 75,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -242,7 +176,7 @@
      1,
      1
     ],
-    "config": ":tiempovip",
+    "config": ":regalar",
     "items": []
    },
    {
@@ -252,435 +186,57 @@
     "userSources": [],
     "variableIds": [],
     "options": [
-     0,
      1,
-     1
+     0
     ],
-    "config": ":tiempovip",
+    "config": "",
     "items": []
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 85,
+    "wiredId": 94,
     "userSources": [],
     "variableIds": [],
     "options": [
-     0,
      1,
-     1
+     0
     ],
-    "config": ":tiempovip",
+    "config": "",
     "items": []
    },
    {
     "secondItems": [],
-    "furniSources": [],
-    "wiredId": 89,
+    "furniSources": [
+     100
+    ],
+    "wiredId": 99,
     "userSources": [],
     "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
+    "options": [],
+    "config": "",
+    "items": [
+     10
+    ]
    },
    {
     "secondItems": [],
-    "furniSources": [],
-    "wiredId": 93,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
+    "furniSources": [
+     100
     ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 97,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
     "wiredId": 101,
     "userSources": [],
     "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 105,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 109,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 113,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 117,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 121,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 125,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 129,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 133,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 137,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 141,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 145,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 149,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 153,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 157,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 161,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 165,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 169,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 173,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":tiempovip",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 177,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":regalar",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 180,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":regalar",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 184,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1,
-     1
-    ],
-    "config": ":regalar",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 189,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     0
-    ],
-    "config": "",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 200,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     0
-    ],
-    "config": "",
-    "items": []
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 205,
-    "userSources": [],
-    "variableIds": [],
     "options": [],
     "config": "",
     "items": [
-     6
-    ]
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 207,
-    "userSources": [],
-    "variableIds": [],
-    "options": [],
-    "config": "",
-    "items": [
-     7
+     11
     ]
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 209,
+    "wiredId": 103,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -694,7 +250,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 213,
+    "wiredId": 107,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -713,7 +269,31 @@
     "furniSources": [
      100
     ],
-    "wiredId": 10,
+    "wiredId": 16,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241546"
+    ],
+    "options": [
+     1,
+     2,
+     0,
+     0,
+     31,
+     4
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 27,
     "userSources": [
      0
     ],
@@ -732,31 +312,7 @@
     "furniSources": [
      100
     ],
-    "wiredId": 13,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2678399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 24,
+    "wiredId": 31,
     "userSources": [
      0
     ],
@@ -775,209 +331,14 @@
     "furniSources": [
      100
     ],
-    "wiredId": 28,
+    "wiredId": 48,
     "userSources": [
      0
     ],
     "variableIds": [
-     "93011"
+     "241546"
     ],
     "options": [
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 35,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93013",
-     "0"
-    ],
-    "options": [
-     1,
-     1,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 46,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93013",
-     "0"
-    ],
-    "options": [
-     1,
-     1,
-     0,
-     0,
-     2,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 52,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 55,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     86400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 58,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     86399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 59,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     172800,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 62,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     172799,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 63,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     259200,
      1
     ],
     "config": "",
@@ -994,15 +355,66 @@
      0
     ],
     "variableIds": [
-     "93012"
+     "241546"
     ],
     "options": [
-     1,
-     2,
-     0,
-     0,
-     259199,
      1
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 69,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "93001",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     1,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 72,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "93001",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     0,
+     -10,
+     0
     ],
     "config": "",
     "items": [],
@@ -1013,20 +425,43 @@
     "furniSources": [
      100
     ],
-    "wiredId": 67,
+    "wiredId": 73,
     "userSources": [
      0
     ],
     "variableIds": [
-     "93012"
+     "93011"
     ],
     "options": [
+     1
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 76,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "93001",
+     "0"
+    ],
+    "options": [
+     -10,
      1,
      0,
      0,
      0,
-     345600,
-     1
+     -10,
+     0
     ],
     "config": "",
     "items": [],
@@ -1037,19 +472,14 @@
     "furniSources": [
      100
     ],
-    "wiredId": 70,
+    "wiredId": 77,
     "userSources": [
      0
     ],
     "variableIds": [
-     "93012"
+     "93011"
     ],
     "options": [
-     1,
-     2,
-     0,
-     0,
-     345599,
      1
     ],
     "config": "",
@@ -1059,118 +489,26 @@
    {
     "secondItems": [],
     "furniSources": [
-     100
-    ],
-    "wiredId": 71,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
      0,
-     0,
-     0,
-     432000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 74,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     431999,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 75,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     518400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
+     200
     ],
     "wiredId": 78,
     "userSources": [
-     0
+     0,
+     200
     ],
     "variableIds": [
-     "93012"
+     "93011",
+     "0"
     ],
     "options": [
      1,
-     2,
+     5,
      0,
      0,
-     518399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 79,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
      1,
-     0,
-     0,
-     0,
-     604800,
-     1
+     -10,
+     0
     ],
     "config": "",
     "items": [],
@@ -1186,14 +524,9 @@
      0
     ],
     "variableIds": [
-     "93012"
+     "93014"
     ],
     "options": [
-     1,
-     2,
-     0,
-     0,
-     604799,
      1
     ],
     "config": "",
@@ -1202,22 +535,14 @@
    },
    {
     "secondItems": [],
-    "furniSources": [
-     100
-    ],
+    "furniSources": [],
     "wiredId": 83,
     "userSources": [
-     0
+     0,
+     11
     ],
-    "variableIds": [
-     "93012"
-    ],
+    "variableIds": [],
     "options": [
-     1,
-     0,
-     0,
-     0,
-     691200,
      1
     ],
     "config": "",
@@ -1227,22 +552,26 @@
    {
     "secondItems": [],
     "furniSources": [
-     100
+     0,
+     200
     ],
-    "wiredId": 86,
+    "wiredId": 84,
     "userSources": [
-     0
+     0,
+     200
     ],
     "variableIds": [
-     "93012"
+     "93001",
+     "0"
     ],
     "options": [
+     -10,
      1,
-     2,
      0,
      0,
-     691199,
-     1
+     0,
+     -10,
+     0
     ],
     "config": "",
     "items": [],
@@ -1251,94 +580,26 @@
    {
     "secondItems": [],
     "furniSources": [
-     100
+     0,
+     200
     ],
-    "wiredId": 87,
+    "wiredId": 85,
     "userSources": [
-     0
+     0,
+     200
     ],
     "variableIds": [
-     "93012"
+     "93011",
+     "0"
     ],
     "options": [
      1,
+     5,
      0,
      0,
-     0,
-     777600,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 90,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
      1,
-     2,
-     0,
-     0,
-     777599,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 91,
-    "userSources": [
+     -10,
      0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     864000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 94,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     863999,
-     1
     ],
     "config": "",
     "items": [],
@@ -1354,1130 +615,6 @@
      0
     ],
     "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     950400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 98,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     950399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 99,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1036800,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 102,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1036799,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 103,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1123200,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 106,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1123199,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 107,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1209600,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 110,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1209599,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 111,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1296000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 114,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1295999,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 115,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1382400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 118,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1382399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 119,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1468800,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 122,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1468799,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 123,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1555200,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 126,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1555199,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 127,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1641600,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 130,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1641599,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 131,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1728000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 134,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1727999,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 135,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1814400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 138,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1814399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 139,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1900800,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 142,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1900799,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 143,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1987200,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 146,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     1987199,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 147,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2073600,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 150,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2073599,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 151,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2160000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 154,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2159999,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 155,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2246400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 158,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2246399,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 159,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2332800,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 162,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2332799,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 163,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2419200,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 166,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2419199,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 167,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2505600,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 170,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2505599,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 171,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2592000,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 174,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     2,
-     0,
-     0,
-     2591999,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 175,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93012"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2678400,
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 178,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93001",
-     "0"
-    ],
-    "options": [
-     -10,
-     1,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 181,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93001",
-     "0"
-    ],
-    "options": [
-     -10,
-     1,
-     0,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 182,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93011",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 185,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93001",
-     "0"
-    ],
-    "options": [
-     -10,
-     1,
-     0,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 186,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93011",
-     "0"
-    ],
-    "options": [
-     1,
-     5,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 190,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
      "93014"
     ],
     "options": [
@@ -2493,82 +630,7 @@
      0,
      200
     ],
-    "wiredId": 191,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93001",
-     "0"
-    ],
-    "options": [
-     -10,
-     1,
-     0,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 192,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93011",
-     "0"
-    ],
-    "options": [
-     1,
-     5,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100
-    ],
-    "wiredId": 201,
-    "userSources": [
-     0
-    ],
-    "variableIds": [
-     "93014"
-    ],
-    "options": [
-     1
-    ],
-    "config": "",
-    "items": [],
-    "quantifier": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 202,
+    "wiredId": 96,
     "userSources": [
      0,
      200
@@ -2595,7 +657,7 @@
     "furniSources": [
      100
     ],
-    "wiredId": 210,
+    "wiredId": 104,
     "userSources": [
      0
     ],
@@ -2614,7 +676,7 @@
     "furniSources": [
      100
     ],
-    "wiredId": 214,
+    "wiredId": 108,
     "userSources": [
      0
     ],
@@ -2633,81 +695,19 @@
    {
     "secondItems": [],
     "furniSources": [
-     100,
-     200
-    ],
-    "wiredId": 11,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93011",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
      100
     ],
-    "wiredId": 14,
+    "wiredId": 17,
     "userSources": [
      0
     ],
     "variableIds": [
-     "93012"
+     "241546"
     ],
     "options": [
      1
     ],
     "config": "",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 15,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@red@ Tu VIP de 1 mes venciÃ³. Renueva con :vip (20c)",
-    "items": [],
-    "delay": 2
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 17,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ TIENDA LDC - Comandos",
     "items": [],
     "delay": 0
    },
@@ -2721,29 +721,12 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": ":vida - compra 1 vida extra (5c)",
+    "config": "@red@ Tu VIP de 1 mes venciÃ³. RenuÃ©valo con :vip (20c)",
     "items": [],
-    "delay": 4
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 19,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": ":vip - compra VIP por 1 mes (20c)",
-    "items": [],
-    "delay": 8
+    "delay": 2
    },
    {
     "secondItems": [],
@@ -2755,12 +738,12 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": ":tiempovip - consulta cuÃ¡nto VIP te queda",
+    "config": "@green@ TIENDA LDC - Comandos",
     "items": [],
-    "delay": 12
+    "delay": 0
    },
    {
     "secondItems": [],
@@ -2772,12 +755,12 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": ":vidas - consulta cuÃ¡ntas vidas extra tienes",
+    "config": ":vida - compra 1 vida extra (5c)",
     "items": [],
-    "delay": 16
+    "delay": 4
    },
    {
     "secondItems": [],
@@ -2789,7 +772,58 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
+     -1
+    ],
+    "config": ":vip - compra VIP por 1 mes (20c)",
+    "items": [],
+    "delay": 8
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 23,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     34,
+     -1
+    ],
+    "config": ":tiempovip - consulta cuÃ¡ntos dÃ­as de VIP te quedan",
+    "items": [],
+    "delay": 12
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 24,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     34,
+     -1
+    ],
+    "config": ":vidas - consulta cuÃ¡ntas vidas extra tienes",
+    "items": [],
+    "delay": 16
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 25,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     34,
      -1
     ],
     "config": ":regalar - regala 1 vida a otro jugador (solo antes de empezar): escribe :regalar y haz clic en el jugador",
@@ -2799,73 +833,17 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 26,
+    "wiredId": 29,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "@green@ Tienes $(n) vida(s) extra",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100,
-     200
-    ],
-    "wiredId": 29,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93011",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 31,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93013",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     1,
-     -10,
-     0
-    ],
-    "config": "",
+    "config": "Tienes $(v) vida(s) extra",
     "items": [],
     "delay": 0
    },
@@ -2879,21 +857,42 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "Pagando 5c por 1 vida extra...",
+    "config": "Tienes 0 vidas extra. Compra una con :vida (5c)",
     "items": [],
-    "delay": 1
+    "delay": 0
    },
    {
     "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 34,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     0
+    ],
+    "config": "",
+    "items": [
+     13
+    ],
+    "delay": 0
+   },
+   {
+    "secondItems": [
+     13
+    ],
     "furniSources": [
      100,
      101,
      200
     ],
-    "wiredId": 33,
+    "wiredId": 35,
     "userSources": [
      0,
      200
@@ -2913,9 +912,31 @@
     ],
     "config": "",
     "items": [
-     8
+     12
     ],
-    "delay": 2
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 37,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "93011"
+    ],
+    "options": [
+     1,
+     0,
+     0,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
    },
    {
     "secondItems": [],
@@ -2923,7 +944,7 @@
      0,
      200
     ],
-    "wiredId": 36,
+    "wiredId": 38,
     "userSources": [
      0,
      200
@@ -2938,36 +959,7 @@
      0,
      0,
      1,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 37,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93013",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     0,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
@@ -2976,14 +968,14 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 38,
+    "wiredId": 39,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ Compraste 1 vida extra. Escribe :vidas para ver cuÃ¡ntas tienes",
@@ -2992,74 +984,33 @@
    },
    {
     "secondItems": [],
-    "furniSources": [],
-    "wiredId": 40,
+    "furniSources": [
+     100
+    ],
+    "wiredId": 41,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@red@ No se completÃ³ el pago",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     0,
-     200
-    ],
-    "wiredId": 42,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93013",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     0,
-     0,
-     2,
-     -10,
      0
     ],
     "config": "",
-    "items": [],
+    "items": [
+     14
+    ],
     "delay": 0
    },
    {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 43,
-    "userSources": [
-     0
+    "secondItems": [
+     14
     ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "Pagando 20c por VIP de 1 mes...",
-    "items": [],
-    "delay": 1
-   },
-   {
-    "secondItems": [],
     "furniSources": [
      100,
      101,
      200
     ],
-    "wiredId": 44,
+    "wiredId": 42,
     "userSources": [
      0,
      200
@@ -3079,21 +1030,21 @@
     ],
     "config": "",
     "items": [
-     8
+     12
     ],
-    "delay": 2
+    "delay": 1
    },
    {
     "secondItems": [],
     "furniSources": [
      100
     ],
-    "wiredId": 47,
+    "wiredId": 44,
     "userSources": [
      0
     ],
     "variableIds": [
-     "93012"
+     "241546"
     ],
     "options": [
      1
@@ -3105,30 +1056,153 @@
    {
     "secondItems": [],
     "furniSources": [
-     100,
-     200
+     100
     ],
-    "wiredId": 48,
+    "wiredId": 45,
     "userSources": [
-     0,
-     200
+     0
     ],
     "variableIds": [
-     "93012",
-     "0"
+     "241546"
     ],
     "options": [
      1,
      0,
      1,
+     1
+    ],
+    "config": "",
+    "items": [],
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 46,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
      0,
-     0,
-     -10,
+     34,
+     -1
+    ],
+    "config": "@green@ Ya eres VIP por 31 dÃ­as. Escribe :tiempovip para ver cuÃ¡nto te queda",
+    "items": [],
+    "delay": 3
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 52,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241562"
+    ],
+    "options": [
      0
     ],
     "config": "",
     "items": [],
-    "delay": 2
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 53,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241565"
+    ],
+    "options": [
+     -20,
+     0,
+     0,
+     1
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 54,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241564"
+    ],
+    "options": [
+     -20,
+     0,
+     0,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 55,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241562"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     1
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     0
+    ],
+    "wiredId": 56,
+    "userSources": [
+     0,
+     0
+    ],
+    "variableIds": [
+     "241564",
+     "s241546-2147418298-7\t1"
+    ],
+    "options": [
+     -20,
+     0,
+     1,
+     0,
+     0,
+     1
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
    },
    {
     "secondItems": [],
@@ -3136,93 +1210,186 @@
      0,
      200
     ],
-    "wiredId": 49,
+    "wiredId": 57,
+    "userSources": [
+     0,
+     0
+    ],
+    "variableIds": [
+     "241565",
+     "s241562-2147418303-7\t1"
+    ],
+    "options": [
+     -20,
+     0,
+     1,
+     0,
+     0,
+     1
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 58,
     "userSources": [
      0,
      200
     ],
     "variableIds": [
-     "93013",
+     "241565",
      "0"
     ],
     "options": [
+     -20,
      1,
      0,
      0,
-     0,
-     0,
-     -10,
-     0
+     365,
+     -10
     ],
     "config": "",
     "items": [],
-    "delay": 2
+    "delay": 0
    },
    {
     "secondItems": [],
-    "furniSources": [],
-    "wiredId": 50,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
+    "furniSources": [
      0,
-     252,
-     -1
+     200
     ],
-    "config": "@green@ Ya eres VIP por 31 dÃ­as. Escribe :tiempovip para ver cuÃ¡nto te queda",
-    "items": [],
-    "delay": 4
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 53,
+    "wiredId": 59,
     "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
      0,
-     252,
-     -1
+     200
     ],
-    "config": "@red@ No tienes VIP. Compra 1 mes con :vip (20c)",
+    "variableIds": [
+     "241565",
+     "241564"
+    ],
+    "options": [
+     -20,
+     2,
+     1,
+     0,
+     0,
+     -20
+    ],
+    "config": "",
     "items": [],
     "delay": 0
    },
    {
     "secondItems": [],
-    "furniSources": [],
-    "wiredId": 56,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
+    "furniSources": [
      0,
-     252,
-     -1
+     200
     ],
-    "config": "@green@ VIP: te quedan 31 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
     "wiredId": 60,
     "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
      0,
-     252,
-     -1
+     200
     ],
-    "config": "@green@ VIP: te quedan 30 dÃ­as (aprox.)",
+    "variableIds": [
+     "241565",
+     "0"
+    ],
+    "options": [
+     -20,
+     6,
+     0,
+     0,
+     365,
+     -10
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 61,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "241565",
+     "0"
+    ],
+    "options": [
+     -20,
+     41,
+     0,
+     0,
+     31,
+     -10
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 62,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "241564",
+     "0"
+    ],
+    "options": [
+     -20,
+     0,
+     0,
+     0,
+     31,
+     -10
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 63,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "241564",
+     "241565"
+    ],
+    "options": [
+     -20,
+     2,
+     1,
+     0,
+     0,
+     -20
+    ],
+    "config": "",
     "items": [],
     "delay": 0
    },
@@ -3236,61 +1403,83 @@
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "@green@ VIP: te quedan 29 dÃ­as (aprox.)",
+    "config": "Te quedan $(d) dÃ­as de VIP",
     "items": [],
-    "delay": 0
+    "delay": 1
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 68,
+    "wiredId": 67,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "@green@ VIP: te quedan 28 dÃ­as (aprox.)",
+    "config": "@red@ No tienes VIP. Compra 1 mes con :vip (20c)",
     "items": [],
     "delay": 0
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 72,
+    "wiredId": 70,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "@green@ VIP: te quedan 27 dÃ­as (aprox.)",
+    "config": "@red@ Solo puedes regalar vidas antes de comenzar un juego",
     "items": [],
     "delay": 0
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 76,
+    "wiredId": 74,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
-    "config": "@green@ VIP: te quedan 26 dÃ­as (aprox.)",
+    "config": "@red@ No tienes vidas extra para regalar. Compra una con :vida",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 79,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "93014"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     0
+    ],
+    "config": "",
     "items": [],
     "delay": 0
    },
@@ -3304,494 +1493,7 @@
     "variableIds": [],
     "options": [
      0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 25 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 84,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 24 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 88,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 23 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 92,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 22 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 96,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 21 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 100,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 20 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 104,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 19 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 108,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 18 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 112,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 17 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 116,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 16 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 120,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 15 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 124,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 14 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 128,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 13 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 132,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 12 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 136,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 11 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 140,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 10 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 144,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 9 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 148,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 8 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 152,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 7 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 156,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 6 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 160,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 5 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 164,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 4 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 168,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 3 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 172,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan 2 dÃ­as (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 176,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@green@ VIP: te quedan menos de 1 dÃ­a (aprox.)",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 179,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@red@ Solo puedes regalar vidas antes de comenzar un juego",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 183,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
-     -1
-    ],
-    "config": "@red@ No tienes vidas extra para regalar. Compra una con :vida",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [
-     100,
-     200
-    ],
-    "wiredId": 187,
-    "userSources": [
-     0,
-     200
-    ],
-    "variableIds": [
-     "93014",
-     "0"
-    ],
-    "options": [
-     1,
-     0,
-     1,
-     0,
-     0,
-     -10,
-     0
-    ],
-    "config": "",
-    "items": [],
-    "delay": 0
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 188,
-    "userSources": [
-     0
-    ],
-    "variableIds": [],
-    "options": [
-     0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ Haz clic en el jugador al que quieres regalarle 1 vida",
@@ -3801,10 +1503,32 @@
    {
     "secondItems": [],
     "furniSources": [
+     100
+    ],
+    "wiredId": 88,
+    "userSources": [
+     11
+    ],
+    "variableIds": [
+     "93011"
+    ],
+    "options": [
+     1,
+     0,
+     0,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
      0,
      200
     ],
-    "wiredId": 195,
+    "wiredId": 89,
     "userSources": [
      0,
      200
@@ -3819,12 +1543,11 @@
      0,
      0,
      1,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
-    "delay": 0
+    "delay": 1
    },
    {
     "secondItems": [],
@@ -3832,7 +1555,7 @@
      0,
      200
     ],
-    "wiredId": 196,
+    "wiredId": 90,
     "userSources": [
      11,
      200
@@ -3847,19 +1570,18 @@
      0,
      0,
      1,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
-    "delay": 2
+    "delay": 1
    },
    {
     "secondItems": [],
     "furniSources": [
      100
     ],
-    "wiredId": 197,
+    "wiredId": 91,
     "userSources": [
      0
     ],
@@ -3876,43 +1598,43 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 198,
+    "wiredId": 92,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ Le regalaste 1 vida extra a $(b)",
     "items": [],
-    "delay": 4
+    "delay": 3
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 199,
+    "wiredId": 93,
     "userSources": [
      11
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ $(a) te regalÃ³ 1 vida extra. Escribe :vidas para verlas",
     "items": [],
-    "delay": 4
+    "delay": 3
    },
    {
     "secondItems": [],
     "furniSources": [
      100
     ],
-    "wiredId": 203,
+    "wiredId": 97,
     "userSources": [
      0
     ],
@@ -3929,14 +1651,14 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 204,
+    "wiredId": 98,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@red@ Ya empezÃ³ el juego: no se pueden regalar vidas",
@@ -3949,7 +1671,7 @@
      0,
      200
     ],
-    "wiredId": 206,
+    "wiredId": 100,
     "userSources": [
      0,
      200
@@ -3964,8 +1686,7 @@
      0,
      0,
      1,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
@@ -3977,7 +1698,7 @@
      0,
      200
     ],
-    "wiredId": 208,
+    "wiredId": 102,
     "userSources": [
      0,
      200
@@ -3992,8 +1713,7 @@
      0,
      0,
      0,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
@@ -4005,7 +1725,7 @@
      0,
      200
     ],
-    "wiredId": 211,
+    "wiredId": 105,
     "userSources": [
      0,
      200
@@ -4020,8 +1740,7 @@
      0,
      0,
      1,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
@@ -4030,14 +1749,14 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 212,
+    "wiredId": 106,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ Partida LDC iniciada: ya no se pueden regalar vidas",
@@ -4050,7 +1769,7 @@
      0,
      200
     ],
-    "wiredId": 215,
+    "wiredId": 109,
     "userSources": [
      0,
      200
@@ -4065,8 +1784,7 @@
      0,
      0,
      0,
-     -10,
-     0
+     -10
     ],
     "config": "",
     "items": [],
@@ -4075,14 +1793,14 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 216,
+    "wiredId": 110,
     "userSources": [
      0
     ],
     "variableIds": [],
     "options": [
      0,
-     252,
+     34,
      -1
     ],
     "config": "@green@ Partida LDC terminada: ya se pueden regalar vidas",
@@ -4093,10 +1811,36 @@
   "addons": [
    {
     "secondItems": [],
+    "furniSources": [],
+    "wiredId": 2,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1152,
+     1
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 4,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1152,
+     1
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
     "furniSources": [
      100
     ],
-    "wiredId": 25,
+    "wiredId": 28,
     "userSources": [
      0
     ],
@@ -4108,13 +1852,56 @@
      1,
      0
     ],
-    "config": "n",
+    "config": "v",
     "items": []
    },
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 193,
+    "wiredId": 49,
+    "userSources": [],
+    "variableIds": [],
+    "options": [],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 50,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     100,
+     1
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 51,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "241564"
+    ],
+    "options": [
+     0,
+     -20,
+     0
+    ],
+    "config": "d",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 86,
     "userSources": [
      0
     ],
@@ -4128,7 +1915,7 @@
    {
     "secondItems": [],
     "furniSources": [],
-    "wiredId": 194,
+    "wiredId": 87,
     "userSources": [
      11
     ],
@@ -4148,25 +1935,12 @@
     "userSources": [],
     "variableIds": [],
     "options": [
-     10
-    ],
-    "config": "ldc_partida",
-    "items": [],
-    "variableId": "93001"
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 2,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
+     10,
      1
     ],
-    "config": "ldc_vidas",
+    "config": "ldc_vip",
     "items": [],
-    "variableId": "93011"
+    "variableId": "241546"
    },
    {
     "secondItems": [],
@@ -4178,28 +1952,28 @@
      0,
      1
     ],
-    "config": "ldc_vip",
+    "config": "ldc_ahora",
     "items": [],
-    "variableId": "93012"
-   },
-   {
-    "secondItems": [],
-    "furniSources": [],
-    "wiredId": 4,
-    "userSources": [],
-    "variableIds": [],
-    "options": [
-     0,
-     1
-    ],
-    "config": "ldc_compra",
-    "items": [],
-    "variableId": "93013"
+    "variableId": "241562"
    },
    {
     "secondItems": [],
     "furniSources": [],
     "wiredId": 5,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     10,
+     1
+    ],
+    "config": "ldc_vidas",
+    "items": [],
+    "variableId": "93011"
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 6,
     "userSources": [],
     "variableIds": [],
     "options": [
@@ -4209,22 +1983,63 @@
     "config": "ldc_regalando",
     "items": [],
     "variableId": "93014"
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 7,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     10
+    ],
+    "config": "ldc_partida",
+    "items": [],
+    "variableId": "93001"
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 8,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1
+    ],
+    "config": "ldc_ahora_x",
+    "items": [],
+    "variableId": ""
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 9,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1
+    ],
+    "config": "ldc_plan_x",
+    "items": [],
+    "variableId": ""
    }
   ],
   "variables_map": {
-   "ldc_partida": "93001",
+   "ldc_vip": "241546",
+   "ldc_ahora": "241562",
    "ldc_vidas": "93011",
-   "ldc_vip": "93012",
-   "ldc_compra": "93013",
-   "ldc_regalando": "93014"
+   "ldc_regalando": "93014",
+   "ldc_partida": "93001",
+   "ldc_ahora_x": "241565",
+   "ldc_plan_x": "241564"
   }
  },
  "bindings": [],
  "furni": [
   {
    "rotation": 0,
-   "name": "wf_var_room[0]",
-   "className": "wf_var_room",
+   "name": "wf_var_user[0]",
+   "className": "wf_var_user",
    "location": {
     "x": 0,
     "y": 0,
@@ -4234,8 +2049,8 @@
   },
   {
    "rotation": 0,
-   "name": "wf_var_user[0]",
-   "className": "wf_var_user",
+   "name": "wf_xtra_var_time_util[0]",
+   "className": "wf_xtra_var_time_util",
    "location": {
     "x": 0,
     "y": 0,
@@ -4248,66 +2063,135 @@
    "name": "wf_var_user[1]",
    "className": "wf_var_user",
    "location": {
-    "x": 0,
+    "x": 1,
     "y": 0,
-    "z": 2.4
+    "z": 0
    },
    "id": 3
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_var_time_util[1]",
+   "className": "wf_xtra_var_time_util",
+   "location": {
+    "x": 1,
+    "y": 0,
+    "z": 1.2
+   },
+   "id": 4
   },
   {
    "rotation": 0,
    "name": "wf_var_user[2]",
    "className": "wf_var_user",
    "location": {
-    "x": 0,
+    "x": 2,
     "y": 0,
-    "z": 3.6
+    "z": 0
    },
-   "id": 4
+   "id": 5
   },
   {
    "rotation": 0,
    "name": "wf_var_user[3]",
    "className": "wf_var_user",
    "location": {
-    "x": 0,
+    "x": 2,
     "y": 0,
-    "z": 4.8
-   },
-   "id": 5
-  },
-  {
-   "rotation": 0,
-   "name": "wf_antenna2[0]",
-   "className": "wf_antenna2",
-   "location": {
-    "x": 1,
-    "y": 0,
-    "z": 0
+    "z": 1.2
    },
    "id": 6
   },
   {
    "rotation": 0,
-   "name": "wf_antenna2[1]",
-   "className": "wf_antenna2",
+   "name": "wf_var_room[0]",
+   "className": "wf_var_room",
    "location": {
     "x": 2,
     "y": 0,
-    "z": 0
+    "z": 2.4
    },
    "id": 7
   },
   {
    "rotation": 0,
-   "name": "wf_contract_payment[0]",
-   "className": "wf_contract_payment",
+   "name": "wf_var_context[0]",
+   "className": "wf_var_context",
    "location": {
     "x": 3,
     "y": 0,
     "z": 0
    },
    "id": 8
+  },
+  {
+   "rotation": 0,
+   "name": "wf_var_context[1]",
+   "className": "wf_var_context",
+   "location": {
+    "x": 3,
+    "y": 0,
+    "z": 1.2
+   },
+   "id": 9
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[0]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 4,
+    "y": 0,
+    "z": 0
+   },
+   "id": 10,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[1]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 5,
+    "y": 0,
+    "z": 0
+   },
+   "id": 11,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_storage_coins2[0]",
+   "className": "wf_storage_coins2",
+   "location": {
+    "x": 6,
+    "y": 0,
+    "z": 0
+   },
+   "id": 12,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_contract_payment[0]",
+   "className": "wf_contract_payment",
+   "location": {
+    "x": 7,
+    "y": 0,
+    "z": 0
+   },
+   "id": 13
+  },
+  {
+   "rotation": 0,
+   "name": "wf_contract_payment[1]",
+   "className": "wf_contract_payment",
+   "location": {
+    "x": 8,
+    "y": 0,
+    "z": 0
+   },
+   "id": 14
   },
   {
    "rotation": 0,
@@ -4318,234 +2202,168 @@
     "y": 2,
     "z": 0.0
    },
-   "id": 9
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_neg_has_var[0]",
-   "className": "wf_cnd_neg_has_var",
-   "location": {
-    "x": 0,
-    "y": 2,
-    "z": 0.65
-   },
-   "id": 10
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_give_var[0]",
-   "className": "wf_act_give_var",
-   "location": {
-    "x": 0,
-    "y": 2,
-    "z": 1.3
-   },
-   "id": 11
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_enter_room[1]",
-   "className": "wf_trg_enter_room",
-   "location": {
-    "x": 1,
-    "y": 2,
-    "z": 0.0
-   },
-   "id": 12
+   "id": 15
   },
   {
    "rotation": 0,
    "name": "wf_cnd_var_age_match[0]",
    "className": "wf_cnd_var_age_match",
    "location": {
-    "x": 1,
+    "x": 0,
     "y": 2,
     "z": 0.65
    },
-   "id": 13
+   "id": 16
   },
   {
    "rotation": 0,
    "name": "wf_act_remove_var[0]",
    "className": "wf_act_remove_var",
    "location": {
-    "x": 1,
+    "x": 0,
     "y": 2,
     "z": 1.3
    },
-   "id": 14
+   "id": 17
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[0]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 1,
+    "x": 0,
     "y": 2,
     "z": 1.95
    },
-   "id": 15
+   "id": 18
   },
   {
    "rotation": 0,
    "name": "wf_trg_says_something[0]",
    "className": "wf_trg_says_something",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 0.0
    },
-   "id": 16
+   "id": 19
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[1]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 0.65
    },
-   "id": 17
+   "id": 20
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[2]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 1.3
    },
-   "id": 18
+   "id": 21
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[3]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 1.95
    },
-   "id": 19
+   "id": 22
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[4]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 2.6
    },
-   "id": 20
+   "id": 23
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[5]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 3.25
    },
-   "id": 21
+   "id": 24
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[6]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 2,
     "z": 3.9
    },
-   "id": 22
+   "id": 25
   },
   {
    "rotation": 0,
    "name": "wf_trg_says_something[1]",
    "className": "wf_trg_says_something",
    "location": {
-    "x": 3,
+    "x": 2,
     "y": 2,
     "z": 0.0
    },
-   "id": 23
+   "id": 26
   },
   {
    "rotation": 0,
    "name": "wf_cnd_has_var[0]",
    "className": "wf_cnd_has_var",
    "location": {
-    "x": 3,
+    "x": 2,
     "y": 2,
     "z": 0.65
    },
-   "id": 24
+   "id": 27
   },
   {
    "rotation": 0,
    "name": "wf_xtra_text_output_variable[0]",
    "className": "wf_xtra_text_output_variable",
    "location": {
-    "x": 3,
+    "x": 2,
     "y": 2,
     "z": 1.3
    },
-   "id": 25
+   "id": 28
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[7]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 3,
+    "x": 2,
     "y": 2,
     "z": 1.95
    },
-   "id": 26
+   "id": 29
   },
   {
    "rotation": 0,
    "name": "wf_trg_says_something[2]",
    "className": "wf_trg_says_something",
    "location": {
-    "x": 4,
-    "y": 2,
-    "z": 0.0
-   },
-   "id": 27
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_neg_has_var[1]",
-   "className": "wf_cnd_neg_has_var",
-   "location": {
-    "x": 4,
-    "y": 2,
-    "z": 0.65
-   },
-   "id": 28
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_give_var[1]",
-   "className": "wf_act_give_var",
-   "location": {
-    "x": 4,
-    "y": 2,
-    "z": 1.3
-   },
-   "id": 29
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[3]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 5,
+    "x": 3,
     "y": 2,
     "z": 0.0
    },
@@ -4553,10 +2371,10 @@
   },
   {
    "rotation": 0,
-   "name": "wf_act_change_var_val[0]",
-   "className": "wf_act_change_var_val",
+   "name": "wf_cnd_neg_has_var[0]",
+   "className": "wf_cnd_neg_has_var",
    "location": {
-    "x": 5,
+    "x": 3,
     "y": 2,
     "z": 0.65
    },
@@ -4567,7 +2385,7 @@
    "name": "wf_act_show_message[8]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 5,
+    "x": 3,
     "y": 2,
     "z": 1.3
    },
@@ -4575,80 +2393,146 @@
   },
   {
    "rotation": 0,
+   "name": "wf_trg_says_something[3]",
+   "className": "wf_trg_says_something",
+   "location": {
+    "x": 4,
+    "y": 2,
+    "z": 0.0
+   },
+   "id": 33
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_cancel_transaction[0]",
+   "className": "wf_act_cancel_transaction",
+   "location": {
+    "x": 4,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 34
+  },
+  {
+   "rotation": 0,
    "name": "wf_act_init_transaction[0]",
    "className": "wf_act_init_transaction",
    "location": {
-    "x": 5,
+    "x": 4,
     "y": 2,
-    "z": 1.95
+    "z": 1.3
    },
-   "id": 33
+   "id": 35
   },
   {
    "rotation": 0,
    "name": "wf_trg_transaction_complete[0]",
    "className": "wf_trg_transaction_complete",
    "location": {
-    "x": 6,
+    "x": 5,
     "y": 2,
     "z": 0.0
-   },
-   "id": 34
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[0]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 6,
-    "y": 2,
-    "z": 0.65
-   },
-   "id": 35
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[1]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 6,
-    "y": 2,
-    "z": 1.3
    },
    "id": 36
   },
   {
    "rotation": 0,
-   "name": "wf_act_change_var_val[2]",
-   "className": "wf_act_change_var_val",
+   "name": "wf_act_give_var[0]",
+   "className": "wf_act_give_var",
    "location": {
-    "x": 6,
+    "x": 5,
     "y": 2,
-    "z": 1.95
+    "z": 0.65
    },
    "id": 37
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[0]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 5,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 38
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[9]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 6,
+    "x": 5,
     "y": 2,
-    "z": 2.6
+    "z": 1.95
    },
-   "id": 38
+   "id": 39
   },
   {
    "rotation": 0,
-   "name": "wf_trg_transaction_fail[0]",
-   "className": "wf_trg_transaction_fail",
+   "name": "wf_trg_says_something[4]",
+   "className": "wf_trg_says_something",
+   "location": {
+    "x": 6,
+    "y": 2,
+    "z": 0.0
+   },
+   "id": 40
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_cancel_transaction[1]",
+   "className": "wf_act_cancel_transaction",
+   "location": {
+    "x": 6,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 41
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_init_transaction[1]",
+   "className": "wf_act_init_transaction",
+   "location": {
+    "x": 6,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 42
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_transaction_complete[1]",
+   "className": "wf_trg_transaction_complete",
    "location": {
     "x": 7,
     "y": 2,
     "z": 0.0
    },
-   "id": 39
+   "id": 43
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_remove_var[1]",
+   "className": "wf_act_remove_var",
+   "location": {
+    "x": 7,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 44
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[1]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 7,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 45
   },
   {
    "rotation": 0,
@@ -4657,20 +2541,130 @@
    "location": {
     "x": 7,
     "y": 2,
-    "z": 0.65
+    "z": 1.95
    },
-   "id": 40
+   "id": 46
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[4]",
+   "name": "wf_trg_says_something[5]",
    "className": "wf_trg_says_something",
    "location": {
     "x": 8,
     "y": 2,
     "z": 0.0
    },
-   "id": 41
+   "id": 47
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_has_var[1]",
+   "className": "wf_cnd_has_var",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 48
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_exec_in_order[0]",
+   "className": "wf_xtra_exec_in_order",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 49
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_execution_limit[0]",
+   "className": "wf_xtra_execution_limit",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 1.95
+   },
+   "id": 50
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_text_output_variable[1]",
+   "className": "wf_xtra_text_output_variable",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 2.6
+   },
+   "id": 51
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_remove_var[2]",
+   "className": "wf_act_remove_var",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 3.25
+   },
+   "id": 52
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[2]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 3.9
+   },
+   "id": 53
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[3]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 4.55
+   },
+   "id": 54
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[4]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 5.2
+   },
+   "id": 55
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[1]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 5.85
+   },
+   "id": 56
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[2]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 6.5
+   },
+   "id": 57
   },
   {
    "rotation": 0,
@@ -4679,9 +2673,64 @@
    "location": {
     "x": 8,
     "y": 2,
-    "z": 0.65
+    "z": 7.15
    },
-   "id": 42
+   "id": 58
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[4]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 7.8
+   },
+   "id": 59
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[5]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 8.45
+   },
+   "id": 60
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[6]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 9.1
+   },
+   "id": 61
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[7]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 9.75
+   },
+   "id": 62
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[8]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 8,
+    "y": 2,
+    "z": 10.4
+   },
+   "id": 63
   },
   {
    "rotation": 0,
@@ -4690,75 +2739,31 @@
    "location": {
     "x": 8,
     "y": 2,
-    "z": 1.3
+    "z": 11.05
    },
-   "id": 43
+   "id": 64
   },
   {
    "rotation": 0,
-   "name": "wf_act_init_transaction[1]",
-   "className": "wf_act_init_transaction",
-   "location": {
-    "x": 8,
-    "y": 2,
-    "z": 1.95
-   },
-   "id": 44
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_transaction_complete[1]",
-   "className": "wf_trg_transaction_complete",
+   "name": "wf_trg_says_something[6]",
+   "className": "wf_trg_says_something",
    "location": {
     "x": 9,
     "y": 2,
     "z": 0.0
    },
-   "id": 45
+   "id": 65
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_val_match[1]",
-   "className": "wf_cnd_var_val_match",
+   "name": "wf_cnd_neg_has_var[1]",
+   "className": "wf_cnd_neg_has_var",
    "location": {
     "x": 9,
     "y": 2,
     "z": 0.65
    },
-   "id": 46
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_remove_var[1]",
-   "className": "wf_act_remove_var",
-   "location": {
-    "x": 9,
-    "y": 2,
-    "z": 1.3
-   },
-   "id": 47
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_give_var[2]",
-   "className": "wf_act_give_var",
-   "location": {
-    "x": 9,
-    "y": 2,
-    "z": 1.95
-   },
-   "id": 48
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[4]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 9,
-    "y": 2,
-    "z": 2.6
-   },
-   "id": 49
+   "id": 66
   },
   {
    "rotation": 0,
@@ -4767,31 +2772,31 @@
    "location": {
     "x": 9,
     "y": 2,
-    "z": 3.25
+    "z": 1.3
    },
-   "id": 50
+   "id": 67
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[5]",
+   "name": "wf_trg_says_something[7]",
    "className": "wf_trg_says_something",
    "location": {
     "x": 10,
     "y": 2,
     "z": 0.0
    },
-   "id": 51
+   "id": 68
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_neg_has_var[2]",
-   "className": "wf_cnd_neg_has_var",
+   "name": "wf_cnd_var_val_match[0]",
+   "className": "wf_cnd_var_val_match",
    "location": {
     "x": 10,
     "y": 2,
     "z": 0.65
    },
-   "id": 52
+   "id": 69
   },
   {
    "rotation": 0,
@@ -4802,29 +2807,40 @@
     "y": 2,
     "z": 1.3
    },
-   "id": 53
+   "id": 70
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[6]",
+   "name": "wf_trg_says_something[8]",
    "className": "wf_trg_says_something",
    "location": {
     "x": 11,
     "y": 2,
     "z": 0.0
    },
-   "id": 54
+   "id": 71
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[1]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_cnd_var_val_match[1]",
+   "className": "wf_cnd_var_val_match",
    "location": {
     "x": 11,
     "y": 2,
     "z": 0.65
    },
-   "id": 55
+   "id": 72
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_neg_has_var[2]",
+   "className": "wf_cnd_neg_has_var",
+   "location": {
+    "x": 11,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 73
   },
   {
    "rotation": 0,
@@ -4833,42 +2849,64 @@
    "location": {
     "x": 11,
     "y": 2,
-    "z": 1.3
+    "z": 1.95
    },
-   "id": 56
+   "id": 74
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[7]",
+   "name": "wf_trg_says_something[9]",
    "className": "wf_trg_says_something",
    "location": {
     "x": 12,
     "y": 2,
     "z": 0.0
    },
-   "id": 57
+   "id": 75
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[2]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_cnd_var_val_match[2]",
+   "className": "wf_cnd_var_val_match",
    "location": {
     "x": 12,
     "y": 2,
     "z": 0.65
    },
-   "id": 58
+   "id": 76
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[3]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_cnd_has_var[2]",
+   "className": "wf_cnd_has_var",
    "location": {
     "x": 12,
     "y": 2,
     "z": 1.3
    },
-   "id": 59
+   "id": 77
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[3]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 12,
+    "y": 2,
+    "z": 1.95
+   },
+   "id": 78
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[5]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 12,
+    "y": 2,
+    "z": 2.6
+   },
+   "id": 79
   },
   {
    "rotation": 0,
@@ -4877,42 +2915,130 @@
    "location": {
     "x": 12,
     "y": 2,
-    "z": 1.95
+    "z": 3.25
    },
-   "id": 60
+   "id": 80
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[8]",
-   "className": "wf_trg_says_something",
+   "name": "wf_trg_click_user[0]",
+   "className": "wf_trg_click_user",
    "location": {
     "x": 0,
     "y": 3,
     "z": 0.0
    },
-   "id": 61
+   "id": 81
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[4]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_cnd_has_var[3]",
+   "className": "wf_cnd_has_var",
    "location": {
     "x": 0,
     "y": 3,
     "z": 0.65
    },
-   "id": 62
+   "id": 82
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[5]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_cnd_not_triggerer_match[0]",
+   "className": "wf_cnd_not_triggerer_match",
    "location": {
     "x": 0,
     "y": 3,
     "z": 1.3
    },
-   "id": 63
+   "id": 83
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[4]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 1.95
+   },
+   "id": 84
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[5]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 2.6
+   },
+   "id": 85
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_text_output_username[0]",
+   "className": "wf_xtra_text_output_username",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 3.25
+   },
+   "id": 86
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_text_output_username[1]",
+   "className": "wf_xtra_text_output_username",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 3.9
+   },
+   "id": 87
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_var[6]",
+   "className": "wf_act_give_var",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 4.55
+   },
+   "id": 88
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[9]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 5.2
+   },
+   "id": 89
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[10]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 5.85
+   },
+   "id": 90
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_remove_var[3]",
+   "className": "wf_act_remove_var",
+   "location": {
+    "x": 0,
+    "y": 3,
+    "z": 6.5
+   },
+   "id": 91
   },
   {
    "rotation": 0,
@@ -4921,412 +3047,104 @@
    "location": {
     "x": 0,
     "y": 3,
-    "z": 1.95
+    "z": 7.15
    },
-   "id": 64
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[9]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 1,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 65
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[6]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 66
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[7]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 67
+   "id": 92
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[17]",
    "className": "wf_act_show_message",
    "location": {
+    "x": 0,
+    "y": 3,
+    "z": 7.8
+   },
+   "id": 93
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_click_user[1]",
+   "className": "wf_trg_click_user",
+   "location": {
+    "x": 1,
+    "y": 3,
+    "z": 0.0
+   },
+   "id": 94
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_has_var[4]",
+   "className": "wf_cnd_has_var",
+   "location": {
+    "x": 1,
+    "y": 3,
+    "z": 0.65
+   },
+   "id": 95
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[6]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 1,
+    "y": 3,
+    "z": 1.3
+   },
+   "id": 96
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_remove_var[4]",
+   "className": "wf_act_remove_var",
+   "location": {
     "x": 1,
     "y": 3,
     "z": 1.95
    },
-   "id": 68
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[10]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 2,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 69
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[8]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 70
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[9]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 71
+   "id": 97
   },
   {
    "rotation": 0,
    "name": "wf_act_show_message[18]",
    "className": "wf_act_show_message",
    "location": {
-    "x": 2,
+    "x": 1,
     "y": 3,
-    "z": 1.95
-   },
-   "id": 72
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[11]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 3,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 73
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[10]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 3,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 74
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[11]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 3,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 75
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[19]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 3,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 76
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[12]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 4,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 77
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[12]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 4,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 78
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[13]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 4,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 79
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[20]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 4,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 80
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[13]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 5,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 81
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[14]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 5,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 82
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[15]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 5,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 83
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[21]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 5,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 84
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[14]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 6,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 85
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[16]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 6,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 86
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[17]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 6,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 87
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[22]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 6,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 88
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[15]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 7,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 89
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[18]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 7,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 90
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[19]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 7,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 91
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[23]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 7,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 92
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[16]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 8,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 93
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[20]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 8,
-    "y": 3,
-    "z": 0.65
-   },
-   "id": 94
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[21]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 8,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 95
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[24]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 8,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 96
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[17]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 9,
-    "y": 3,
-    "z": 0.0
-   },
-   "id": 97
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[22]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 9,
-    "y": 3,
-    "z": 0.65
+    "z": 2.6
    },
    "id": 98
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[23]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_trg_recv_signal[0]",
+   "className": "wf_trg_recv_signal",
    "location": {
-    "x": 9,
+    "x": 2,
     "y": 3,
-    "z": 1.3
+    "z": 0.0
    },
    "id": 99
   },
   {
    "rotation": 0,
-   "name": "wf_act_show_message[25]",
-   "className": "wf_act_show_message",
+   "name": "wf_act_change_var_val[11]",
+   "className": "wf_act_change_var_val",
    "location": {
-    "x": 9,
+    "x": 2,
     "y": 3,
-    "z": 1.95
+    "z": 0.65
    },
    "id": 100
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[18]",
-   "className": "wf_trg_says_something",
+   "name": "wf_trg_recv_signal[1]",
+   "className": "wf_trg_recv_signal",
    "location": {
-    "x": 10,
+    "x": 3,
     "y": 3,
     "z": 0.0
    },
@@ -5334,10 +3152,10 @@
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[24]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_act_change_var_val[12]",
+   "className": "wf_act_change_var_val",
    "location": {
-    "x": 10,
+    "x": 3,
     "y": 3,
     "z": 0.65
    },
@@ -5345,1257 +3163,91 @@
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[25]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_trg_says_something[10]",
+   "className": "wf_trg_says_something",
    "location": {
-    "x": 10,
+    "x": 4,
     "y": 3,
-    "z": 1.3
+    "z": 0.0
    },
    "id": 103
   },
   {
    "rotation": 0,
-   "name": "wf_act_show_message[26]",
-   "className": "wf_act_show_message",
+   "name": "wf_cnd_has_var[5]",
+   "className": "wf_cnd_has_var",
    "location": {
-    "x": 10,
+    "x": 4,
     "y": 3,
-    "z": 1.95
+    "z": 0.65
    },
    "id": 104
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[19]",
-   "className": "wf_trg_says_something",
+   "name": "wf_act_change_var_val[13]",
+   "className": "wf_act_change_var_val",
    "location": {
-    "x": 11,
+    "x": 4,
     "y": 3,
-    "z": 0.0
+    "z": 1.3
    },
    "id": 105
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[26]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_act_show_message[19]",
+   "className": "wf_act_show_message",
    "location": {
-    "x": 11,
+    "x": 4,
     "y": 3,
-    "z": 0.65
+    "z": 1.95
    },
    "id": 106
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[27]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_trg_says_something[11]",
+   "className": "wf_trg_says_something",
    "location": {
-    "x": 11,
+    "x": 5,
     "y": 3,
-    "z": 1.3
+    "z": 0.0
    },
    "id": 107
   },
   {
    "rotation": 0,
-   "name": "wf_act_show_message[27]",
-   "className": "wf_act_show_message",
+   "name": "wf_cnd_has_var[6]",
+   "className": "wf_cnd_has_var",
    "location": {
-    "x": 11,
+    "x": 5,
     "y": 3,
-    "z": 1.95
+    "z": 0.65
    },
    "id": 108
   },
   {
    "rotation": 0,
-   "name": "wf_trg_says_something[20]",
-   "className": "wf_trg_says_something",
+   "name": "wf_act_change_var_val[14]",
+   "className": "wf_act_change_var_val",
    "location": {
-    "x": 12,
+    "x": 5,
     "y": 3,
-    "z": 0.0
+    "z": 1.3
    },
    "id": 109
   },
   {
    "rotation": 0,
-   "name": "wf_cnd_var_age_match[28]",
-   "className": "wf_cnd_var_age_match",
+   "name": "wf_act_show_message[20]",
+   "className": "wf_act_show_message",
    "location": {
-    "x": 12,
+    "x": 5,
     "y": 3,
-    "z": 0.65
+    "z": 1.95
    },
    "id": 110
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[29]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 12,
-    "y": 3,
-    "z": 1.3
-   },
-   "id": 111
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[28]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 12,
-    "y": 3,
-    "z": 1.95
-   },
-   "id": 112
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[21]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 0,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 113
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[30]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 0,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 114
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[31]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 0,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 115
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[29]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 0,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 116
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[22]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 1,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 117
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[32]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 118
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[33]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 119
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[30]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 1,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 120
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[23]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 2,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 121
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[34]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 122
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[35]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 123
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[31]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 2,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 124
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[24]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 3,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 125
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[36]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 3,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 126
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[37]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 3,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 127
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[32]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 3,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 128
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[25]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 4,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 129
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[38]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 4,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 130
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[39]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 4,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 131
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[33]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 4,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 132
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[26]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 5,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 133
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[40]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 5,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 134
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[41]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 5,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 135
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[34]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 5,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 136
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[27]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 6,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 137
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[42]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 6,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 138
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[43]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 6,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 139
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[35]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 6,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 140
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[28]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 7,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 141
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[44]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 7,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 142
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[45]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 7,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 143
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[36]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 7,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 144
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[29]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 8,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 145
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[46]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 8,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 146
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[47]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 8,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 147
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[37]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 8,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 148
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[30]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 9,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 149
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[48]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 9,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 150
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[49]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 9,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 151
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[38]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 9,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 152
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[31]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 10,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 153
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[50]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 10,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 154
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[51]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 10,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 155
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[39]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 10,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 156
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[32]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 11,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 157
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[52]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 11,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 158
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[53]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 11,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 159
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[40]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 11,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 160
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[33]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 12,
-    "y": 4,
-    "z": 0.0
-   },
-   "id": 161
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[54]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 12,
-    "y": 4,
-    "z": 0.65
-   },
-   "id": 162
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[55]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 12,
-    "y": 4,
-    "z": 1.3
-   },
-   "id": 163
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[41]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 12,
-    "y": 4,
-    "z": 1.95
-   },
-   "id": 164
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[34]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 0,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 165
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[56]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 0,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 166
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[57]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 0,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 167
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[42]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 0,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 168
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[35]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 1,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 169
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[58]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 170
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[59]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 1,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 171
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[43]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 1,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 172
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[36]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 2,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 173
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[60]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 174
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_age_match[61]",
-   "className": "wf_cnd_var_age_match",
-   "location": {
-    "x": 2,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 175
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[44]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 2,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 176
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[37]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 3,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 177
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[2]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 3,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 178
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[45]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 3,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 179
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[38]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 4,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 180
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[3]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 4,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 181
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[4]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 4,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 182
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[46]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 4,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 183
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[39]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 5,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 184
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[5]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 5,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 185
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[6]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 5,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 186
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_give_var[3]",
-   "className": "wf_act_give_var",
-   "location": {
-    "x": 5,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 187
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[47]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 5,
-    "y": 5,
-    "z": 2.6
-   },
-   "id": 188
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_click_user[0]",
-   "className": "wf_trg_click_user",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 189
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_has_var[1]",
-   "className": "wf_cnd_has_var",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 190
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[7]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 191
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[8]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 192
-  },
-  {
-   "rotation": 0,
-   "name": "wf_xtra_text_output_username[0]",
-   "className": "wf_xtra_text_output_username",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 2.6
-   },
-   "id": 193
-  },
-  {
-   "rotation": 0,
-   "name": "wf_xtra_text_output_username[1]",
-   "className": "wf_xtra_text_output_username",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 3.25
-   },
-   "id": 194
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[5]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 3.9
-   },
-   "id": 195
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[6]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 4.55
-   },
-   "id": 196
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_remove_var[2]",
-   "className": "wf_act_remove_var",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 5.2
-   },
-   "id": 197
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[48]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 5.85
-   },
-   "id": 198
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[49]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 6,
-    "y": 5,
-    "z": 6.5
-   },
-   "id": 199
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_click_user[1]",
-   "className": "wf_trg_click_user",
-   "location": {
-    "x": 7,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 200
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_has_var[2]",
-   "className": "wf_cnd_has_var",
-   "location": {
-    "x": 7,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 201
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_var_val_match[9]",
-   "className": "wf_cnd_var_val_match",
-   "location": {
-    "x": 7,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 202
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_remove_var[3]",
-   "className": "wf_act_remove_var",
-   "location": {
-    "x": 7,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 203
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[50]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 7,
-    "y": 5,
-    "z": 2.6
-   },
-   "id": 204
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_recv_signal[0]",
-   "className": "wf_trg_recv_signal",
-   "location": {
-    "x": 8,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 205
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[7]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 8,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 206
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_recv_signal[1]",
-   "className": "wf_trg_recv_signal",
-   "location": {
-    "x": 9,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 207
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[8]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 9,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 208
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[40]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 10,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 209
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_has_var[3]",
-   "className": "wf_cnd_has_var",
-   "location": {
-    "x": 10,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 210
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[9]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 10,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 211
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[51]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 10,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 212
-  },
-  {
-   "rotation": 0,
-   "name": "wf_trg_says_something[41]",
-   "className": "wf_trg_says_something",
-   "location": {
-    "x": 11,
-    "y": 5,
-    "z": 0.0
-   },
-   "id": 213
-  },
-  {
-   "rotation": 0,
-   "name": "wf_cnd_has_var[4]",
-   "className": "wf_cnd_has_var",
-   "location": {
-    "x": 11,
-    "y": 5,
-    "z": 0.65
-   },
-   "id": 214
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_change_var_val[10]",
-   "className": "wf_act_change_var_val",
-   "location": {
-    "x": 11,
-    "y": 5,
-    "z": 1.3
-   },
-   "id": 215
-  },
-  {
-   "rotation": 0,
-   "name": "wf_act_show_message[52]",
-   "className": "wf_act_show_message",
-   "location": {
-    "x": 11,
-    "y": 5,
-    "z": 1.95
-   },
-   "id": 216
   }
  ],
  "wallFurni": [],
