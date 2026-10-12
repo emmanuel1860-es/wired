@@ -1,0 +1,747 @@
+--- a/extension/tools/GPresetImporter.java	2026-10-12 02:00:41.846393775 +0000
++++ b/extension/tools/GPresetImporter.java	2026-10-12 12:27:14.308474359 +0000
+@@ -59,6 +59,7 @@
+ import java.util.TreeMap;
+ import java.util.concurrent.Semaphore;
+ import java.util.concurrent.TimeUnit;
++import java.util.function.Predicate;
+ import java.util.regex.Matcher;
+ import java.util.regex.Pattern;
+ import java.util.stream.Collectors;
+@@ -133,6 +134,12 @@
+     private int wiredToSave = 0;
+     private int furniPlanned = 0;
+     private boolean reportWritten = false;
++    // IMP-02: sala en la que empezo el pegado (0 = ninguno)
++    private volatile int importRoomId = 0;
++    // IMP-09: ultimo ObjectAdd (de cualquier tipo) recibido durante la colocacion
++    private volatile long lastAckAny = 0L;
++    // IMP-03: la peticion de variables antes de guardar un wired se hace como mucho una vez por pegado
++    private boolean variableDiffsRequested = false;
+     private static final Set<String> FURNI_WORDS = new HashSet<String>(Arrays.asList("furnis", "furni", "furnis-sala", "solofurnis", "sala", "deco", "decoracion"));
+     private static final Set<String> WIRED_WORDS = new HashSet<String>(Arrays.asList("wired", "wireds", "solowired", "solowireds"));
+     private static final Set<String> ALL_WORDS = new HashSet<String>(Arrays.asList("todo", "all", "completo"));
+@@ -224,24 +231,29 @@
+                 int n4 = hPacket.readInteger();
+                 hashSet.add(new HWiredVariable(hPacket));
+             }
+-            if (this.workingPresetConfig != null && this.workingPresetConfig.getPresetWireds() != null) {
+-                HashMap<String, String> hashMap = this.workingPresetConfig.getPresetWireds().getVariablesMap();
+-                for (HWiredVariable object : hashSet) {
+-                    HWiredVariable hWiredVariable = object;
+-                    Optional<Map.Entry> optional = hashMap.entrySet().stream().filter(entry -> ((String)entry.getKey()).equals(hWiredVariable.name)).findFirst();
+-                    optional.ifPresent(entry -> this.realVariableIdMap.put((String)entry.getValue(), hWiredVariable.id));
+-                }
+-                for (PresetWiredVariable presetWiredVariable : this.workingPresetConfig.getPresetWireds().getVariables()) {
+-                    for (HWiredVariable hWiredVariable : hashSet) {
+-                        if (!hWiredVariable.name.equals(presetWiredVariable.getStringConfig())) continue;
+-                        this.realVariableIdMap.put(presetWiredVariable.variableId, hWiredVariable.id);
++            boolean bl2;
++            Map<String, String> map = this.realVariableIdMap;
++            synchronized (map) {
++                if (this.workingPresetConfig != null && this.workingPresetConfig.getPresetWireds() != null) {
++                    HashMap<String, String> hashMap = this.workingPresetConfig.getPresetWireds().getVariablesMap();
++                    for (HWiredVariable object : hashSet) {
++                        HWiredVariable hWiredVariable = object;
++                        Optional<Map.Entry<String, String>> optional = hashMap.entrySet().stream().filter(entry -> ((String)entry.getKey()).equals(hWiredVariable.name)).findFirst();
++                        optional.ifPresent(entry -> this.realVariableIdMap.put((String)entry.getValue(), hWiredVariable.id));
++                    }
++                    for (PresetWiredVariable presetWiredVariable : this.workingPresetConfig.getPresetWireds().getVariables()) {
++                        for (HWiredVariable hWiredVariable : hashSet) {
++                            if (!hWiredVariable.name.equals(presetWiredVariable.getStringConfig())) continue;
++                            this.realVariableIdMap.put(presetWiredVariable.variableId, hWiredVariable.id);
++                        }
+                     }
+                 }
++                for (String string : this.realVariableIdMap.keySet()) {
++                    this.needVariableIds.remove(string);
++                }
++                bl2 = this.needVariableIds.size() == 0;
+             }
+-            for (String string : this.realVariableIdMap.keySet()) {
+-                this.needVariableIds.remove(string);
+-            }
+-            if (this.needVariableIds.size() == 0) {
++            if (bl2) {
+                 this.wiredVariableConfirmation.release();
+             }
+         }
+@@ -294,6 +306,7 @@
+                 LinkedList<Integer> linkedList;
+                 HFloorItem hFloorItem = new HFloorItem(hMessage.getPacket());
+                 this.lastDropActivity = System.currentTimeMillis();
++                this.lastAckAny = this.lastDropActivity;
+                 LinkedList<Long> linkedList2 = this.pendingDrops.get(hFloorItem.getTypeId());
+                 if (linkedList2 != null && !linkedList2.isEmpty()) {
+                     linkedList2.pollFirst();
+@@ -420,6 +433,58 @@
+         }
+     }
+ 
++    /**
++     * IMP-02: aborta el pegado en curso porque el usuario salio de la sala (o entro en otra). Lo llama GPresets
++     * desde el callback de salir de sala. Seguro desde cualquier hilo; no hace nada si no hay pegado.
++     */
++    public void onRoomLeft() {
++        Object object;
++        Object object2;
++        Object object3 = object2 = (object = this.lock);
++        synchronized (object3) {
++            if (this.state != BuildingImportState.NONE) {
++                this.abortRoomChanged("saliste de la sala");
++            }
++        }
++    }
++
++    private void abortRoomChanged(String string) {
++        Object object;
++        Object object2;
++        Object object3 = object2 = (object = this.lock);
++        synchronized (object3) {
++            if (this.state != BuildingImportState.NONE) {
++                boolean bl = this.importStartMs > 0L;
++                this.state = BuildingImportState.NONE;
++                this.extension.sendVisualChatInfo("Importacion cancelada");
++                this.extension.getLogger().log("Importacion cancelada: " + string, "orange");
++                this.extension.updateProgress("Cancelado: " + string, 0.0);
++                if (bl) {
++                    this.writeDiagnosticAsync("cancelado: " + string);
++                }
++            }
++        }
++    }
++
++    /** IMP-02: true (y aborta) si la sala actual ya no es la del pegado. Si no se puede saber, no aborta. */
++    private boolean roomChanged() {
++        int n = this.importRoomId;
++        if (n == 0) {
++            return false;
++        }
++        try {
++            FloorState floorState = this.extension.getFloorState();
++            if (floorState == null || floorState.getRoomId() == n) {
++                return false;
++            }
++        }
++        catch (Exception exception) {
++            return false;
++        }
++        this.abortRoomChanged("cambiaste de sala");
++        return true;
++    }
++
+     private void beginImport(String string) {
+         if (this.state != BuildingImportState.NONE) {
+             this.extension.sendVisualChatInfo("Ya hay una importacion en curso, espera o cancela con :abort");
+@@ -438,6 +503,7 @@
+         if (!this.prepare()) {
+             return;
+         }
++        this.importRoomId = this.extension.getFloorState().getRoomId();
+         this.forceImport = string.contains("forzar") || string.contains("force");
+         Matcher matcher = ROOT_PATTERN.matcher(string);
+         if (string.startsWith("auto") || string.startsWith("rec")) {
+@@ -510,6 +576,8 @@
+         this.wiredToSave = 0;
+         this.furniPlanned = 0;
+         this.reportWritten = false;
++        this.lastAckAny = 0L;
++        this.variableDiffsRequested = false;
+     }
+ 
+     private boolean prepare() {
+@@ -533,7 +601,7 @@
+         }
+         this.linkedFurni = 0;
+         this.linkTotal = 0;
+-        Iterator<PresetFurni> iterator = GPresetImporter.wiredIds(this.workingPresetConfig);
++        Set<Integer> iterator = GPresetImporter.wiredIds(this.workingPresetConfig);
+         int n = 0;
+         int n2 = 0;
+         for (PresetFurni object2 : this.workingPresetConfig.getFurniture()) {
+@@ -552,7 +620,7 @@
+             return false;
+         }
+         if (this.importContent == ImportContent.FURNI) {
+-            this.applyFurniOnlyFilter((Set<Integer>)((Object)iterator));
++            this.applyFurniOnlyFilter(iterator);
+             this.extension.getLogger().log(String.format("Solo furnis: %d furnis de sala, se omiten %d piezas de wired", n2, n), "blue");
+         } else if (this.importContent == ImportContent.WIRED) {
+             this.extension.getLogger().log(String.format("Solo wired: %d piezas de wired, %d furnis de sala se buscan en la sala", n, n2), "blue");
+@@ -597,9 +665,9 @@
+         this.allAvailableStackTiles = new ArrayList<StackTileInfo>();
+         Set<String> set = Arrays.stream(StackTileSetting.values()).map(StackTileSetting::getClassName).collect(Collectors.toSet());
+         set.forEach(string -> {
+-            List<HFloorItem> list = this.extension.getFloorState().getItemsFromType(furniDataTools, (String)string);
+-            if (list.size() > 0) {
+-                HFloorItem hFloorItem = list.get(0);
++            List<HFloorItem> list2 = this.extension.getFloorState().getItemsFromType(furniDataTools, (String)string);
++            if (list2.size() > 0) {
++                HFloorItem hFloorItem = list2.get(0);
+                 this.allAvailableStackTiles.add(new StackTileInfo(hFloorItem.getId(), hFloorItem.getTile(), hFloorItem.getFacing().ordinal(), StackTileSetting.fromClassName(string).getDimension()));
+             }
+         });
+@@ -618,6 +686,9 @@
+         Object object2;
+         Object object3 = object2 = (object = this.lock);
+         synchronized (object3) {
++            if ((this.state == BuildingImportState.AWAITING_UNOCCUPIED_SPACE || this.state == BuildingImportState.AWAITING_ROOT_LOCATION) && this.roomChanged()) {
++                return;
++            }
+             if (this.state == BuildingImportState.AWAITING_UNOCCUPIED_SPACE) {
+                 hMessage.setBlocked(true);
+                 int n = hMessage.getPacket().readInteger();
+@@ -681,11 +752,11 @@
+         }
+         try {
+             int n;
+-            Map<Object, Object> map;
++            Map<Long, Long> map;
+             PresetOrigin presetOrigin;
+             Map<Integer, String> map2 = PresetPlacementPlanner.classMap(this.workingPresetConfig);
+             this.activeOrigin = presetOrigin = PresetOrigin.detect(this.workingPresetConfig, map2);
+-            Map<Object, Object> map3 = map = this.activePlan == null ? new HashMap() : this.activePlan.unitMoves;
++            Map<Long, Long> map3 = map = this.activePlan == null ? new HashMap<Long, Long>() : this.activePlan.unitMoves;
+             if (!map.isEmpty()) {
+                 n = PresetPlacementPlanner.applyUnitMoves(this.workingPresetConfig, map);
+                 this.extension.getLogger().log(String.format("Se movieron %d pilas de wired (%d furnis) a baldosas libres", map.size(), n), "green");
+@@ -937,9 +1008,8 @@
+                 this.extension.sendVisualChatInfo(String.format("Ojo: %d furnis del preset tienen el id repetido; al importar se usa solo uno de cada uno", list.size()));
+             }
+             if (!planningContext.origin.isKnown()) {
+-                void var12_16;
++                int var12_16 = 0;
+                 Map<Integer, String> map = PresetPlacementPlanner.classMap((PresetConfig)object);
+-                boolean n = false;
+                 for (PresetWiredBase presetWiredBase : ((PresetConfig)object).getPresetWireds().getSelectors()) {
+                     if (!WiredCoordinateTranslator.isAreaSelector(map.get(presetWiredBase.getWiredId()))) continue;
+                     ++var12_16;
+@@ -991,6 +1061,9 @@
+             long l = 3500L + (long)(this.extension.getSafeFeedbackTimeout() * 2);
+             long l2 = System.currentTimeMillis();
+             while (linkedList != null && !linkedList.isEmpty() && l2 - linkedList.peekFirst() > l) {
++                // IMP-09: una gota solo cuenta como perdida si despues de enviarla llego algun ObjectAdd (de cualquier tipo).
++                // Si no llego ninguno es una parada de red/hotel, no un rechazo del tipo (salvo que pase de 15 s).
++                if (this.lastAckAny <= linkedList.peekFirst() && l2 - linkedList.peekFirst() <= 15000L) break;
+                 linkedList.pollFirst();
+                 int n2 = this.lostDrops.merge(n, 1, Integer::sum);
+                 if (n2 < 2) continue;
+@@ -1019,6 +1092,9 @@
+ 
+     private void dropFurni(FurniDropInfo furniDropInfo) {
+         boolean bl;
++        if (this.roomChanged()) {
++            return;
++        }
+         FurniDataTools furniDataTools = this.extension.getFurniDataTools();
+         int n = furniDropInfo.getTypeId();
+         String string = furniDataTools.getFloorItemName(n);
+@@ -1078,10 +1154,13 @@
+ 
+     private void moveFurni(int n, int n2, int n3, int n4, boolean bl, double d) {
+         StackTileInfo stackTileInfo;
++        if (this.roomChanged()) {
++            return;
++        }
+         if (bl && (stackTileInfo = StackTileUtils.findBestDropLocation(n2, n3, this.allAvailableStackTiles, this.extension.getFloorState())) != null) {
+             this.moveFurni(stackTileInfo.getFurniId(), stackTileInfo.getLocation().getX(), stackTileInfo.getLocation().getY(), stackTileInfo.getRotation(), false, -1.0);
+             if (d != -1.0) {
+-                this.extension.sendToServer(new HPacket("SetCustomStackingHeight", HMessage.Direction.TOSERVER, stackTileInfo.getFurniId(), (int)(d * 100.0) + this.heightOffset * 100));
++                this.extension.sendToServer(new HPacket("SetCustomStackingHeight", HMessage.Direction.TOSERVER, stackTileInfo.getFurniId(), (int)Math.round(d * 100.0) + this.heightOffset * 100));
+                 Utils.sleep(40);
+             }
+         }
+@@ -1095,6 +1174,9 @@
+     private void attemptSetState(int n, String string) {
+         FloorState floorState = this.extension.getFloorState();
+         FurniDataTools furniDataTools = this.extension.getFurniDataTools();
++        if (this.roomChanged()) {
++            return;
++        }
+         if (floorState == null || furniDataTools == null || floorState.furniFromId(n) == null) {
+             return;
+         }
+@@ -1136,6 +1218,11 @@
+         }
+     }
+ 
++    /** IMP-03: true si el id de variable de un wired hay que traducirlo (mismo criterio que PresetWiredBase.applyWiredConfig). */
++    static boolean needsVariableMapping(String string) {
++        return string != null && !string.isEmpty() && !string.equals("0") && !string.startsWith("-") && !string.startsWith("~");
++    }
++
+     /*
+      * WARNING - Removed try catching itself - possible behaviour change.
+      */
+@@ -1156,6 +1243,9 @@
+         if (this.state != BuildingImportState.SETUP_WIRED) {
+             return;
+         }
++        if (this.roomChanged()) {
++            return;
++        }
+         long l3 = 0L;
+         if (presetWiredBase instanceof PresetWiredCondition) {
+             l3 = this.latestConditionSave;
+@@ -1177,10 +1267,25 @@
+         this.wiredSaveConfirmation.drainPermits();
+         this.wiredVariableConfirmation.drainPermits();
+         if (presetWiredBase.getVariableIds() != null && presetWiredBase.getVariableIds().size() > 0) {
+-            this.needVariableIds.clear();
+-            this.needVariableIds.addAll(presetWiredBase.getVariableIds());
+-            this.needVariableIds = this.needVariableIds.stream().filter(string -> string.equals("0") && this.realVariableIdMap.keySet().stream().noneMatch(string2 -> string2.equals(string))).collect(Collectors.toList());
+-            if (this.needVariableIds.size() > 0) {
++            // IMP-03: antes el filtro dejaba solo los ids iguales a "0" (literales que nunca estan en el mapa), asi que
++            // cada pieza con un "0" mandaba la peticion y esperaba 5 s completos sin que nada pudiera resolverla.
++            // Ahora solo cuentan los ids que hay que traducir (los mismos que traduce applyWiredConfig: ni "0", ni los
++            // que empiezan por "-" o "~") y que aun no estan en el mapa; y la peticion se hace como mucho una vez por
++            // pegado (el refresco tras la ultima variable ya cubre el caso normal).
++            boolean bl2 = false;
++            Map<String, String> map = this.realVariableIdMap;
++            synchronized (map) {
++                this.needVariableIds.clear();
++                if (!(presetWiredBase instanceof PresetWiredVariable)) {
++                    this.needVariableIds.addAll(presetWiredBase.getVariableIds());
++                    this.needVariableIds = this.needVariableIds.stream().filter(string -> GPresetImporter.needsVariableMapping(string) && !this.realVariableIdMap.containsKey(string)).collect(Collectors.toList());
++                    if (this.needVariableIds.size() > 0 && !this.variableDiffsRequested) {
++                        this.variableDiffsRequested = true;
++                        bl2 = true;
++                    }
++                }
++            }
++            if (bl2) {
+                 this.extension.sendToServer(new HPacket("WiredGetAllVariablesDiffs", HMessage.Direction.TOSERVER, 0));
+                 try {
+                     this.wiredVariableConfirmation.tryAcquire(5L, TimeUnit.SECONDS);
+@@ -1192,7 +1297,10 @@
+         }
+         Object object3 = object2 = (object = this.lock);
+         synchronized (object3) {
+-            t = presetWiredBase.applyWiredConfig(this.extension, this.realFurniIdMap, this.realVariableIdMap);
++            Map<String, String> map2 = this.realVariableIdMap;
++            synchronized (map2) {
++                t = presetWiredBase.applyWiredConfig(this.extension, this.realFurniIdMap, this.realVariableIdMap);
++            }
+         }
+         long l4 = System.currentTimeMillis();
+         if (presetWiredBase instanceof PresetWiredCondition) {
+@@ -1243,9 +1351,9 @@
+     private void moveFurniture() {
+         List<HFloorItem> list;
+         FurniDataTools furniDataTools = this.extension.getFurniDataTools();
+-        ArrayList arrayList = new ArrayList();
+-        HashMap<Integer, ArrayList<HFloorItem>> hashMap = this.lock;
+-        synchronized (hashMap) {
++        ArrayList<PresetFurni> arrayList = new ArrayList<PresetFurni>();
++        Object lockObj = this.lock;
++        synchronized (lockObj) {
+             this.workingPresetConfig.getFurniture().forEach(presetFurni -> {
+                 if (furniDataTools.isStackable(presetFurni.getClassName()) && !presetFurni.getClassName().startsWith("wf_trg_") && this.realFurniIdMap.containsKey(presetFurni.getFurniId())) {
+                     arrayList.add(presetFurni);
+@@ -1257,19 +1365,19 @@
+                 }
+             });
+         }
+-        hashMap = new HashMap<Integer, ArrayList<HFloorItem>>();
++        HashMap<Integer, PresetFurni> hashMap = new HashMap<Integer, PresetFurni>();
+         int n = 0;
+         while (this.state == BuildingImportState.MOVE_FURNITURE && n < arrayList.size()) {
+-            list = (PresetFurni)arrayList.get(n);
++            PresetFurni presetFurniCur = arrayList.get(n);
+             if (++n % 10 == 0) {
+                 this.progress("Moviendo furni", n, arrayList.size());
+             }
+-            int n2 = this.realFurniIdMap.get(((PresetFurni)((Object)list)).getFurniId());
+-            if (((PresetFurni)((Object)list)).getState() != null) {
+-                this.attemptSetState(n2, ((PresetFurni)((Object)list)).getState());
++            int n2 = this.realFurniIdMap.get(presetFurniCur.getFurniId());
++            if (presetFurniCur.getState() != null) {
++                this.attemptSetState(n2, presetFurniCur.getState());
+             }
+-            hashMap.put(n2, (ArrayList<HFloorItem>)list);
+-            this.moveFurni(n2, ((PresetFurni)((Object)list)).getLocation().getX() + this.rootLocation.getX(), ((PresetFurni)((Object)list)).getLocation().getY() + this.rootLocation.getY(), ((PresetFurni)((Object)list)).getRotation(), true, ((PresetFurni)((Object)list)).getLocation().getZ());
++            hashMap.put(n2, presetFurniCur);
++            this.moveFurni(n2, presetFurniCur.getLocation().getX() + this.rootLocation.getX(), presetFurniCur.getLocation().getY() + this.rootLocation.getY(), presetFurniCur.getRotation(), true, presetFurniCur.getLocation().getZ());
+         }
+         Utils.sleep(300 + this.extension.getSafeFeedbackTimeout());
+         if (this.state == BuildingImportState.MOVE_FURNITURE) {
+@@ -1277,7 +1385,7 @@
+             list.addAll(this.extension.getFloorState().getFurniOnTile(this.stackTileLocation.getX() + 1, this.stackTileLocation.getY()));
+             list.addAll(this.extension.getFloorState().getFurniOnTile(this.reservedSpace.getX(), this.reservedSpace.getY()));
+             list = list.stream().filter(hFloorItem -> {
+-                PresetFurni presetFurni = (PresetFurni)hashMap.get(hFloorItem.getId());
++                PresetFurni presetFurni = hashMap.get(hFloorItem.getId());
+                 if (presetFurni == null) {
+                     return false;
+                 }
+@@ -1285,7 +1393,7 @@
+             }).collect(Collectors.toList());
+             for (HFloorItem hFloorItem2 : list) {
+                 if (this.state != BuildingImportState.MOVE_FURNITURE) break;
+-                PresetFurni presetFurni2 = (PresetFurni)hashMap.get(hFloorItem2.getId());
++                PresetFurni presetFurni2 = hashMap.get(hFloorItem2.getId());
+                 this.moveFurni(hFloorItem2.getId(), presetFurni2.getLocation().getX() + this.rootLocation.getX(), presetFurni2.getLocation().getY() + this.rootLocation.getY(), presetFurni2.getRotation(), true, presetFurni2.getLocation().getZ());
+             }
+         }
+@@ -1294,8 +1402,8 @@
+                 this.moveFurni(stackTileInfo.getFurniId(), stackTileInfo.getLocation().getX(), stackTileInfo.getLocation().getY(), stackTileInfo.getRotation(), false, -1.0);
+             }
+         }
+-        list = this.lock;
+-        synchronized (list) {
++        Object lockObj2 = this.lock;
++        synchronized (lockObj2) {
+             if (this.state == BuildingImportState.MOVE_FURNITURE) {
+                 this.state = BuildingImportState.NONE;
+                 this.finishReport();
+@@ -1305,15 +1413,16 @@
+ 
+     private void finishReport() {
+         String string;
+-        CharSequence charSequence;
++        StringBuilder charSequence;
++        String linkText;
+         String string2;
+         boolean bl;
+         boolean bl2 = bl = !this.skippedSummary.isEmpty() || this.failedWiredSaves > 0 || this.skippedWireds > 0;
+-        String string3 = this.importContent == ImportContent.FURNI ? "Furnis del preset" : (string2 = this.importContent == ImportContent.WIRED ? "Wired del preset" : "Preset");
++        string2 = this.importContent == ImportContent.FURNI ? "Furnis del preset" : (this.importContent == ImportContent.WIRED ? "Wired del preset" : "Preset");
+         if (this.importContent == ImportContent.WIRED && this.linkTotal > 0) {
+-            charSequence = String.format("Wired enlazados a %d de %d furnis de la sala", this.linkedFurni, this.linkTotal);
+-            this.extension.sendVisualChatInfo((String)charSequence);
+-            this.extension.getLogger().log((String)charSequence, this.linkedFurni == this.linkTotal ? "green" : "orange");
++            linkText = String.format("Wired enlazados a %d de %d furnis de la sala", this.linkedFurni, this.linkTotal);
++            this.extension.sendVisualChatInfo(linkText);
++            this.extension.getLogger().log(linkText, this.linkedFurni == this.linkTotal ? "green" : "orange");
+         }
+         if (this.importContent == ImportContent.FURNI) {
+             this.extension.sendVisualChatInfo("Para poner los wired encima: elige 'Solo wired' y escribe :ip wired");
+@@ -1327,18 +1436,18 @@
+         }
+         charSequence = new StringBuilder(string2 + " importado con omisiones.");
+         if (!this.skippedSummary.isEmpty()) {
+-            ((StringBuilder)charSequence).append(" Furni omitidos: ").append(this.skippedSummary).append(".");
++            charSequence.append(" Furni omitidos: ").append(this.skippedSummary).append(".");
+             this.extension.getLogger().log("Furni omitidos: " + this.skippedSummary, "orange");
+         }
+         if (this.skippedWireds > 0) {
+-            ((StringBuilder)charSequence).append(String.format(" Wireds omitidos (faltaba su furni): %d.", this.skippedWireds));
++            charSequence.append(String.format(" Wireds omitidos (faltaba su furni): %d.", this.skippedWireds));
+             this.extension.getLogger().log(String.format("Wireds omitidos porque su furni no se coloco: %d", this.skippedWireds), "orange");
+         }
+         if (this.failedWiredSaves > 0) {
+-            ((StringBuilder)charSequence).append(String.format(" Wireds sin guardar: %d (ver el registro).", this.failedWiredSaves));
++            charSequence.append(String.format(" Wireds sin guardar: %d (ver el registro).", this.failedWiredSaves));
+             this.extension.getLogger().log(String.format("Wireds que no se pudieron guardar: %d", this.failedWiredSaves), "orange");
+         }
+-        if ((string = ((StringBuilder)charSequence).toString()).length() > 240) {
++        if ((string = charSequence.toString()).length() > 240) {
+             string = string.substring(0, 237) + "...";
+         }
+         this.extension.sendVisualChatInfo(string);
+@@ -1350,25 +1459,21 @@
+      * WARNING - Removed try catching itself - possible behaviour change.
+      */
+     private void setupWired() {
+-        Object object;
+-        Object object2;
+-        List list;
+-        Object object3;
+-        Object object4;
+-        ArrayList arrayList = new ArrayList();
+-        HashMap<Integer, List> hashMap = new HashMap<Integer, List>();
++        ArrayList<PresetWiredBase> arrayList = new ArrayList<PresetWiredBase>();
++        HashMap<Integer, List<PresetWiredFurniBinding>> hashMap = new HashMap<Integer, List<PresetWiredFurniBinding>>();
++        List<PresetWiredVariable> list;
+         Object object5 = this.lock;
+         synchronized (object5) {
+-            object4 = this.workingPresetConfig.getPresetWireds();
+-            object3 = presetWiredBase -> this.realFurniIdMap.containsKey(presetWiredBase.getWiredId());
+-            list = ((PresetWireds)object4).getVariables().stream().filter(object3).collect(Collectors.toList());
+-            int n2 = ((PresetWireds)object4).getVariables().size() + ((PresetWireds)object4).getConditions().size() + ((PresetWireds)object4).getEffects().size() + ((PresetWireds)object4).getTriggers().size() + ((PresetWireds)object4).getAddons().size() + ((PresetWireds)object4).getSelectors().size();
++            PresetWireds presetWireds = this.workingPresetConfig.getPresetWireds();
++            Predicate<PresetWiredBase> predicate = presetWiredBase -> this.realFurniIdMap.containsKey(presetWiredBase.getWiredId());
++            list = presetWireds.getVariables().stream().filter(predicate).collect(Collectors.toList());
++            int n2 = presetWireds.getVariables().size() + presetWireds.getConditions().size() + presetWireds.getEffects().size() + presetWireds.getTriggers().size() + presetWireds.getAddons().size() + presetWireds.getSelectors().size();
+             arrayList.addAll(list);
+-            arrayList.addAll(((PresetWireds)object4).getConditions().stream().filter(object3).collect(Collectors.toList()));
+-            arrayList.addAll(((PresetWireds)object4).getEffects().stream().filter(object3).collect(Collectors.toList()));
+-            arrayList.addAll(((PresetWireds)object4).getTriggers().stream().filter(object3).collect(Collectors.toList()));
+-            arrayList.addAll(((PresetWireds)object4).getAddons().stream().filter(object3).collect(Collectors.toList()));
+-            arrayList.addAll(((PresetWireds)object4).getSelectors().stream().filter(object3).collect(Collectors.toList()));
++            arrayList.addAll(presetWireds.getConditions().stream().filter(predicate).collect(Collectors.toList()));
++            arrayList.addAll(presetWireds.getEffects().stream().filter(predicate).collect(Collectors.toList()));
++            arrayList.addAll(presetWireds.getTriggers().stream().filter(predicate).collect(Collectors.toList()));
++            arrayList.addAll(presetWireds.getAddons().stream().filter(predicate).collect(Collectors.toList()));
++            arrayList.addAll(presetWireds.getSelectors().stream().filter(predicate).collect(Collectors.toList()));
+             this.skippedWireds = Math.max(0, n2 - arrayList.size());
+             for (PresetWiredFurniBinding presetWiredFurniBinding : this.workingPresetConfig.getBindings()) {
+                 hashMap.computeIfAbsent(presetWiredFurniBinding.getWiredId(), n -> new ArrayList()).add(presetWiredFurniBinding);
+@@ -1383,8 +1488,7 @@
+         }
+         int n3 = 0;
+         while (this.state == BuildingImportState.SETUP_WIRED && n3 < arrayList.size()) {
+-            Object object6;
+-            object2 = (PresetWiredBase)arrayList.get(n3);
++            PresetWiredBase object2 = arrayList.get(n3);
+             if ((n3 + 1) % 10 == 0 || n3 == 0) {
+                 this.progress("Configurando wired", n3 + 1, arrayList.size());
+             }
+@@ -1392,74 +1496,75 @@
+                 this.extension.getLogger().log(String.format("Configurando wired.. (%d/%d)", n3 + 1, arrayList.size()), "orange");
+             }
+             ++n3;
+-            object = this.extension.getFloorState();
++            FloorState object = this.extension.getFloorState();
+             FurniDataTools furniDataTools = this.extension.getFurniDataTools();
+-            object4 = (List)hashMap.get(((PresetWiredBase)object2).getWiredId());
+-            object3 = new ArrayList();
+-            list = new ArrayList();
++            List<PresetWiredFurniBinding> object4 = hashMap.get(object2.getWiredId());
++            ArrayList<FurniMoveInfo> object3 = new ArrayList<FurniMoveInfo>();
++            ArrayList<FurniMoveInfo> list2 = new ArrayList<FurniMoveInfo>();
+             if (object4 != null) {
+-                Iterator iterator = object4.iterator();
++                Iterator<PresetWiredFurniBinding> iterator = object4.iterator();
+                 while (iterator.hasNext()) {
+                     int n4;
+                     Object object7;
+                     Object object8;
+-                    object6 = iterator.next();
++                    PresetWiredFurniBinding object6 = iterator.next();
+                     Object object9 = object8 = (object7 = this.lock);
+                     synchronized (object9) {
+                         if (this.state != BuildingImportState.SETUP_WIRED) {
+                             return;
+                         }
+-                        if (!this.realFurniIdMap.containsKey(((PresetWiredFurniBinding)object6).getFurniId())) {
++                        if (!this.realFurniIdMap.containsKey(object6.getFurniId())) {
+                             continue;
+                         }
+-                        n4 = this.realFurniIdMap.get(((PresetWiredFurniBinding)object6).getFurniId());
++                        n4 = this.realFurniIdMap.get(object6.getFurniId());
+                     }
+-                    if (((PresetWiredFurniBinding)object6).getState() != null) {
+-                        this.attemptSetState(n4, ((PresetWiredFurniBinding)object6).getState());
++                    if (object6.getState() != null) {
++                        this.attemptSetState(n4, object6.getState());
+                     }
+                     object9 = object8 = (object7 = this.lock);
+                     synchronized (object9) {
+                         if (this.state != BuildingImportState.SETUP_WIRED) {
+                             return;
+                         }
+-                        boolean bl = ((PresetWiredFurniBinding)object6).getLocation() != null || ((PresetWiredFurniBinding)object6).getRotation() != null || ((PresetWiredFurniBinding)object6).getAltitude() != null;
+-                        HFloorItem hFloorItem = ((FloorState)object).furniFromId(n4);
++                        boolean bl = object6.getLocation() != null || object6.getRotation() != null || object6.getAltitude() != null;
++                        HFloorItem hFloorItem = object.furniFromId(n4);
+                         if (bl && hFloorItem != null) {
+-                            boolean bl2 = furniDataTools.isStackable(furniDataTools.getFloorItemName(hFloorItem.getTypeId())) || ((PresetWiredFurniBinding)object6).getAltitude() != null;
+-                            ((ArrayList)list).add((FurniMoveInfo)new FurniMoveInfo(n4, hFloorItem.getTile().getX(), hFloorItem.getTile().getY(), hFloorItem.getFacing().ordinal(), null, bl2));
+-                            int n5 = hFloorItem.getTile().getX() + this.rootLocation.getX();
+-                            int n6 = hFloorItem.getTile().getY() + this.rootLocation.getY();
++                            boolean bl2 = furniDataTools.isStackable(furniDataTools.getFloorItemName(hFloorItem.getTypeId())) || object6.getAltitude() != null;
++                            list2.add(new FurniMoveInfo(n4, hFloorItem.getTile().getX(), hFloorItem.getTile().getY(), hFloorItem.getFacing().ordinal(), null, bl2));
++                            // IMP-06: getTile() ya es una coordenada absoluta de la sala: no se le suma la raiz otra vez
++                            int n5 = hFloorItem.getTile().getX();
++                            int n6 = hFloorItem.getTile().getY();
+                             int n7 = hFloorItem.getFacing().ordinal();
+                             Integer n8 = null;
+-                            if (((PresetWiredFurniBinding)object6).getLocation() != null) {
+-                                n5 = ((PresetWiredFurniBinding)object6).getLocation().getX() + this.rootLocation.getX();
+-                                n6 = ((PresetWiredFurniBinding)object6).getLocation().getY() + this.rootLocation.getY();
++                            if (object6.getLocation() != null) {
++                                n5 = object6.getLocation().getX() + this.rootLocation.getX();
++                                n6 = object6.getLocation().getY() + this.rootLocation.getY();
+                             }
+-                            if (((PresetWiredFurniBinding)object6).getRotation() != null) {
+-                                n7 = ((PresetWiredFurniBinding)object6).getRotation();
++                            if (object6.getRotation() != null) {
++                                n7 = object6.getRotation();
+                             }
+-                            if (((PresetWiredFurniBinding)object6).getAltitude() != null) {
+-                                n8 = ((PresetWiredFurniBinding)object6).getAltitude();
++                            if (object6.getAltitude() != null) {
++                                n8 = object6.getAltitude();
+                             }
+-                            ((ArrayList)object3).add(new FurniMoveInfo(n4, n5, n6, n7, n8, bl2));
++                            object3.add(new FurniMoveInfo(n4, n5, n6, n7, n8, bl2));
+                         }
+                     }
+                 }
+             }
+-            Iterator iterator = ((ArrayList)object3).iterator();
++            Iterator<FurniMoveInfo> iterator = object3.iterator();
+             while (iterator.hasNext()) {
+-                object6 = (FurniMoveInfo)iterator.next();
+-                double d = ((FurniMoveInfo)object6).getAltitude() == null ? -1.0 : (double)((FurniMoveInfo)object6).getAltitude().intValue() / 100.0;
+-                this.moveFurni(((FurniMoveInfo)object6).getFurniId(), ((FurniMoveInfo)object6).getX(), ((FurniMoveInfo)object6).getY(), ((FurniMoveInfo)object6).getRotation(), ((FurniMoveInfo)object6).useStackTile(), d);
+-            }
+-            this.saveWired((PresetWiredBase)object2, 0);
+-            for (Object e : list) {
+-                double d = ((FurniMoveInfo)e).getAltitude() == null ? -1.0 : (double)((FurniMoveInfo)e).getAltitude().intValue() / 100.0;
+-                this.moveFurni(((FurniMoveInfo)e).getFurniId(), ((FurniMoveInfo)e).getX(), ((FurniMoveInfo)e).getY(), ((FurniMoveInfo)e).getRotation(), ((FurniMoveInfo)e).useStackTile(), d);
++                FurniMoveInfo object6 = iterator.next();
++                double d = object6.getAltitude() == null ? -1.0 : (double)object6.getAltitude().intValue() / 100.0;
++                this.moveFurni(object6.getFurniId(), object6.getX(), object6.getY(), object6.getRotation(), object6.useStackTile(), d);
++            }
++            this.saveWired(object2, 0);
++            for (FurniMoveInfo e : list2) {
++                double d = e.getAltitude() == null ? -1.0 : (double)e.getAltitude().intValue() / 100.0;
++                this.moveFurni(e.getFurniId(), e.getX(), e.getY(), e.getRotation(), e.useStackTile(), d);
+             }
+         }
+-        object4 = object = (object2 = this.lock);
+-        synchronized (object4) {
++        Object object2 = this.lock;
++        synchronized (object2) {
+             if (this.state == BuildingImportState.SETUP_WIRED) {
+                 this.state = BuildingImportState.MOVE_FURNITURE;
+             }
+@@ -1569,6 +1674,9 @@
+                 Object object3;
+                 Object object4;
+                 this.progress("Configurando fondos", i + 1, list.size());
++                if (this.roomChanged()) {
++                    return;
++                }
+                 object2 = list.get(i);
+                 Object object5 = object4 = (object3 = this.lock);
+                 synchronized (object5) {
+@@ -1647,7 +1755,7 @@
+         try {
+             this.addUnstackables();
+         }
+-        catch (Exception exception) {
++        catch (Throwable exception) {
+             exception.printStackTrace();
+             BuildingImportState buildingImportState = this.state;
+             Object object = this.lock;
+@@ -1709,6 +1817,7 @@
+ 
+     public void reset() {
+         this.state = BuildingImportState.NONE;
++        this.importRoomId = 0;
+     }
+ 
+     public void setPresetName(String string) {
+@@ -1810,7 +1919,7 @@
+             if (this.importContent == ImportContent.WIRED) {
+                 stringBuilder.append(String.format("Furnis de sala enlazados: %d de %d%n", this.linkedFurni, this.linkTotal));
+             }
+-            boolean bl2 = false;
++            bl = false;
+             for (String string4 : this.missingAtStart.keySet()) {
+                 if (string4 == null || !PlacementUtils.isLogicFurni(string4)) continue;
+                 bl = true;
+@@ -1952,7 +2061,7 @@
+     private HPoint detectExistingRoot() {
+         try {
+             int n2;
+-            Object object2;
++            HashSet<Long> object2;
+             FurniDataTools furniDataTools = this.extension.getFurniDataTools();
+             Set<Integer> set = GPresetImporter.wiredIds(this.workingPresetConfig);
+             ArrayList<PresetFurni> arrayList2 = new ArrayList<PresetFurni>();
+@@ -1963,37 +2072,37 @@
+             if (arrayList2.isEmpty()) {
+                 return null;
+             }
+-            HashMap hashMap = new HashMap();
++            HashMap<Integer, List<HPoint>> hashMap = new HashMap<Integer, List<HPoint>>();
+             HashSet<String> hashSet = new HashSet<String>();
+             for (HFloorItem hFloorItem : this.extension.getFloorState().getAllFurni()) {
+-                hashMap.computeIfAbsent(hFloorItem.getTypeId(), n -> new ArrayList()).add(hFloorItem.getTile());
++                hashMap.computeIfAbsent(hFloorItem.getTypeId(), n -> new ArrayList<HPoint>()).add(hFloorItem.getTile());
+                 hashSet.add(GPresetImporter.tileKey(hFloorItem.getTile().getX(), hFloorItem.getTile().getY(), hFloorItem.getTypeId()));
+             }
+-            HashMap hashMap2 = new HashMap();
++            HashMap<Integer, Integer> hashMap2 = new HashMap<Integer, Integer>();
+             arrayList2.removeIf(presetFurni -> furniDataTools.getFloorTypeId(presetFurni.getClassName()) == null);
+             if (arrayList2.isEmpty()) {
+                 return null;
+             }
+-            for (Object object2 : arrayList2) {
+-                hashMap2.put(((PresetFurni)object2).getFurniId(), furniDataTools.getFloorTypeId(((PresetFurni)object2).getClassName()));
++            for (PresetFurni object22 : arrayList2) {
++                hashMap2.put(object22.getFurniId(), furniDataTools.getFloorTypeId(object22.getClassName()));
+             }
+             ArrayList<PresetFurni> arrayList = new ArrayList<PresetFurni>(arrayList2);
+             arrayList.removeIf(presetFurni -> !hashMap.containsKey(hashMap2.get(presetFurni.getFurniId())));
+             if (arrayList.isEmpty()) {
+                 return null;
+             }
+-            arrayList.sort((presetFurni, presetFurni2) -> ((List)hashMap.get(hashMap2.get(presetFurni.getFurniId()))).size() - ((List)hashMap.get(hashMap2.get(presetFurni2.getFurniId()))).size());
+-            object2 = new HashSet();
++            arrayList.sort((presetFurni, presetFurni2) -> hashMap.get(hashMap2.get(presetFurni.getFurniId())).size() - hashMap.get(hashMap2.get(presetFurni2.getFurniId())).size());
++            object2 = new HashSet<Long>();
+             HashSet<Integer> hashSet2 = new HashSet<Integer>();
+             for (PresetFurni presetFurni3 : arrayList) {
+                 n2 = (Integer)hashMap2.get(presetFurni3.getFurniId());
+                 if (!hashSet2.add(n2)) continue;
+-                for (HPoint hPoint : (List)hashMap.get(n2)) {
+-                    ((HashSet)object2).add(PlacementUtils.key(hPoint.getX() - presetFurni3.getLocation().getX(), hPoint.getY() - presetFurni3.getLocation().getY()));
+-                    if (((HashSet)object2).size() <= 2000) continue;
++                for (HPoint hPoint : hashMap.get(n2)) {
++                    object2.add(PlacementUtils.key(hPoint.getX() - presetFurni3.getLocation().getX(), hPoint.getY() - presetFurni3.getLocation().getY()));
++                    if (object2.size() <= 2000) continue;
+                     break;
+                 }
+-                if (hashSet2.size() < 3 && ((HashSet)object2).size() <= 2000) continue;
++                if (hashSet2.size() < 3 && object2.size() <= 2000) continue;
+                 break;
+             }
+             ArrayList arrayList3 = new ArrayList();
+@@ -2003,9 +2112,9 @@
+             }
+             long l = 0L;
+             int n4 = -1;
+-            Object object3 = ((HashSet)object2).iterator();
+-            while (object3.hasNext()) {
+-                long l2 = (Long)object3.next();
++            Iterator<Long> object3b = object2.iterator();
++            while (object3b.hasNext()) {
++                long l2 = object3b.next();
+                 int n5 = PlacementUtils.keyX(l2);
+                 int n6 = PlacementUtils.keyY(l2);
+                 int n7 = 0;
+@@ -2022,9 +2131,9 @@
+             if (n4 < Math.min(3, arrayList3.size()) || n4 * 10 < arrayList3.size() * 7) {
+                 return null;
+             }
+-            object3 = new HPoint(PlacementUtils.keyX(l), PlacementUtils.keyY(l));
+-            this.extension.sendVisualChatInfo(String.format("Encontre los furnis de este preset en la sala: pongo los wired en %d,%d (%d%% coinciden)", ((HPoint)object3).getX(), ((HPoint)object3).getY(), n4 * 100 / arrayList3.size()));
+-            this.extension.getLogger().log(String.format("Furnis del preset encontrados con origen en %d,%d", ((HPoint)object3).getX(), ((HPoint)object3).getY()), "green");
++            HPoint object3 = new HPoint(PlacementUtils.keyX(l), PlacementUtils.keyY(l));
++            this.extension.sendVisualChatInfo(String.format("Encontre los furnis de este preset en la sala: pongo los wired en %d,%d (%d%% coinciden)", object3.getX(), object3.getY(), n4 * 100 / arrayList3.size()));
++            this.extension.getLogger().log(String.format("Furnis del preset encontrados con origen en %d,%d", object3.getX(), object3.getY()), "green");
+             return object3;
+         }
+         catch (Exception exception) {
+--- a/extension/tools/importutils/StackTileUtils.java	2026-10-12 02:00:41.152573508 +0000
++++ b/extension/tools/importutils/StackTileUtils.java	2026-10-12 12:27:14.313004764 +0000
+@@ -46,16 +46,18 @@
+     }
+ 
+     public static HPoint findBestDropLocation(int n, int n2, int n3, FloorState floorState) {
+-        ArrayList<HPoint> arrayList = new ArrayList<HPoint>();
+-        for (int i = n; i > Math.max(n - n3, 0); --i) {
+-            for (int j = n2; j > Math.max(n2 - n3, 0); --j) {
++        List<HPoint> arrayList = new ArrayList<HPoint>();
++        // IMP-04: el limite inferior es inclusivo (n - n3 + 1). Antes 'i > max(n - n3, 0)' dejaba fuera el origen 0
++        // y la lista quedaba vacia para x==0 o y==0 (el furni se movia sin baldosa magica ni altura).
++        for (int i = n; i >= Math.max(n - n3 + 1, 0); --i) {
++            for (int j = n2; j >= Math.max(n2 - n3 + 1, 0); --j) {
+                 arrayList.add(new HPoint(i, j));
+             }
+         }
+         arrayList.sort((hPoint, hPoint2) -> {
+-            int n3 = (n - hPoint.getX()) * (n - hPoint.getX()) + (n2 - hPoint.getY()) * (n2 - hPoint.getY());
+-            int n4 = (n - hPoint2.getX()) * (n - hPoint2.getX()) + (n2 - hPoint2.getY()) * (n2 - hPoint2.getY());
+-            return n3 - n4;
++            int n5 = (n - hPoint.getX()) * (n - hPoint.getX()) + (n2 - hPoint.getY()) * (n2 - hPoint.getY());
++            int n6 = (n - hPoint2.getX()) * (n - hPoint2.getX()) + (n2 - hPoint2.getY()) * (n2 - hPoint2.getY());
++            return n5 - n6;
+         });
+         block2: for (HPoint hPoint3 : arrayList) {
+             int n4;
