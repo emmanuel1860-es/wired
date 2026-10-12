@@ -1,0 +1,2117 @@
+{
+ "wired": {
+  "triggers": [
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 7,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     3600
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 20,
+    "userSources": [],
+    "variableIds": [],
+    "options": [],
+    "config": "",
+    "items": [
+     3
+    ]
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 27,
+    "userSources": [],
+    "variableIds": [],
+    "options": [],
+    "config": "",
+    "items": [
+     4
+    ]
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 37,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     960
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 49,
+    "userSources": [],
+    "variableIds": [],
+    "options": [],
+    "config": "",
+    "items": [
+     5
+    ]
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 56,
+    "userSources": [],
+    "variableIds": [],
+    "options": [],
+    "config": "",
+    "items": [
+     6
+    ]
+   }
+  ],
+  "selectors": [
+   {
+    "secondItems": [],
+    "furniSources": [
+     100
+    ],
+    "wiredId": 21,
+    "userSources": [
+     0
+    ],
+    "variableIds": [
+     "244359",
+     "0"
+    ],
+    "options": [
+     2,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 50,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1
+    ],
+    "config": "",
+    "items": []
+   }
+  ],
+  "conditions": [
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 8,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "244627",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     1,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 22,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95001",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 28,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95001",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 29,
+    "userSources": [
+     201,
+     201
+    ],
+    "variableIds": [
+     "244362",
+     "244363"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 51,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95002",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 57,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95002",
+     "0"
+    ],
+    "options": [
+     -10,
+     1,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 58,
+    "userSources": [
+     201,
+     201
+    ],
+    "variableIds": [
+     "244360",
+     "244361"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 59,
+    "userSources": [
+     200
+    ],
+    "variableIds": [
+     "0"
+    ],
+    "options": [
+     0,
+     0,
+     -20,
+     2
+    ],
+    "config": "",
+    "items": [],
+    "quantifier": 0
+   }
+  ],
+  "effects": [
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 9,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95001",
+     "0"
+    ],
+    "options": [
+     -10,
+     0,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 10,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 11,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 14
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 12,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 26
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 13,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 38
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 14,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 50
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 15,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 62
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 16,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 74
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 17,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 86
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 18,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 98
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 19,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     3
+    ],
+    "delay": 110
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 23,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244362",
+     "0"
+    ],
+    "options": [
+     1,
+     50,
+     0,
+     0,
+     1000,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 24,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244363",
+     "244353"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 25,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244363",
+     "0"
+    ],
+    "options": [
+     1,
+     1,
+     0,
+     0,
+     50,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 26,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     1
+    ],
+    "config": "",
+    "items": [
+     4
+    ],
+    "delay": 3
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 32,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95001",
+     "0"
+    ],
+    "options": [
+     -10,
+     0,
+     0,
+     0,
+     1,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 33,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "244364",
+     "0"
+    ],
+    "options": [
+     -20,
+     0,
+     0,
+     0,
+     1,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 34,
+    "userSources": [
+     201,
+     0
+    ],
+    "variableIds": [
+     "244364"
+    ],
+    "options": [
+     0,
+     1,
+     1,
+     1,
+     1,
+     11
+    ],
+    "config": "",
+    "items": [],
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 35,
+    "userSources": [
+     201
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     222,
+     -1
+    ],
+    "config": "@green@ Â¡Ganaste 1 crÃ©dito en el sorteo VIP!",
+    "items": [],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 36,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     1,
+     222,
+     -1
+    ],
+    "config": "@green@ $(name) ganÃ³ 1 crÃ©dito en el sorteo VIP (cada 30 minutos)",
+    "items": [],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 38,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95002",
+     "0"
+    ],
+    "options": [
+     -10,
+     0,
+     0,
+     0,
+     0,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 39,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 40,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 14
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 41,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 26
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 42,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 38
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 43,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 50
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 44,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 62
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 45,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 74
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 46,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 86
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 47,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 98
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 48,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     0
+    ],
+    "config": "",
+    "items": [
+     5
+    ],
+    "delay": 110
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 52,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244360",
+     "0"
+    ],
+    "options": [
+     1,
+     50,
+     0,
+     0,
+     1000,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 53,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244361",
+     "244353"
+    ],
+    "options": [
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 54,
+    "userSources": [
+     200,
+     200
+    ],
+    "variableIds": [
+     "244361",
+     "0"
+    ],
+    "options": [
+     1,
+     1,
+     0,
+     0,
+     50,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 55,
+    "userSources": [
+     200
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     1
+    ],
+    "config": "",
+    "items": [
+     6
+    ],
+    "delay": 3
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 63,
+    "userSources": [
+     0,
+     200
+    ],
+    "variableIds": [
+     "95002",
+     "0"
+    ],
+    "options": [
+     -10,
+     0,
+     0,
+     0,
+     1,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     200
+    ],
+    "wiredId": 64,
+    "userSources": [
+     201,
+     200
+    ],
+    "variableIds": [
+     "244353",
+     "0"
+    ],
+    "options": [
+     1,
+     1,
+     0,
+     0,
+     25,
+     -10,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 0
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     100,
+     200
+    ],
+    "wiredId": 65,
+    "userSources": [
+     201,
+     200
+    ],
+    "variableIds": [
+     "0"
+    ],
+    "options": [
+     0,
+     1,
+     0,
+     -20,
+     1,
+     0
+    ],
+    "config": "",
+    "items": [],
+    "delay": 1
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 66,
+    "userSources": [
+     201
+    ],
+    "variableIds": [],
+    "options": [
+     0,
+     222,
+     -1
+    ],
+    "config": "@green@ Â¡Ganaste un furni del cofre! (+25 de Aura)",
+    "items": [],
+    "delay": 2
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 67,
+    "userSources": [
+     0
+    ],
+    "variableIds": [],
+    "options": [
+     1,
+     222,
+     -1
+    ],
+    "config": "@green@ $(name) sacÃ³ el cofre y se llevÃ³ un furni (+25 de Aura)",
+    "items": [],
+    "delay": 2
+   }
+  ],
+  "addons": [
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 30,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1,
+     60
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 31,
+    "userSources": [
+     201
+    ],
+    "variableIds": [],
+    "options": [
+     0
+    ],
+    "config": "name",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [
+     0,
+     100
+    ],
+    "wiredId": 60,
+    "userSources": [],
+    "variableIds": [
+     "0"
+    ],
+    "options": [
+     0
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 61,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     1,
+     60
+    ],
+    "config": "",
+    "items": []
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 62,
+    "userSources": [
+     201
+    ],
+    "variableIds": [],
+    "options": [
+     0
+    ],
+    "config": "name",
+    "items": []
+   }
+  ],
+  "variables": [
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 1,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     10
+    ],
+    "config": "cred_entregado",
+    "items": [],
+    "variableId": "95001"
+   },
+   {
+    "secondItems": [],
+    "furniSources": [],
+    "wiredId": 2,
+    "userSources": [],
+    "variableIds": [],
+    "options": [
+     10
+    ],
+    "config": "furni_entregado",
+    "items": [],
+    "variableId": "95002"
+   }
+  ],
+  "variables_map": {
+   "cred_entregado": "95001",
+   "furni_entregado": "95002"
+  }
+ },
+ "bindings": [],
+ "furni": [
+  {
+   "rotation": 0,
+   "name": "wf_var_room[0]",
+   "className": "wf_var_room",
+   "location": {
+    "x": 0,
+    "y": 6,
+    "z": 0
+   },
+   "id": 1
+  },
+  {
+   "rotation": 0,
+   "name": "wf_var_room[1]",
+   "className": "wf_var_room",
+   "location": {
+    "x": 0,
+    "y": 6,
+    "z": 1.2
+   },
+   "id": 2
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[0]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+   },
+   "id": 3,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[1]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 1,
+    "y": 0,
+    "z": 0
+   },
+   "id": 4,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[2]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 2,
+    "y": 0,
+    "z": 0
+   },
+   "id": 5,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_antenna2[3]",
+   "className": "wf_antenna2",
+   "location": {
+    "x": 3,
+    "y": 0,
+    "z": 0
+   },
+   "id": 6,
+   "state": "0"
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_periodically[0]",
+   "className": "wf_trg_periodically",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 0.0
+   },
+   "id": 7
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[0]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 8
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[0]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 9
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[0]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 1.95
+   },
+   "id": 10
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[1]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 2.6
+   },
+   "id": 11
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[2]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 3.25
+   },
+   "id": 12
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[3]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 3.9
+   },
+   "id": 13
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[4]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 4.55
+   },
+   "id": 14
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[5]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 5.2
+   },
+   "id": 15
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[6]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 5.85
+   },
+   "id": 16
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[7]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 6.5
+   },
+   "id": 17
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[8]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 7.15
+   },
+   "id": 18
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[9]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 2,
+    "z": 7.8
+   },
+   "id": 19
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_recv_signal[0]",
+   "className": "wf_trg_recv_signal",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 0.0
+   },
+   "id": 20
+  },
+  {
+   "rotation": 0,
+   "name": "wf_slc_users_with_var[0]",
+   "className": "wf_slc_users_with_var",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 21
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[1]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 22
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[1]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 1.95
+   },
+   "id": 23
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[2]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 2.6
+   },
+   "id": 24
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[3]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 3.25
+   },
+   "id": 25
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[10]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 1,
+    "y": 2,
+    "z": 3.9
+   },
+   "id": 26
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_recv_signal[1]",
+   "className": "wf_trg_recv_signal",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 0.0
+   },
+   "id": 27
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[2]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 0.65
+   },
+   "id": 28
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[3]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 1.3
+   },
+   "id": 29
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_execution_limit[0]",
+   "className": "wf_xtra_execution_limit",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 1.95
+   },
+   "id": 30
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_text_output_username[0]",
+   "className": "wf_xtra_text_output_username",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 2.6
+   },
+   "id": 31
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[4]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 3.25
+   },
+   "id": 32
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[5]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 3.9
+   },
+   "id": 33
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_currency[0]",
+   "className": "wf_act_give_currency",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 4.55
+   },
+   "id": 34
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_show_message[0]",
+   "className": "wf_act_show_message",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 5.2
+   },
+   "id": 35
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_show_message[1]",
+   "className": "wf_act_show_message",
+   "location": {
+    "x": 2,
+    "y": 2,
+    "z": 5.85
+   },
+   "id": 36
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_periodically[1]",
+   "className": "wf_trg_periodically",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 0.0
+   },
+   "id": 37
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[6]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 0.65
+   },
+   "id": 38
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[11]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 1.3
+   },
+   "id": 39
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[12]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 1.95
+   },
+   "id": 40
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[13]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 2.6
+   },
+   "id": 41
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[14]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 3.25
+   },
+   "id": 42
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[15]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 3.9
+   },
+   "id": 43
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[16]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 4.55
+   },
+   "id": 44
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[17]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 5.2
+   },
+   "id": 45
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[18]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 5.85
+   },
+   "id": 46
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[19]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 6.5
+   },
+   "id": 47
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[20]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 0,
+    "y": 4,
+    "z": 7.15
+   },
+   "id": 48
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_recv_signal[2]",
+   "className": "wf_trg_recv_signal",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 0.0
+   },
+   "id": 49
+  },
+  {
+   "rotation": 0,
+   "name": "wf_slc_users_bytype[0]",
+   "className": "wf_slc_users_bytype",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 0.65
+   },
+   "id": 50
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[4]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 1.3
+   },
+   "id": 51
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[7]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 1.95
+   },
+   "id": 52
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[8]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 2.6
+   },
+   "id": 53
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[9]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 3.25
+   },
+   "id": 54
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_send_signal[21]",
+   "className": "wf_act_send_signal",
+   "location": {
+    "x": 1,
+    "y": 4,
+    "z": 3.9
+   },
+   "id": 55
+  },
+  {
+   "rotation": 0,
+   "name": "wf_trg_recv_signal[3]",
+   "className": "wf_trg_recv_signal",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 0.0
+   },
+   "id": 56
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[5]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 0.65
+   },
+   "id": 57
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_var_val_match[6]",
+   "className": "wf_cnd_var_val_match",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 1.3
+   },
+   "id": 58
+  },
+  {
+   "rotation": 0,
+   "name": "wf_cnd_chest_has_items[0]",
+   "className": "wf_cnd_chest_has_items",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 1.95
+   },
+   "id": 59
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_scan_chest_furni_by_type[0]",
+   "className": "wf_xtra_scan_chest_furni_by_type",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 2.6
+   },
+   "id": 60
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_execution_limit[1]",
+   "className": "wf_xtra_execution_limit",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 3.25
+   },
+   "id": 61
+  },
+  {
+   "rotation": 0,
+   "name": "wf_xtra_text_output_username[1]",
+   "className": "wf_xtra_text_output_username",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 3.9
+   },
+   "id": 62
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[10]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 4.55
+   },
+   "id": 63
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_change_var_val[11]",
+   "className": "wf_act_change_var_val",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 5.2
+   },
+   "id": 64
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_give_furni[0]",
+   "className": "wf_act_give_furni",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 5.85
+   },
+   "id": 65
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_show_message[2]",
+   "className": "wf_act_show_message",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 6.5
+   },
+   "id": 66
+  },
+  {
+   "rotation": 0,
+   "name": "wf_act_show_message[3]",
+   "className": "wf_act_show_message",
+   "location": {
+    "x": 2,
+    "y": 4,
+    "z": 7.15
+   },
+   "id": 67
+  }
+ ],
+ "wallFurni": [],
+ "exportOrigin": {
+  "x": 0,
+  "y": 0,
+  "floor": 0
+ }
+}
