@@ -48,12 +48,31 @@ public class PresetValidator {
             return;
         }
         String[] partes = texto.split("\\s+", 2);
-        if (partes.length == 0 || !partes[0].toLowerCase(Locale.ROOT).equals(":validar")) {
+        String cmd = partes.length == 0 ? "" : partes[0].toLowerCase(Locale.ROOT);
+        final String arg = partes.length > 1 ? partes[1].trim() : "";
+        if (cmd.equals(":susurros")) {
+            hMessage.setBlocked(true);
+            susurros(arg);
+            return;
+        }
+        if (!cmd.equals(":validar")) {
             return;
         }
         hMessage.setBlocked(true);
-        final String nombre = partes.length > 1 ? partes[1].trim() : "";
-        new Thread(() -> this.ejecutar(nombre), "PresetValidator").start();
+        new Thread(() -> this.ejecutar(arg), "PresetValidator").start();
+    }
+
+    private void susurros(String arg) {
+        String a = arg.toLowerCase(Locale.ROOT);
+        if (a.equals("normal")) this.ext.setNivelSusurros(0);
+        else if (a.equals("bajo")) this.ext.setNivelSusurros(1);
+        else if (a.equals("minimo")) this.ext.setNivelSusurros(2);
+        else if (!a.isEmpty()) {
+            say("Uso: :susurros normal | bajo | minimo");
+            return;
+        }
+        String[] nombres = {"normal (todos)", "bajo (sin avisos de progreso, como mucho 1 cada 3 s)", "minimo (solo errores, resultados y preguntas)"};
+        say("susurros: " + nombres[this.ext.getNivelSusurros()]);
     }
 
     private void say(String s) {
@@ -86,14 +105,12 @@ public class PresetValidator {
                 for (String[] r : res) w.println("[" + r[0] + "] " + r[1]);
                 w.println(err + " errores, " + avi + " avisos, " + inf + " notas");
             }
-            say("\"" + nombre + "\": " + err + " errores, " + avi + " avisos, " + inf + " notas.");
-            int mostrados = 0;
-            for (String[] r : res) {
-                if (r[0].equals("info")) continue;
-                if (mostrados++ >= 6) break;
-                say("[" + r[0] + "] " + r[1]);
+            say("\"" + nombre + "\": " + err + " errores, " + avi + " avisos. Informe: " + informe.getName());
+            if (err > 0) {
+                for (String[] r : res) {
+                    if (r[0].equals("error")) { say(r[1]); break; }
+                }
             }
-            if (err + avi > 6) say("... informe completo en " + informe.getName());
         } catch (Exception e) {
             say("No pude validar: " + e.getMessage());
         }

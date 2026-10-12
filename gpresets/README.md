@@ -1,4 +1,4 @@
-# GPresets con `:validar`
+# GPresets con `:validar` y `:susurros`
 
 `PresetValidator.java` es la versión Java de `wiredtool validar` y se engancha a la extensión G-Presets 1.5.4-beta-10.
 
@@ -27,3 +27,14 @@ cp GPresets.jar GPresets_validar.jar && (cd cls && jar uf ../GPresets_validar.ja
 
 ## Sin probar
 Solo se comprobó que las clases cargan y verifican con `-Xverify:all` y que `validar` da el mismo resultado que la versión Python. **No se probó dentro de G-Earth.**
+
+## `:susurros` (menos mensajes en el chat)
+Todos los mensajes de G-Presets pasan por `GPresets.sendVisualChatInfo`. Se filtró **solo el susurro que llega al cliente**; los avisos internos (flujo de copiar/pegar, diagnóstico, colocación de paredes) siguen recibiendo el texto completo.
+
+| Nivel | Qué muestra |
+|---|---|
+| `:susurros normal` | todo, como antes |
+| `:susurros bajo` (por defecto) | errores, resultados, preguntas y respuestas a tus comandos; oculta el progreso ("Colocando furni...", "Configurando wired.."); el resto como mucho 1 cada 3 s |
+| `:susurros minimo` | solo errores, resultados, preguntas y respuestas a comandos |
+
+El nivel se guarda en la caché de G-Earth. Los cambios están en `GPresets-susurros.patch` (sobre el `GPresets.java` descompilado con los arreglos de `(Object)` y la línea de `PresetValidator`).

@@ -1,0 +1,78 @@
+--- GPresets.base.java	2026-10-12 02:01:36.360068703 +0000
++++ src/extension/GPresets.java	2026-10-12 02:02:02.608235713 +0000
+@@ -528,6 +528,9 @@
+             WallItems.get().onImportFinished();
+         }
+         this.diagnostics.onChat(string);
++        if (!this.debeSusurrar(string)) {
++            return;
++        }
+         try {
+             this.sendToClient(new HPacket("Whisper", HMessage.Direction.TOCLIENT, -1, string, 0, 30, 0, -1));
+         }
+@@ -536,6 +539,65 @@
+         }
+     }
+ 
++    // ---- nivel de susurros: 0 = normal (todo), 1 = bajo (sin progreso y como mucho 1 cada 3 s), 2 = minimo ----
++    private volatile int nivelSusurros = -1;
++    private volatile long ultimoSusurro = 0L;
++    private static final java.util.regex.Pattern SUSURRO_RUIDO = java.util.regex.Pattern.compile(
++        "^(Colocando|Configurando|Ajustando|Importando|Exportando|Leyendo|Quitar: recogiendo|Wired |Fetching|Placing)",
++        java.util.regex.Pattern.CASE_INSENSITIVE);
++    private static final java.util.regex.Pattern SUSURRO_IMPORTANTE = java.util.regex.Pattern.compile(
++        "^(ERROR|Error|No pude|No se pudo|No hay|No puedes|No existe|Ya hay|Primero|Solo el|Uso:|Haz clic|Select the|Enter |Invalid|Aborted|G-Presets:|Omitidos|Ojo:|Ni acomodando|Tal como esta|ANTES DE COLOCAR|Baldosa|Memoria de furnis|Firmas|Leer:|Atuendos|Paredes|Quitar|Texto:|Altura|Margen|Modo:|Opciones para|Para fijar)"
++        + "|importado correctamente|importado con omisiones|Exported|cancelad|Listo|Piso aplicado|Plano recortado|Sala recortada|Diagnostico guardado");
++
++    public int getNivelSusurros() {
++        if (this.nivelSusurros < 0) {
++            int n = 1;
++            try {
++                Object o = Cacher.get("susurros");
++                if (o instanceof Number) {
++                    n = ((Number)o).intValue();
++                }
++            }
++            catch (Exception exception) {
++                // se queda en bajo
++            }
++            this.nivelSusurros = n < 0 || n > 2 ? 1 : n;
++        }
++        return this.nivelSusurros;
++    }
++
++    public void setNivelSusurros(int n) {
++        this.nivelSusurros = n;
++        try {
++            Cacher.put("susurros", n);
++        }
++        catch (Exception exception) {
++            // no se pudo guardar; vale hasta cerrar G-Earth
++        }
++    }
++
++    private boolean debeSusurrar(String string) {
++        int n = this.getNivelSusurros();
++        if (n == 0 || string == null) {
++            return true;
++        }
++        if (SUSURRO_RUIDO.matcher(string).find()) {
++            return false;
++        }
++        if (SUSURRO_IMPORTANTE.matcher(string).find()) {
++            return true;
++        }
++        if (n >= 2) {
++            return false;
++        }
++        long l = System.currentTimeMillis();
++        if (l - this.ultimoSusurro < 3000L) {
++            return false;
++        }
++        this.ultimoSusurro = l;
++        return true;
++    }
++
+     public void loadInventoryClick(ActionEvent actionEvent) {
+         this.inventory.requestInventory();
+     }
