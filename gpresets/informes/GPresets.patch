@@ -1,0 +1,156 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/GPresets.java	2026-10-12 02:00:41.366393747 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/gp/extension/GPresets.java	2026-10-12 02:34:58.285439022 +0000
+@@ -42,6 +42,7 @@
+ import extension.tools.GPresetExporter;
+ import extension.tools.GPresetImporter;
+ import extension.tools.PresetUtils;
++import extension.tools.PresetValidator;
+ import extension.tools.RoomCrop;
+ import extension.tools.SimpleFlow;
+ import extension.tools.StackTileSetting;
+@@ -261,8 +262,8 @@
+         TableColumn tableColumn2 = new TableColumn("ID del furni existente");
+         tableColumn2.setCellValueFactory((Callback)new PropertyValueFactory("existingFurniId"));
+         tableColumn2.setPrefWidth(120.0);
+-        this.postconfigTable.getColumns().add((Object)tableColumn);
+-        this.postconfigTable.getColumns().add((Object)tableColumn2);
++        this.postconfigTable.getColumns().add(tableColumn);
++        this.postconfigTable.getColumns().add(tableColumn2);
+         this.postconfigTable.setRowFactory(tableView -> {
+             TableRow tableRow = new TableRow();
+             ContextMenu contextMenu = new ContextMenu();
+@@ -275,8 +276,8 @@
+                     this.updateFurniPostConfigsView();
+                 }
+             });
+-            contextMenu.getItems().add((Object)menuItem);
+-            tableRow.contextMenuProperty().bind((ObservableValue)Bindings.when((ObservableBooleanValue)tableRow.emptyProperty()).then((Object)null).otherwise((Object)contextMenu));
++            contextMenu.getItems().add(menuItem);
++            tableRow.contextMenuProperty().bind((ObservableValue)Bindings.when((ObservableBooleanValue)tableRow.emptyProperty()).then((ContextMenu)null).otherwise(contextMenu));
+             return tableRow;
+         });
+         this.pcgrid.add(this.postconfigTable, 0, 0);
+@@ -328,7 +329,7 @@
+         this.item_src_tgl.selectedToggleProperty().addListener(observable -> this.updatePostConfig());
+         this.presetListView.setOnMouseClicked(mouseEvent -> {
+             String string;
+-            if (mouseEvent.getButton().equals((Object)MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2 && (string = (String)this.presetListView.getSelectionModel().getSelectedItem()) != null) {
++            if (mouseEvent.getButton().equals(MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2 && (string = (String)this.presetListView.getSelectionModel().getSelectedItem()) != null) {
+                 try {
+                     this.selectPreset(PresetConfigUtils.loadPresetOrThrow(string), string);
+                 }
+@@ -392,6 +393,7 @@
+         this.missingWarned = false;
+         HPoint hPoint = PresetUtils.presetDimensions(presetConfig);
+         this.logger.log(String.format("Dimensiones del preset: %dx%d", hPoint.getX(), hPoint.getY()), "green");
++        this.revisarPreset(string);
+         this.updateHomeInfo(presetConfig, string);
+         this.updateUI();
+     }
+@@ -431,7 +433,7 @@
+ 
+     private void updateLabel(Label label, boolean bl, boolean bl2, boolean bl3) {
+         label.getStyleClass().removeAll((Collection)label.getStyleClass().stream().filter(string -> string.startsWith("lbl")).collect(Collectors.toList()));
+-        label.getStyleClass().add((Object)(bl ? "lblgreen" : (bl2 ? "lblorange" : (bl3 ? "lblgrey" : "lblred"))));
++        label.getStyleClass().add((bl ? "lblgreen" : (bl2 ? "lblorange" : (bl3 ? "lblgrey" : "lblred"))));
+     }
+ 
+     private void updateLabel(Label label, boolean bl, boolean bl2) {
+@@ -473,15 +475,15 @@
+         String string = this.presetSearchField.getText() == null ? "" : this.presetSearchField.getText().trim().toLowerCase();
+         String string3 = (String)this.presetListView.getSelectionModel().getSelectedItem();
+         this.presetListView.getItems().setAll((Collection)this.allPresetNames.stream().filter(string2 -> string.isEmpty() || string2.toLowerCase().contains(string)).collect(Collectors.toList()));
+-        if (string3 != null && this.presetListView.getItems().contains((Object)string3)) {
+-            this.presetListView.getSelectionModel().select((Object)string3);
++        if (string3 != null && this.presetListView.getItems().contains(string3)) {
++            this.presetListView.getSelectionModel().select(string3);
+         }
+         this.syncingCombo = true;
+         try {
+             String string4 = this.currentPresetName;
+             this.homePresetCombo.getItems().setAll(this.allPresetNames);
+             if (string4 != null && this.allPresetNames.contains(string4)) {
+-                this.homePresetCombo.setValue((Object)string4);
++                this.homePresetCombo.setValue(string4);
+             }
+         }
+         finally {
+@@ -534,6 +536,42 @@
+         }
+     }
+ 
++    // ---- revision silenciosa del preset al elegirlo: solo habla si hay problemas (en el registro) y susurra solo ante errores ----
++    private void revisarPreset(String string) {
++        new Thread(() -> {
++            try {
++                File file = new File(PresetConfigUtils.presetPath(), string + ".json");
++                java.util.List<String[]> list = PresetValidator.validar(new org.json.JSONObject(new String(java.nio.file.Files.readAllBytes(file.toPath()), java.nio.charset.StandardCharsets.UTF_8)));
++                int n = 0;
++                int n2 = 0;
++                for (String[] stringArray : list) {
++                    if ("error".equals(stringArray[0])) {
++                        ++n;
++                        continue;
++                    }
++                    if (!"aviso".equals(stringArray[0])) continue;
++                    ++n2;
++                }
++                if (n + n2 == 0) {
++                    return;
++                }
++                this.logger.log(String.format("Revision del preset: %d errores, %d avisos", n, n2), n > 0 ? "red" : "orange");
++                int n3 = 0;
++                for (String[] stringArray : list) {
++                    if ("info".equals(stringArray[0])) continue;
++                    if (n3++ >= 12) break;
++                    this.logger.log("  [" + stringArray[0] + "] " + stringArray[1], "orange");
++                }
++                if (n > 0) {
++                    this.sendVisualChatInfo("ERROR: el preset tiene " + n + " errores (mira el registro)");
++                }
++            }
++            catch (Exception exception) {
++                // la revision es opcional: si falla no se dice nada
++            }
++        }, "PresetReview").start();
++    }
++
+     public void loadInventoryClick(ActionEvent actionEvent) {
+         this.inventory.requestInventory();
+     }
+@@ -573,7 +611,7 @@
+             this.syncingCombo = true;
+             try {
+                 if (string != null && !string.equals(this.homePresetCombo.getValue())) {
+-                    this.homePresetCombo.setValue((Object)string);
++                    this.homePresetCombo.setValue(string);
+                 }
+             }
+             finally {
+@@ -656,7 +694,7 @@
+     private PostConfig createPostConfig() {
+         PostConfig postConfig = new PostConfig();
+         ItemSource itemSource = ItemSource.valueOf((String)this.item_src_tgl.getSelectedToggle().getUserData());
+-        Cacher.put("itemSource", (Object)itemSource);
++        Cacher.put("itemSource", itemSource);
+         postConfig.setItemSource(itemSource);
+         this.furniPostConfigs.forEach(postConfig::addFurniPostConfig);
+         return postConfig;
+@@ -852,7 +890,7 @@
+             }
+             stringBuilder.append("\n");
+             stringBuilder.append("Datos de furni: ").append(this.furniDataReady() ? "listos" : "no listos").append(" | inventario: ").append(this.inventory == null ? "-" : this.inventory.getState()).append("\n");
+-            stringBuilder.append("Stack tile elegido: ").append((Object)this.stackTileSetting).append(" | hay en la sala: ").append(this.stackTile() != null ? "si" : "no").append("\n");
++            stringBuilder.append("Stack tile elegido: ").append(this.stackTileSetting).append(" | hay en la sala: ").append(this.stackTile() != null ? "si" : "no").append("\n");
+             stringBuilder.append("Permisos: mover furni ").append(this.permissions != null && this.permissions.canMoveFurni() ? "si" : "no").append(", editar wired ").append(this.permissions != null && this.permissions.canModifyWired() ? "si" : "no").append("\n");
+             stringBuilder.append(String.format("Ping aprox: %d ms | espera segura: %d ms | barra velocidad/limite: %d%n", this.ping, this.getSafeFeedbackTimeout(), this.ratelimitValue));
+             stringBuilder.append("Que importar (por defecto): ").append(this.importContent.label).append("\n");
+@@ -895,7 +933,7 @@
+                 arrayList.add("La extension aun no esta lista para importar: revisa los indicadores de ESTADO (sala, datos de furni, inventario, stack tile, permisos).");
+             }
+             if (this.floorState != null && this.floorState.inRoom() && this.stackTile() == null) {
+-                arrayList.add("No hay un stack tile del tamano elegido (" + (Object)((Object)this.stackTileSetting) + ") en la sala: pon uno o cambia el tamano en Ajustes.");
++                arrayList.add("No hay un stack tile del tamano elegido (" + (this.stackTileSetting) + ") en la sala: pon uno o cambia el tamano en Ajustes.");
+             }
+         }
+         catch (Exception exception) {

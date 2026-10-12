@@ -37,3 +37,4 @@ Responde en español. Sé conciso: pide solo lo necesario y no repitas análisis
 ## G-Presets
 - Importar: elegir el preset en la interfaz, `:plano` (opcional, piso) y luego `:ip 0,0`.
 - No ejecutar nada que intercepte el cliente de Habbo sin que el usuario lo pida expresamente.
+- `gpresets/`: mejoras al jar de G-Presets (traductor alemán/inglés/C2, ritmo de escritura, avisos restaurados). Ver `gpresets/README.md`; la auditoría pendiente está en `gpresets/informes/AUDITORIA.md`.

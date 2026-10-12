@@ -1,0 +1,156 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/tools/Traductor.java	2026-10-12 02:00:44.036582081 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/final/src/extension/tools/Traductor.java	2026-10-12 12:01:42.602377466 +0000
+@@ -67,10 +67,15 @@
+             string3 = "auto";
+         }
+         long l = System.currentTimeMillis();
++        // "en-c2" = ingles con tono de nativo (entrada "Ingl\u00e9s C2" de la lista de la sala): Google recibe "en"
++        boolean c2 = "en-c2".equals(string4);
++        String destino = c2 ? "en" : string4;
+         try {
+-            string2 = Traductor.traducir(string5, string3, string4, n);
+-            if ("en".equals(string4) && string2 != null && !string2.equalsIgnoreCase(string5)) {
+-                string2 = NivelB2.aplicar(string2);
++            string2 = Traductor.traducir(string5, string3, destino, n);
++            if ("en".equals(destino) && string2 != null && !string2.equalsIgnoreCase(string5)) {
++                string2 = c2 ? NivelC2.aplicar(string2) : NivelB2.aplicar(string2);
++            } else if ("de".equals(destino) && string2 != null && !string2.equalsIgnoreCase(string5)) {
++                string2 = EstiloDe.aplicar(string2);
+             }
+         }
+         catch (Exception exception) {
+@@ -78,6 +83,8 @@
+             throw exception;
+         }
+         Traductor.registrar("ENVIADO a " + string4, string5, string5, string2.equalsIgnoreCase(string5) ? null : string2, System.currentTimeMillis() - l, null);
++        // ritmo de escritura humano: el mensaje sale tras una espera segun su largo (ver Escritura / Memoria/escritura.txt)
++        Escritura.esperar(string2, System.currentTimeMillis() - l);
+         JSONArray jSONArray = new JSONArray().put(string2).put(string5);
+         return new JSONArray().put(new JSONArray().put(jSONArray)).toString().getBytes(StandardCharsets.UTF_8);
+     }
+@@ -131,44 +138,36 @@
+ 
+     static synchronized void registrar(String string, String string2, String string3, String string4, long l, String string5) {
+         try {
+-            Comparable<StringBuilder> comparable;
+             File file = Diagnostics.directory().getParentFile();
+             File file2 = file == null ? new File("Memoria") : new File(file, "Memoria");
+             file2.mkdirs();
+             File file3 = new File(file2, "traductor_registro.txt");
+             if (file3.length() > 400000L) {
+-                comparable = new File(file2, "traductor_registro_anterior.txt");
+-                ((File)comparable).delete();
+-                file3.renameTo((File)comparable);
+-            }
+-            comparable = new StringBuilder();
+-            ((StringBuilder)comparable).append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).append(" | ").append(string);
+-            ((StringBuilder)comparable).append(" | ").append(string2);
++                File file4 = new File(file2, "traductor_registro_anterior.txt");
++                file4.delete();
++                file3.renameTo(file4);
++            }
++            StringBuilder stringBuilder = new StringBuilder();
++            stringBuilder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).append(" | ").append(string);
++            stringBuilder.append(" | ").append(string2);
+             if (string3 != null && !string3.equals(string2)) {
+-                ((StringBuilder)comparable).append(" | abreviaturas: ").append(string3);
++                stringBuilder.append(" | abreviaturas: ").append(string3);
+             }
+-            ((StringBuilder)comparable).append(" | => ").append(string5 != null ? "ERROR " + string5 : (string4 == null ? "(sin cambio)" : string4));
+-            ((StringBuilder)comparable).append(" | ").append(ultimoServicio).append(" | ").append(l).append(" ms\r\n");
+-            Throwable throwable = null;
+-            Object var12_12 = null;
++            stringBuilder.append(" | => ").append(string5 != null ? "ERROR " + string5 : (string4 == null ? "(sin cambio)" : string4));
++            stringBuilder.append(" | ").append(ultimoServicio).append(" | ").append(l).append(" ms\r\n");
+             try (FileOutputStream fileOutputStream = new FileOutputStream(file3, true);){
+-                fileOutputStream.write(((StringBuilder)comparable).toString().getBytes(StandardCharsets.UTF_8));
+-            }
+-            catch (Throwable throwable2) {
+-                if (throwable == null) {
+-                    throwable = throwable2;
+-                } else if (throwable != throwable2) {
+-                    throwable.addSuppressed(throwable2);
+-                }
+-                throw throwable;
++                fileOutputStream.write(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
+             }
+         }
+         catch (Throwable throwable) {
+-            // empty catch block
++            // el registro es opcional
+         }
+     }
+ 
+     static String traducir(String string, String string2, String string3, int n) throws Exception {
++        if ("en-c2".equals(string3)) {
++            string3 = "en";
++        }
+         if (!Traductor.merece(string)) {
+             return string;
+         }
+@@ -203,8 +202,7 @@
+                         string6 = string6.substring(0, n2);
+                     }
+                     if (!string6.isEmpty() && !IDIOMAS_NORMALES.contains(string6)) {
+-                        String string7;
+-                        String string8 = string4 != null ? string4 : (string7 = "en".equals(string3) ? "es" : "en");
++                        String string7 = string4 != null ? string4 : ("en".equals(string3) ? "es" : "en");
+                         if (string7.equals(string3)) {
+                             string5 = string;
+                         } else {
+@@ -291,14 +289,10 @@
+         ultimaPeticion = System.currentTimeMillis();
+     }
+ 
+-    /*
+-     * WARNING - Removed try catching itself - possible behaviour change.
+-     */
+     private static String get(String string, int n) throws Exception {
+         Traductor.esperarTurno();
+         HttpURLConnection httpURLConnection = (HttpURLConnection)new URL(string).openConnection();
+         try {
+-            String string2;
+             httpURLConnection.setConnectTimeout(Math.min(n, 3000));
+             httpURLConnection.setReadTimeout(n);
+             httpURLConnection.setRequestProperty("User-Agent", UA);
+@@ -307,37 +301,15 @@
+             if (n2 != 200) {
+                 throw new IOException("HTTP " + n2);
+             }
+-            Object object = httpURLConnection.getInputStream();
+-            Object object2 = null;
+-            try {
++            try (InputStream inputStream = httpURLConnection.getInputStream();){
+                 int n3;
+                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                 byte[] byArray = new byte[8192];
+-                while ((n3 = ((InputStream)object).read(byArray)) > 0) {
++                while ((n3 = inputStream.read(byArray)) > 0) {
+                     byteArrayOutputStream.write(byArray, 0, n3);
+                 }
+-                string2 = new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8);
+-            }
+-            catch (Throwable throwable) {
+-                object2 = throwable;
+-                throw throwable;
+-            }
+-            finally {
+-                if (object != null) {
+-                    if (object2 != null) {
+-                        try {
+-                            ((InputStream)object).close();
+-                        }
+-                        catch (Throwable throwable) {
+-                            ((Throwable)object2).addSuppressed(throwable);
+-                        }
+-                    } else {
+-                        ((InputStream)object).close();
+-                    }
+-                }
++                return new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8);
+             }
+-            object2 = object = string2;
+-            return object2;
+         }
+         finally {
+             httpURLConnection.disconnect();

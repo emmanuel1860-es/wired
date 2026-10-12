@@ -1,0 +1,55 @@
+# Palabras que delatan el ingles (se suman a las integradas en Slang.MARKS). Separadas por espacios; # comenta.
+# Criterio: palabras funcionales y de chat que NO son palabras de es/pt/fr/it/nl/de/tr/fi (revisado con 'det' sobre un corpus negativo).
+# Se evitan a proposito: prestamos universales (ok, bye, party, game, team, level, hotel, chat, bar, real, top...),
+# jerga de chat que usan todos los idiomas (lol, gg, omg, idk, thx, pls) y palabras reales en otros idiomas (name, hand, bad, hard, once, ten, seven, invite, ago, may, must...).
+
+# Pronombres, conectores y adverbios (exclusivos del ingles) (85)
+myself yourself himself herself themselves ourselves itself yours hers ours theirs whose whom whatever
+whenever wherever whoever however although unless since during between through across against around behind
+below above under inside outside beside beyond near among within toward towards upon onto whether either
+neither both each every else anybody somebody everybody anywhere somewhere everywhere nowhere sometimes
+usually often perhaps probably definitely actually basically literally honestly seriously totally exactly
+absolutely finally suddenly hopefully apparently obviously especially anyway anyways anymore thing things
+stuff others few twice
+
+# Verbos frecuentes (gerundios, pasados y formas irregulares) (148)
+doing having getting giving taking making seeing looking saying telling knowing thinking wanting needing
+trying tried try used using work working worked works talk talking talked ask asking asked answer answered
+call calling called found keep keeping kept running stay staying stayed walk walking walked move moving moved
+paying paid send sending bring bringing brought build building built break breaking broke broken fixed fixing
+changed changing turning turned picked join joined joining invited inviting kicked muted blocked reported
+banned cheat cheating cheater cheated hacked steal stole stolen stealing lying liar trust trusted believe
+believed understand understood remember remembered forget forgot learn learned learning teach taught teaching
+write wrote written reading writing speaking spoke spoken known became become began begun stood meant slept
+woke grew threw caught heard means meaning wearing wear sleep laugh smile feel feeling hear listen listening
+wish hope alive died hurt hug cry wake eat
+
+# Adjetivos y adverbios (68)
+tired sleepy hungry thirsty angry scared afraid lonely proud jealous poor expensive loud quiet early quick
+quickly awful beautiful pretty ugly strong unlucky stupid dumb silly strange difficult available polite
+famous careful dangerous clean empty whole enough several plenty lots little less least better worse bigger
+biggest smaller higher highest lower lowest older oldest newest latest nearly almost quite rather twenty
+thirty fifty hundred thousand three five eight
+
+# Sustantivos de uso diario y de Habbo (solo formas inglesas) (78)
+price prices gifts raffle music movie movies picture pictures phone number numbers friendship family mom mum
+dad mother father brother sister teacher homework month months year years morning afternoon evening midnight
+tonight yesterday days country world heart head eyes hands legs coffee candy dog horse bird fish books book
+prize prizes scammed scamming bargain sold selling buying bought buyer seller middleman furniture rooms doors
+chairs clothes hats shoes colour blue green yellow purple brown gray grey golden silver
+
+# Contracciones con apostrofo (ASCII y tipografico) y sin apostrofo (95)
+we're we've we'll they're they've they'll he's she's that's who's where's how's here's it'll you'll you've
+you'd aren't wasn't weren't hasn't haven't hadn't wouldn't couldn't shouldn't mustn't would've could've
+should've y'all ain't c'mon ive theyre thats wasnt arent havent hasnt hadnt wouldnt couldnt shouldnt werent
+hows wheres whos heres theres youll youve youd theyll theyve weve shes wouldve couldve shouldve i’m i’ll i’ve
+i’d don’t doesn’t didn’t can’t won’t isn’t aren’t wasn’t it’s that’s what’s there’s let’s you’re they’re
+we’re he’s she’s who’s where’s how’s here’s couldn’t wouldn’t shouldn’t haven’t hasn’t you’ll you’ve ain’t
+y’all
+
+# Ortografia de chat de no nativos y jerga solo inglesa (79)
+c/o b/o w/o plss pliz thnx thanx thnks gonna wanna gotta lemme gimme dunno kinda sorta whatcha gud luv frnd
+fren wht wut whts wats hw wher ur gr8 m8 l8r b4 w8 2day 2nite 2moro 4u cuz coz thru altho bcz bcoz becoz
+becuz smth sumthing somethin nothin anythin doin goin comin lookin tryin talkin playin chillin shoulda coulda
+woulda hafta wassup wazzup whatsup heya helo hellooo nope yep yup dudes peeps guyz gurl shall ought goodnight
+goodbye

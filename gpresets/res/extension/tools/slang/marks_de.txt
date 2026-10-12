@@ -1,0 +1,130 @@
+# Palabras que delatan el aleman (se suman a las integradas: der die das und ist ich du ... ).
+# Criterio: frecuentes en chat y SIN equivalente identico en nl, en, es, pt, fr, it, tr, fi, sv, da.
+# Evitadas a proposito: alle alles andere beide echt klein lang links rechts morgen nacht weg werden ging mal so da man hat war
+# (existen igual en neerlandes/ingles/espanol) y las palabras cortas de 1-3 letras que son corrientes en otros idiomas.
+
+# ---- pronombres, determinantes ----
+mich dich mir dir ihm ihn ihnen euch
+dein deine deinen deinem deiner
+meine meinen meinem meiner
+seine seinen seinem seiner
+ihre ihren ihrem ihrer
+unser unsere unserem unseren
+euer eure
+welche welcher welches welchen welchem
+jeder jede jedes jeden
+jemand jemanden jemandem niemanden
+etwas nichts manche manchmal einige einigen viele wenige
+selbst selber
+dieser diese diesen diesem dieses jener jenes
+einen einem einer eines keinen keinem keiner keines keine kein
+
+# ---- verbos y formas verbales ----
+sind seid warst wäre wären waere
+hab habe habt haben hatte hatten hätte hätten haette
+werde wirst wird wurde wurden geworden
+können könnt konnte könnte konnten
+muss musst müssen musste müsste
+wollen wollt wollte wollten
+soll sollst sollen sollt sollte
+darf darfst dürfen dürft
+magst mögen möchte möchtest möchten
+gibt gibts gibt's geht gehts geht's gehst gehen gehe gegangen
+kommt kommst kommen komme komm gekommen
+mache machst macht machen gemacht
+sag sagst sagt sagen sagte gesagt
+siehst sieht sehen gesehen
+schau schaut schauen guck guckt gucken
+hörst hört hören gehört
+weiß weiss weißt weisst wissen wusste gewusst
+denke denkst dachte
+glaube glaubst glaubt glauben
+meinst meint meinen gemeint
+brauche brauchst braucht brauchen gebraucht
+suche suchst sucht suchen gesucht
+findest findet finden gefunden
+nehme nimmst nimmt nehmen genommen
+gebe gibst geben gegeben
+bekomme bekommst bekommt bekommen
+kriege kriegst kriegt kriegen
+verkaufe verkaufst verkauft verkaufen
+kaufe kaufst kauft kaufen gekauft
+tausche tauschst tauscht tauschen getauscht
+hilf hilfe helfen hilft geholfen
+warte wartest wartet warten gewartet
+bleib bleibst bleibt bleiben geblieben
+lass lässt lasst lassen
+setz setzt setzen steh stehst steht stehen
+läuft laufen spiele spielst spielt spielen gespielt
+lerne lernst lernt lernen
+heißt heißen heisst heissen
+liebe liebst liebt lieben
+
+# ---- partículas, adverbios, conjunciones ----
+niemals immer oft selten meistens
+vielleicht wahrscheinlich bestimmt sicher sicherlich natürlich
+genau eben halt einfach ruhig
+sogar besonders ziemlich ganz
+wirklich richtig falsch
+viel wenig mehr weniger genug kaum ungefähr etwa höchstens mindestens
+wieder nochmal schonmal gleich sofort jetzt nun gerade heute gestern übermorgen
+abends morgens nachts später früher früh spät lange kurz erst zuerst zuletzt
+danach davor dabei dafür dagegen damit darauf daran darin darum deshalb deswegen
+trotzdem außerdem ausserdem sonst sowieso überhaupt eigentlich übrigens jedenfalls
+wenigstens zumindest allerdings doch jedoch sondern oder denn weil dass wenn obwohl
+während bevor nachdem sobald seit
+dort drüben hinten vorne oben unten geradeaus draußen drinnen überall nirgends
+irgendwo irgendwie irgendwas irgendwer irgendwann irgendein irgendwelche
+raus rein rauf runter rüber hierher dahin daher dorthin
+wann wieso weshalb weswegen woher wohin womit wofür wovon wozu worauf wieviel wieviele wem wessen
+
+# ---- saludos y cortesía ----
+moin moinsen servus tschüss tschüs tschuess tschau tschö huhu hallöchen mahlzeit
+dankeschön herzlich gern willkommen entschuldigung verzeihung bitteschön
+gute guten gutes grüße grüß gruß
+gruesse grüezi gruezi
+
+# ---- adjetivos y expresiones frecuentes ----
+schlecht schön schöne schönen schlimm lustig traurig müde hungrig durstig langweilig
+komisch seltsam merkwürdig nett lieb süß hübsch hässlich groß neu neue neuen alten
+jung richtig stimmt schwer leicht schnell langsam laut leise kalt heiß voll frei fertig bereit
+vergessen verstanden verstehe verstehst versteh
+bisschen bissl bissi dinge sache sachen leute leuten
+mensch junge mädchen kerl
+quatsch blödsinn unsinn leider hoffentlich
+
+# ---- chat y jerga alemana ----
+digga digger oida alda bruda brudi krass kracher wahnsinn übelst
+nich nit ned nöd nix nüscht nischt gibts hamma haste biste kannste willste
+iwie iwas iwann iwo iwer jz jtz jzt jetz jez vllt vll kp lg mfg hdl hdgdl
+nen ner aufm aufn ausm mitm vorm unterm überm übern
+fuer ueber schoen moechte koennen koennt muessen duerfen wuerde haette
+spaeter frueh natuerlich moeglich zurueck gruss weiss heiss spass ausserdem
+
+# ---- Habbo en alemán ----
+räume raeume möbel moebel taler marktplatz tausch
+freund freunde freundin freundschaft freundschaftsanfrage besitzer ersteller
+regeln verboten erlaubt gesperrt gebannt spieler spiel spiele punkte
+gewinner verlierer preis preise teuer günstig angebot nachfrage biete gebot wert wertvoll
+limitiert betrug betrüger abzocke vertrauen passwort sperre
+
+# ---- preposiciones y conectores solo alemanes ----
+bei nach aus durch gegen ohne unter zwischen ins zum zur beim vom dann
+zusammen vielen einmal nochmals vorher nachher bisher inzwischen mittlerweile endlich plötzlich wohl eher lieber
+besser schlechter größer
+
+# ---- sustantivos y verbos frecuentes ----
+tür seite klappe handschlag besetzt abgemacht versprochen einverstanden klamotten kleidung schicke
+haare augen kopf bauch herz mutter vater eltern schwester
+schule hausaufgaben lehrer arbeit freizeit urlaub ferien wochenende woche monat jahr jahre stunde stunden sekunde
+mittag nachmittag weihnachten ostern geburtstag glückwunsch herzlichen
+haus wohnung tisch stuhl bett thron drache drachen farbe farben grün gelb schwarz braun
+essen trinken schlafen arbeiten schreiben geschrieben lesen fahren fliegen tanzen singen weinen freuen
+fragen antworten erklären zeigen bringen holen schicken bauen öffnen schließen gewinnen verlieren teilen
+blockiert hängt ruckelt laggt sammelst sammle sammeln sammelt leid zeit geh
+toll wunderbar perfekt schrecklich furchtbar gefährlich kostenlos umsonst geschenkt pünktlich
+
+# ---- dialecto y escritura coloquial ----
+koa wos wia ois scho heast leiwand isch icke ooch nöö näh
+wolln gehn sehn stehn machn habn sagn nochma schonma
+

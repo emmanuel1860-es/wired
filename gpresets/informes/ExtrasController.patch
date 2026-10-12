@@ -1,0 +1,55 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/tools/ExtrasController.java	2026-10-12 02:00:42.105408942 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/final/src/extension/tools/ExtrasController.java	2026-10-12 12:01:27.810149675 +0000
+@@ -35,6 +35,8 @@
+ 
+ public class ExtrasController {
+     private static final String[][] LANGS = new String[][]{{"Espa\u00f1ol", "es"}, {"Ingl\u00e9s", "en"}, {"Portugu\u00e9s", "pt"}, {"Franc\u00e9s", "fr"}, {"Alem\u00e1n", "de"}, {"Italiano", "it"}, {"Neerland\u00e9s", "nl"}, {"Turco", "tr"}, {"Fin\u00e9s", "fi"}};
++    // el idioma de la sala admite ademas "Ingl\u00e9s C2" (codigo en-c2): ingles con tono de nativo, ver NivelC2
++    private static final String[][] LANGS_SALA = new String[][]{{"Espa\u00f1ol", "es"}, {"Ingl\u00e9s", "en"}, {"Ingl\u00e9s C2", "en-c2"}, {"Portugu\u00e9s", "pt"}, {"Franc\u00e9s", "fr"}, {"Alem\u00e1n", "de"}, {"Italiano", "it"}, {"Neerland\u00e9s", "nl"}, {"Turco", "tr"}, {"Fin\u00e9s", "fi"}};
+     private static final String[][] COLORS = new String[][]{{"Sin color", ""}, {"Rojo", "red"}, {"Azul", "blue"}, {"Cian", "cyan"}, {"Verde", "green"}, {"Morado", "purple"}};
+     @FXML
+     public ListView<Extras.RoomUser> usersList;
+@@ -81,18 +83,20 @@
+     @FXML
+     public void initialize() {
+         for (String[] stringArray : LANGS) {
+-            this.myLangCombo.getItems().add((Object)stringArray[0]);
+-            this.roomLangCombo.getItems().add((Object)stringArray[0]);
++            this.myLangCombo.getItems().add(stringArray[0]);
++        }
++        for (String[] stringArray : LANGS_SALA) {
++            this.roomLangCombo.getItems().add(stringArray[0]);
+         }
+         this.myLangCombo.getSelectionModel().select(0);
+         this.roomLangCombo.getSelectionModel().select(1);
+         for (String[] stringArray : COLORS) {
+-            this.colorCombo.getItems().add((Object)stringArray[0]);
++            this.colorCombo.getItems().add(stringArray[0]);
+         }
+         this.colorCombo.getSelectionModel().select(0);
+-        this.ruleDirCombo.getItems().addAll((Object[])new String[]{"Lo que env\u00edo a Habbo", "Lo que Habbo me env\u00eda"});
++        this.ruleDirCombo.getItems().addAll(new String[]{"Lo que env\u00edo a Habbo", "Lo que Habbo me env\u00eda"});
+         this.ruleDirCombo.getSelectionModel().select(0);
+-        this.ruleTypeCombo.getItems().addAll((Object[])new String[]{"Bloquear el paquete", "Cambiar un texto"});
++        this.ruleTypeCombo.getItems().addAll(new String[]{"Bloquear el paquete", "Cambiar un texto"});
+         this.ruleTypeCombo.getSelectionModel().select(0);
+         this.ruleTypeCombo.valueProperty().addListener((observableValue, string, string2) -> this.ruleTypeChanged());
+         this.ruleTypeChanged();
+@@ -132,7 +136,7 @@
+         if (extras == null) {
+             return;
+         }
+-        extras.setTranslate(this.transInCbx.isSelected(), this.transOutCbx.isSelected(), this.showOrigCbx.isSelected(), ExtrasController.code(LANGS, this.myLangCombo.getSelectionModel().getSelectedIndex()), ExtrasController.code(LANGS, this.roomLangCombo.getSelectionModel().getSelectedIndex()));
++        extras.setTranslate(this.transInCbx.isSelected(), this.transOutCbx.isSelected(), this.showOrigCbx.isSelected(), ExtrasController.code(LANGS, this.myLangCombo.getSelectionModel().getSelectedIndex()), ExtrasController.code(LANGS_SALA, this.roomLangCombo.getSelectionModel().getSelectedIndex()));
+         extras.setInformal(this.informalCbx.isSelected());
+         extras.setChatColor(ExtrasController.code(COLORS, this.colorCombo.getSelectionModel().getSelectedIndex()));
+     }
+@@ -156,7 +160,7 @@
+             if (roomUser != null) {
+                 for (Extras.RoomUser roomUser2 : arrayList) {
+                     if (roomUser2.id != roomUser.id) continue;
+-                    this.usersList.getSelectionModel().select((Object)roomUser2);
++                    this.usersList.getSelectionModel().select(roomUser2);
+                 }
+             }
+             this.shownUsers = arrayList2;

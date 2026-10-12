@@ -1,0 +1,989 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/tools/NivelB2.java	2026-10-12 02:00:44.600633187 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/final/src/extension/tools/NivelB2.java	2026-10-12 12:01:27.801812482 +0000
+@@ -1,34 +1,312 @@
+-/*
+- * Decompiled with CFR 0.152.
+- */
+ package extension.tools;
+ 
+-import extension.tools.Diagnostics;
+ import java.io.File;
+ import java.nio.charset.StandardCharsets;
+ import java.nio.file.Files;
+-import java.nio.file.OpenOption;
++import java.security.MessageDigest;
+ import java.util.ArrayList;
++import java.util.Arrays;
+ import java.util.Collections;
+ import java.util.Comparator;
+-import java.util.Iterator;
++import java.util.HashMap;
++import java.util.HashSet;
+ import java.util.LinkedHashMap;
++import java.util.List;
++import java.util.Locale;
+ import java.util.Map;
+ import java.util.Random;
++import java.util.Set;
+ import java.util.regex.Matcher;
+ import java.util.regex.Pattern;
+ 
++/**
++ * Ingles que TU escribes y el traductor pasa a ingles: vocabulario de nivel B2 + estilo de chat.
++ * Se lee de Memoria/ingles_b2.txt (se crea con POR_DEFECTO). Formato (compatible con la version 1):
++ *   activo = si/no, estilo_chat = si/no, y lineas "palabra rebuscada = palabra comun" (# comentarios).
++ * Version 2: el archivo trae "# version = 2". Un archivo de la version 1 SIN tocar se reemplaza por el nuevo;
++ * uno que el usuario ya cambio se respeta, pero se descartan/arreglan solo las entradas del defecto antiguo que
++ * rompian frases (permit = let, additional = more, inform = tell...).
++ */
+ final class NivelB2 {
+-    private static final String POR_DEFECTO = "# Ingles nivel B2 para lo que TU escribes y el traductor pasa a ingles.\n# activo = si/no        enciende o apaga todo\n# estilo_chat = si/no   sin punto final, minuscula al empezar, 'gonna', alguna contraccion sin apostrofo\n# Debajo: palabra rebuscada = palabra comun   (una por linea, puedes agregar las tuyas)\nactivo = si\nestilo_chat = si\n\nin order to = to\ndue to the fact that = because\nprior to = before\nas well as = and\na great deal of = a lot of\na large number of = a lot of\nin addition = also\nwith regard to = about\nat this moment = right now\nat the moment = right now\nas soon as possible = asap\ni would like to = i want to\ni would like = i want\nallow me to = let me\nwish to = want to\nit is necessary to = you need to\nis able to = can\nare able to = can\nam able to = can\npurchase = buy\npurchased = bought\npurchasing = buying\nassist = help\nassistance = help\nrequire = need\nrequires = needs\nrequired = needed\nobtain = get\nobtained = got\nacquire = get\nacquired = got\nreceive = get\nreceived = got\ncommence = start\ncommenced = started\nterminate = end\nutilize = use\nutilise = use\nutilized = used\napproximately = about\nhowever = but\ntherefore = so\nthus = so\nhence = so\nfurthermore = also\nmoreover = also\nnevertheless = but still\nnonetheless = but still\nattempt = try\nattempted = tried\nsufficient = enough\nadditional = more\nnumerous = many\ninform = tell\ninformed = told\ncomprehend = understand\ndemonstrate = show\ndemonstrated = showed\nindicate = show\nindicates = shows\ninquire = ask\ndepart = leave\nreside = live\nselect = choose\nselected = chose\nmodify = change\nmodified = changed\nconstruct = build\nconstructed = built\nlocate = find\nlocated = found\nperhaps = maybe\ncertainly = sure\nimmediately = right now\ncurrently = right now\nregarding = about\nconcerning = about\nsubsequently = then\npossess = have\npossesses = has\ndesire = want\npermit = let\nconsequently = so\nessentially = basically\nextremely = really\nfrequently = often\nenormous = huge\nrapidly = fast\nincorrect = wrong\noccur = happen\noccurs = happens\noccurred = happened\nremain = stay\nremained = stayed\nexamine = check\nverify = check\nverified = checked\nalter = change\nprovide = give\nprovided = gave\nprovides = gives\nappears to = seems to\n";
+-    private static final String[][] CONTRACCIONES = new String[][]{{"i am", "I'm"}, {"i will", "I'll"}, {"i would", "I'd"}, {"you are", "you're"}, {"you will", "you'll"}, {"we are", "we're"}, {"we will", "we'll"}, {"they are", "they're"}, {"they will", "they'll"}, {"he is", "he's"}, {"she is", "she's"}, {"it is", "it's"}, {"that is", "that's"}, {"what is", "what's"}, {"there is", "there's"}, {"here is", "here's"}, {"who is", "who's"}, {"let us", "let's"}, {"do not", "don't"}, {"does not", "doesn't"}, {"did not", "didn't"}, {"cannot", "can't"}, {"can not", "can't"}, {"will not", "won't"}, {"is not", "isn't"}, {"are not", "aren't"}, {"was not", "wasn't"}, {"were not", "weren't"}, {"would not", "wouldn't"}, {"should not", "shouldn't"}, {"could not", "couldn't"}, {"have not", "haven't"}, {"has not", "hasn't"}, {"it will", "it'll"}};
++    private static final int VERSION = 2;
++    private static final String POR_DEFECTO = "# Ingles nivel B2 para lo que TU escribes y el traductor pasa a ingles.\n" +
++        "# activo = si/no        enciende o apaga todo\n" +
++        "# estilo_chat = si/no   sin punto final, minuscula al empezar, 'gonna', alguna contraccion sin apostrofo\n" +
++        "# Debajo: palabra rebuscada = palabra comun   (una por linea, puedes agregar las tuyas)\n" +
++        "# No importan mayusculas/minusculas; gana la frase mas larga. Las frases de varias palabras tambien valen.\n" +
++        "# El programa ya cuida solo: a/an, participios (chosen, shown, given), verbo o sustantivo (purchase, permit,\n" +
++        "# attempt, desire), conectores solo al empezar frase (however, therefore...), y no toca URLs, @nombres ni :comandos.\n" +
++        "# version = 2\n" +
++        "activo = si\n" +
++        "estilo_chat = si\n" +
++        "\n" +
++        "# --- frases largas ---\n" +
++        "in order to = to\n" +
++        "due to the fact that = because\n" +
++        "prior to = before\n" +
++        "a great deal of = a lot of\n" +
++        "a large number of = a lot of\n" +
++        "a large amount of = a lot of\n" +
++        "in addition to = besides\n" +
++        "in addition = also\n" +
++        "with regard to = about\n" +
++        "with respect to = about\n" +
++        "in regard to = about\n" +
++        "at this moment = right now\n" +
++        "at the moment = right now\n" +
++        "as soon as possible = asap\n" +
++        "i would like to = i want to\n" +
++        "i would like = i want\n" +
++        "allow me to = let me\n" +
++        "permit me to = let me\n" +
++        "wish to = want to\n" +
++        "it is necessary to = you need to\n" +
++        "is able to = can\n" +
++        "are able to = can\n" +
++        "am able to = can\n" +
++        "provided that = as long as\n" +
++        "provide you with = give you\n" +
++        "provide me with = give me\n" +
++        "provide us with = give us\n" +
++        "provided you with = gave you\n" +
++        "provided me with = gave me\n" +
++        "provided us with = gave us\n" +
++        "inform you = tell you\n" +
++        "inform me = tell me\n" +
++        "inform us = tell us\n" +
++        "informed you = told you\n" +
++        "informed me = told me\n" +
++        "informed us = told us\n" +
++        "\n" +
++        "# --- chat y Habbo ---\n" +
++        "living room = room\n" +
++        "thank you very much = thanks a lot\n" +
++        "thank you so much = thanks a lot\n" +
++        "thank you = thanks\n" +
++        "hello = hi\n" +
++        "goodbye = bye\n" +
++        "kindly = please\n" +
++        "\n" +
++        "# --- palabras sueltas (con sus formas -s, -ed, -ing) ---\n" +
++        "purchase = buy\n" +
++        "purchases = buys\n" +
++        "purchased = bought\n" +
++        "purchasing = buying\n" +
++        "assist = help\n" +
++        "assists = helps\n" +
++        "assisted = helped\n" +
++        "assisting = helping\n" +
++        "assistance = help\n" +
++        "require = need\n" +
++        "requires = needs\n" +
++        "required = needed\n" +
++        "requiring = needing\n" +
++        "obtain = get\n" +
++        "obtains = gets\n" +
++        "obtained = got\n" +
++        "obtaining = getting\n" +
++        "acquire = get\n" +
++        "acquires = gets\n" +
++        "acquired = got\n" +
++        "acquiring = getting\n" +
++        "receive = get\n" +
++        "receives = gets\n" +
++        "received = got\n" +
++        "receiving = getting\n" +
++        "commence = start\n" +
++        "commences = starts\n" +
++        "commenced = started\n" +
++        "commencing = starting\n" +
++        "terminate = end\n" +
++        "terminates = ends\n" +
++        "terminated = ended\n" +
++        "terminating = ending\n" +
++        "utilize = use\n" +
++        "utilise = use\n" +
++        "utilizes = uses\n" +
++        "utilises = uses\n" +
++        "utilized = used\n" +
++        "utilised = used\n" +
++        "utilizing = using\n" +
++        "utilising = using\n" +
++        "attempt = try\n" +
++        "attempts = tries\n" +
++        "attempted = tried\n" +
++        "attempting = trying\n" +
++        "comprehend = understand\n" +
++        "comprehends = understands\n" +
++        "comprehended = understood\n" +
++        "demonstrate = show\n" +
++        "demonstrates = shows\n" +
++        "demonstrated = showed\n" +
++        "demonstrating = showing\n" +
++        "indicate = show\n" +
++        "indicates = shows\n" +
++        "indicating = showing\n" +
++        "inquire = ask\n" +
++        "inquires = asks\n" +
++        "inquired = asked\n" +
++        "inquiring = asking\n" +
++        "depart = leave\n" +
++        "departs = leaves\n" +
++        "departed = left\n" +
++        "reside = live\n" +
++        "resides = lives\n" +
++        "resided = lived\n" +
++        "select = choose\n" +
++        "selects = chooses\n" +
++        "selected = chose\n" +
++        "selecting = choosing\n" +
++        "modify = change\n" +
++        "modifies = changes\n" +
++        "modified = changed\n" +
++        "modifying = changing\n" +
++        "construct = build\n" +
++        "constructs = builds\n" +
++        "constructed = built\n" +
++        "locate = find\n" +
++        "locates = finds\n" +
++        "located = found\n" +
++        "possess = have\n" +
++        "possesses = has\n" +
++        "occur = happen\n" +
++        "occurs = happens\n" +
++        "occurred = happened\n" +
++        "remain = stay\n" +
++        "remained = stayed\n" +
++        "examine = check\n" +
++        "examines = checks\n" +
++        "examined = checked\n" +
++        "examining = checking\n" +
++        "verify = check\n" +
++        "verifies = checks\n" +
++        "verified = checked\n" +
++        "verifying = checking\n" +
++        "alter = change\n" +
++        "alters = changes\n" +
++        "altered = changed\n" +
++        "altering = changing\n" +
++        "retain = keep\n" +
++        "retains = keeps\n" +
++        "retained = kept\n" +
++        "desire = want\n" +
++        "desires = wants\n" +
++        "permit = allow\n" +
++        "permits = allows\n" +
++        "permitted = allowed\n" +
++        "permitting = allowing\n" +
++        "\n" +
++        "# --- adverbios y conectores (however, therefore... solo al empezar frase, con coma) ---\n" +
++        "approximately = about\n" +
++        "however = but\n" +
++        "therefore = so\n" +
++        "thus = so\n" +
++        "hence = so\n" +
++        "furthermore = also\n" +
++        "moreover = also\n" +
++        "nevertheless = but still\n" +
++        "nonetheless = but still\n" +
++        "consequently = so\n" +
++        "subsequently = then\n" +
++        "perhaps = maybe\n" +
++        "certainly = sure\n" +
++        "immediately = right away\n" +
++        "currently = right now\n" +
++        "regarding = about\n" +
++        "essentially = basically\n" +
++        "extremely = really\n" +
++        "frequently = often\n" +
++        "rapidly = fast\n" +
++        "enormous = huge\n" +
++        "incorrect = wrong\n" +
++        "sufficient = enough\n" +
++        "additional = extra\n" +
++        "numerous = many\n" +
++        "individuals = people\n" +
++        "automobile = car\n" +
++        "beverage = drink\n" +
++        "appears to = seems to\n";
++    /** SHA-256 del defecto de la version 1 (texto normalizado: \n y sin espacios finales). */
++    private static final String HASH_V1 = "8951f5289df294e7a7f7e346d7934c571d5165ec6e4de567b97225f7ce78ad06";
++
++    private static final String[][] CONTRACCIONES = new String[][]{{"i am", "I'm"}, {"i will", "I'll"}, {"i would", "I'd"}, {"you are", "you're"}, {"you will", "you'll"}, {"we are", "we're"}, {"we will", "we'll"}, {"they are", "they're"}, {"they will", "they'll"}, {"he is", "he's"}, {"she is", "she's"}, {"it is", "it's"}, {"that is", "that's"}, {"what is", "what's"}, {"there is", "there's"}, {"here is", "here's"}, {"who is", "who's"}, {"let us", "let's"}, {"do not", "don't"}, {"does not", "doesn't"}, {"did not", "didn't"}, {"cannot", "can't"}, {"can not", "can't"}, {"will not", "won't"}, {"is not", "isn't"}, {"are not", "aren't"}, {"was not", "wasn't"}, {"were not", "weren't"}, {"would not", "wouldn't"}, {"should not", "shouldn't"}, {"could not", "couldn't"}, {"have not", "haven't"}, {"has not", "hasn't"}, {"had not", "hadn't"}, {"it will", "it'll"}};
++
++    /** Solo al empezar frase (tras . ! ? o una muletilla): "Thank you" si, "I thank you" no. */
++    private static final Set<String> SOLO_INICIO = set("kindly", "thank you", "thank you very much", "thank you so much");
++    /** Solo al empezar frase Y seguido de coma/punto: "However, ..." si; "This is, however, wrong" y "however you like" no. */
++    private static final Set<String> SOLO_INICIO_COMA = set("however", "therefore", "thus", "hence", "furthermore", "moreover", "nevertheless", "nonetheless", "consequently", "certainly", "currently");
++    /** Solo cuando la palabra es VERBO (purchase tambien es sustantivo: "your purchase"). */
++    private static final Set<String> SOLO_VERBO = set("purchase", "purchases", "permit", "permits", "attempt", "attempts", "desire", "desires");
++    /** Palabras que pueden ir justo antes de un verbo (no de un sustantivo). */
++    private static final Set<String> ANTES_DE_VERBO = set("to", "i", "you", "we", "they", "he", "she", "it", "who", "can", "could", "will", "would", "should", "must", "may", "might", "shall", "do", "does", "did", "dont", "didnt", "doesnt", "cant", "cannot", "wont", "not", "never", "always", "please", "and", "or", "then", "just", "also", "still", "really", "lets", "let", "gonna", "wanna", "dont", "ll", "d");
++    /** Si la palabra siguiente es una de estas, no se cambia (in addition TO, immediately AFTER...). */
++    private static final Map<String, Pattern> NO_ANTES_DE = new HashMap<String, Pattern>();
++    /** Si la palabra anterior es una de estas, no se cambia ("a sufficient amount" -> "a enough amount"). */
++    private static final Map<String, Pattern> NO_TRAS = new HashMap<String, Pattern>();
++    /** Participio distinto del pasado: tras have/be se usa el de la derecha. */
++    private static final Map<String, String> PARTICIPIO = new HashMap<String, String>();
++    /** Palabras que empiezan frase y nunca son nombres propios: solo estas se pasan a minuscula al empezar. */
++    private static final Set<String> INICIOS_MINUSCULA = set(
++        "a", "about", "after", "again", "all", "also", "always", "am", "an", "and", "any", "anyone", "anything", "anyway", "are", "as", "at", "awesome",
++        "bad", "be", "because", "before", "best", "better", "bro", "but", "by", "bye", "can", "cant", "careful", "come", "congrats", "congratulations", "cool", "could",
++        "do", "does", "did", "dont", "easy", "enough", "even", "ever", "every", "everyone", "everybody", "everything", "excuse", "fine", "first", "for", "from", "fun",
++        "get", "give", "go", "good", "goodbye", "great", "ha", "haha", "hahaha", "happy", "have", "he", "hello", "help", "her", "here", "hey", "hi", "his", "hmm", "how",
++        "if", "in", "is", "it", "its", "just", "keep", "let", "lets", "like", "listen", "lol", "look", "love", "make", "many", "maybe", "me", "more", "most", "much", "my",
++        "never", "next", "nice", "no", "nobody", "nope", "not", "nothing", "now", "of", "oh", "ok", "okay", "on", "one", "only", "or", "our", "ouch", "please",
++        "sad", "same", "see", "she", "should", "so", "some", "someone", "something", "sorry", "still", "sure", "take", "tell", "thank", "thanks", "that", "thats", "the",
++        "their", "them", "then", "there", "theres", "these", "they", "theyre", "this", "those", "to", "today", "tomorrow", "tonight", "too", "try", "wait", "want", "wanna",
++        "was", "we", "welcome", "well", "were", "what", "whats", "when", "where", "which", "who", "why", "will", "wish", "with", "wow", "would", "yeah", "yes", "yep",
++        "you", "youre", "your", "yours", "gonna", "gotta", "yay", "ya", "yo", "sup", "bravo", "damn", "omg",
++        "accept", "add", "amazing", "ask", "answer", "beautiful", "believe", "bring", "buy", "call", "calm", "catch", "check", "choose", "close", "cute", "decline", "delete",
++        "enter", "exit", "follow", "forget", "funny", "guess", "hold", "hope", "hurry", "imagine", "invite", "join", "jump", "know", "leave", "lets", "meet", "move", "open",
++        "pay", "perfect", "pick", "play", "put", "read", "relax", "remember", "remove", "reply", "run", "say", "sell", "send", "show", "sit", "speak", "stand", "start", "stay",
++        "stop", "super", "swap", "talk", "teach", "think", "throw", "trade", "turn", "understand", "use", "visit", "watch", "whoa", "wonderful", "write", "ugh", "hehe", "aww",
++        "unfortunately", "actually", "basically", "honestly", "sometimes", "probably", "really", "right", "almost", "anyway", "exactly", "finally", "already", "since", "while",
++        "until", "unless", "although", "though", "both", "either", "neither", "each", "another", "other", "without", "between", "during", "because", "usually", "later", "soon",
++        "shall", "may", "might", "must", "whose", "whom", "whether", "whatever", "whenever", "wherever", "whoever", "anybody", "nowhere", "somewhere", "anywhere", "everywhere",
++        "yesterday", "once", "twice", "rather", "quite", "perhaps", "instead", "otherwise", "meanwhile", "besides", "plus", "oops", "ahh", "aha", "thx", "pls");
++    private static final Set<String> MULETILLAS = set("and", "but", "so", "then", "ok", "okay", "oh", "well", "yes", "no", "hey", "hi", "hello", "wow", "sorry", "anyway", "also", "yeah");
++    private static final Set<String> VERBOS_GONNA = set(
++        "be", "do", "go", "get", "have", "make", "take", "see", "buy", "sell", "win", "lose", "play", "try", "say", "tell", "ask", "give", "send", "come", "leave", "stay",
++        "wait", "help", "show", "check", "find", "look", "eat", "sleep", "work", "call", "let", "put", "keep", "use", "need", "want", "love", "kill", "die", "ban", "report",
++        "trade", "swap", "join", "invite", "build", "change", "open", "close", "start", "stop", "finish", "read", "write", "talk", "speak", "meet", "bring", "pay", "visit",
++        "watch", "run", "jump", "move", "sit", "stand", "turn", "hold", "throw", "catch", "pick", "drop", "share", "post", "add", "delete", "remove", "fix", "break", "steal",
++        "scam", "vote", "learn", "teach", "think", "know", "feel", "hope", "wish", "forget", "remember", "miss", "hear", "listen", "sing", "dance", "laugh", "cry", "fight",
++        "push", "pull", "ride", "drive", "fly", "swim", "walk", "hide", "guess", "cook", "clean", "wash", "wear", "answer", "reply", "text", "chat", "kick", "mute", "need",
++        "tell", "ask", "rest", "relax", "party", "stream", "record", "edit", "save", "load", "download", "log", "quit", "lie", "cheat", "bet", "gift", "accept", "decline");
++    private static final Set<String> NO_VERBO_TRAS_WANT = set("the", "a", "an", "my", "your", "his", "her", "its", "our", "their", "this", "that", "these", "those", "some", "any", "you", "me", "him", "them", "us", "it", "one", "be");
++    private static final Set<String> LET_US_NO = set("know", "in", "out", "pass", "through", "be", "alone", "down", "off", "help", "finish", "explain");
++    private static final Pattern PROTEGIDO = Pattern.compile(
++        "(?i)(?:https?://|ftp://|www\\.)\\S+"
++        + "|[\\w.+-]+@[\\w-]+(?:\\.[\\w-]+)+"
++        + "|(?<![\\p{L}\\p{N}_])@\\w[\\w.-]*"
++        + "|(?<![\\p{L}\\p{N}_]):\\p{L}[\\p{L}\\p{N}_]+"
++        + "|(?<![\\p{L}\\p{N}_@/.-])[\\w-]+(?:\\.[\\w-]+)*\\.(?:com|net|org|es|de|co|io|me|tv|gg|uk|fr|it|nl|tr|fi|pt|ly|xyz|info|app|dev|ru)\\b(?:/\\S*)?"
++        + "|(?<![\\p{L}\\p{N}_])#\\p{L}[\\p{L}\\p{N}_]*");
++    private static final Pattern PUNTO_ABREVIATURA = Pattern.compile("(?i)(?<![\\p{L}])(?:mr|mrs|ms|dr|st|jr|sr|vs|etc|p\\.m|a\\.m|e\\.g|i\\.e|approx)\\.$");
++    private static final Pattern RISA = Pattern.compile("(?i)(?<![\\p{L}])(ha)(?:[\\s-]+ha){1,}(?![\\p{L}])");
++    private static final Pattern AUX_ANTES = Pattern.compile("(?i)(?<![\\p{L}'])(?:have|has|had|having|be|been|being|is|are|am|was|were|get|gets|got|getting|\\p{L}+'(?:ve|s|re|m|d|ll))\\s+(?:(?:not|also|already|just|still|ever|never|always|only|even|really|been|being|be)\\s+)*$");
++    private static final Pattern SER_ANTES = Pattern.compile("(?i)(?<![\\p{L}'])(?:be|been|being|is|are|am|was|were|\\p{L}+'(?:s|re|m))\\s+(?:(?:not|also|already|just|still|ever|never|always|only|even|really|been|being|be)\\s+)*$");
++    /** Antes de un adjetivo-participio ("the selected item" -> "the chosen item"). */
++    private static final Pattern DET_ANTES = Pattern.compile("(?i)(?<![\\p{L}'])(?:the|a|an|this|that|these|those|my|your|his|her|its|our|their|all|some|any|no|each|every|only|other|more|most|very|two|three|many|few)\\s+$");
++    private static final Pattern ARTICULO_ANTES = Pattern.compile("(?<![\\p{L}'])([Aa]n?)(\\s+)$");
++
+     private static File archivoPrueba;
+-    private static long leidoEn;
+-    private static boolean activo;
+-    private static boolean estiloChat;
+-    private static Map<String, String> vocabulario;
+-    private static Pattern patronVocabulario;
+-    private static Pattern patronContracciones;
+-    private static final Map<String, String> MAPA_CONTRACCIONES;
++
++    private static final class Cfg {
++        long leidoEn;
++        boolean activo = true;
++        boolean estiloChat = true;
++        Map<String, String> vocabulario = new LinkedHashMap<String, String>();
++        Pattern patronVocabulario;
++    }
++
++    private static volatile Cfg cfg;
++    private static final Map<String, String> MAPA_CONTRACCIONES = new LinkedHashMap<String, String>();
++    private static final Pattern PATRON_CONTRACCIONES;
++    /** "I will not" debe dar "I won't" y no "I'll not": estas negativas se contraen antes que el resto. */
++    private static final Pattern PATRON_NEGATIVAS_PRIMERO = Pattern.compile("(?i)(?<![\\p{L}'])(will\\s+not|would\\s+not)(?![\\p{L}'])");
++    private static final Map<String, String> MIGRAR = new HashMap<String, String>();
+ 
+     private NivelB2() {
+     }
+@@ -43,163 +321,541 @@
+         return new File(file2, "ingles_b2.txt");
+     }
+ 
+-    private static synchronized void cargar() {
+-        long l;
+-        String string;
+-        block8: {
+-            string = POR_DEFECTO;
+-            l = 0L;
+-            try {
+-                File file = NivelB2.archivo();
+-                if (!file.isFile()) {
+-                    Files.write(file.toPath(), POR_DEFECTO.getBytes(StandardCharsets.UTF_8), new OpenOption[0]);
+-                }
+-                if ((l = file.lastModified()) == leidoEn && patronVocabulario != null) {
+-                    return;
+-                }
+-                string = new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
++    private static Set<String> set(String... palabras) {
++        return new HashSet<String>(Arrays.asList(palabras));
++    }
++
++    private static String clave(String s) {
++        return s.toLowerCase(Locale.ROOT).replaceAll("\\s+", " ").trim();
++    }
++
++    private static String normalizarTexto(String s) {
++        return s.replace("\r\n", "\n").replace("\r", "\n").trim();
++    }
++
++    private static String sha256(String s) throws Exception {
++        byte[] d = MessageDigest.getInstance("SHA-256").digest(s.getBytes(StandardCharsets.UTF_8));
++        StringBuilder sb = new StringBuilder();
++        for (byte b : d) {
++            sb.append(String.format("%02x", b & 0xff));
++        }
++        return sb.toString();
++    }
++
++    private static boolean si(String s) {
++        String t = s.toLowerCase(Locale.ROOT);
++        return t.startsWith("s") || t.equals("1") || t.equals("on") || t.startsWith("y") || t.equals("true");
++    }
++
++    /** Lee el archivo (lo crea si falta; si es el defecto antiguo sin tocar, lo actualiza) y arma el patron. */
++    private static synchronized Cfg cargar() {
++        Cfg actual = cfg;
++        String texto = POR_DEFECTO;
++        long modificado = 0L;
++        try {
++            File f = archivo();
++            if (!f.isFile()) {
++                Files.write(f.toPath(), POR_DEFECTO.getBytes(StandardCharsets.UTF_8));
++            }
++            modificado = f.lastModified();
++            if (actual != null && actual.leidoEn == modificado && actual.patronVocabulario != null) {
++                return actual;
+             }
+-            catch (Throwable throwable) {
+-                if (patronVocabulario == null) break block8;
+-                return;
++            texto = new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8);
++            if (texto.startsWith("\ufeff")) {
++                texto = texto.substring(1);
+             }
++            if (HASH_V1.equals(sha256(normalizarTexto(texto)))) {
++                try {
++                    Files.write(f.toPath(), POR_DEFECTO.getBytes(StandardCharsets.UTF_8));
++                    modificado = f.lastModified();
++                } catch (Throwable ignorar) { /* de solo lectura: se usa el nuevo igualmente */ }
++                texto = POR_DEFECTO;
++            }
++        } catch (Throwable t) {
++            if (actual != null) {
++                return actual;
++            }
++            texto = POR_DEFECTO;
+         }
+-        boolean bl = true;
+-        boolean bl2 = true;
+-        LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<String, String>();
+-        for (String string2 : string.split("\\r?\\n")) {
+-            string2 = string2.trim();
+-            int n = string2.indexOf(61);
+-            if (string2.isEmpty() || string2.startsWith("#") || n <= 0) continue;
+-            String string3 = string2.substring(0, n).trim().toLowerCase().replaceAll("\\s+", " ");
+-            String string4 = string2.substring(n + 1).trim();
+-            if (string3.equals("activo")) {
+-                bl = NivelB2.si(string4);
++        boolean antiguo = !Pattern.compile("(?m)^\\s*#\\s*version\\s*=\\s*([2-9]|\\d\\d+)").matcher(texto).find();
++        Cfg nuevo = new Cfg();
++        for (String linea : texto.split("\\r?\\n")) {
++            linea = linea.trim();
++            int n = linea.indexOf('=');
++            if (linea.isEmpty() || linea.startsWith("#") || n <= 0) {
++                continue;
++            }
++            String k = clave(linea.substring(0, n));
++            String v = linea.substring(n + 1).trim();
++            if (k.equals("activo")) {
++                nuevo.activo = si(v);
+                 continue;
+             }
+-            if (string3.equals("estilo_chat")) {
+-                bl2 = NivelB2.si(string4);
++            if (k.equals("estilo_chat")) {
++                nuevo.estiloChat = si(v);
+                 continue;
+             }
+-            if (string3.isEmpty() || string4.isEmpty() || string3.equalsIgnoreCase(string4)) continue;
+-            linkedHashMap.put(string3, string4);
++            if (k.isEmpty() || v.isEmpty() || k.equalsIgnoreCase(v)) {
++                continue;
++            }
++            if (antiguo) {
++                String m = MIGRAR.get(k + "=" + v.toLowerCase(Locale.ROOT));
++                if (m != null) {
++                    if (m.isEmpty()) {
++                        continue;
++                    }
++                    v = m;
++                }
++            }
++            nuevo.vocabulario.put(k, v);
+         }
+-        ArrayList arrayList = new ArrayList(linkedHashMap.keySet());
+-        Collections.sort(arrayList, new Comparator<String>(){
+-
++        List<String> claves = new ArrayList<String>(nuevo.vocabulario.keySet());
++        Collections.sort(claves, new Comparator<String>() {
+             @Override
+-            public int compare(String string, String string2) {
+-                return string2.length() - string.length();
++            public int compare(String a, String b) {
++                return b.length() - a.length();
+             }
+         });
+-        StringBuilder stringBuilder = new StringBuilder();
+-        Iterator iterator = arrayList.iterator();
+-        while (iterator.hasNext()) {
+-            String string2;
+-            string2 = (String)iterator.next();
+-            stringBuilder.append(stringBuilder.length() > 0 ? "|" : "").append(Pattern.quote(string2).replace(" ", "\\E\\s+\\Q"));
+-        }
+-        activo = bl;
+-        estiloChat = bl2;
+-        vocabulario = linkedHashMap;
+-        patronVocabulario = stringBuilder.length() == 0 ? null : Pattern.compile("(?i)(?<![\\p{L}'])(" + stringBuilder + ")(?![\\p{L}'])");
+-        leidoEn = l;
+-    }
+-
+-    private static boolean si(String string) {
+-        String string2 = string.toLowerCase();
+-        return string2.startsWith("s") || string2.equals("1") || string2.equals("on") || string2.startsWith("y") || string2.equals("true");
++        StringBuilder sb = new StringBuilder();
++        for (String k : claves) {
++            sb.append(sb.length() > 0 ? "|" : "").append(Pattern.quote(k).replace(" ", "\\E\\s+\\Q"));
++        }
++        nuevo.patronVocabulario = sb.length() == 0 ? null : Pattern.compile("(?i)(?<![\\p{L}'])(" + sb + ")(?![\\p{L}'])");
++        nuevo.leidoEn = modificado;
++        cfg = nuevo;
++        return nuevo;
+     }
+ 
+-    private static String reemplazar(Pattern pattern, Map<String, String> map, String string) {
+-        if (pattern == null) {
+-            return string;
++    // ---------------------------------------------------------------- piezas
++
++    private static boolean esMayusculas(String s) {
++        int letras = 0;
++        for (int i = 0; i < s.length(); i++) {
++            char c = s.charAt(i);
++            if (Character.isLetter(c)) {
++                letras++;
++                if (!Character.isUpperCase(c)) {
++                    return false;
++                }
++            }
++        }
++        return letras >= 2;
++    }
++
++    /** true si en la posicion pos empieza una frase (inicio, tras . ! ? salto de linea, o tras una muletilla corta). */
++    private static boolean inicioDeFrase(String s, int pos) {
++        int i = pos - 1;
++        while (i >= 0 && Character.isWhitespace(s.charAt(i))) {
++            i--;
++        }
++        if (i < 0) {
++            return true;
++        }
++        char c = s.charAt(i);
++        if (c == '.' || c == '!' || c == '?' || c == '\n' || c == '\u2026') {
++            return true;
++        }
++        if (pos - 1 >= 0 && s.charAt(pos - 1) == '\n') {
++            return true;
++        }
++        if (c == ',') {
++            i--;
++        }
++        int fin = i + 1;
++        while (i >= 0 && (Character.isLetter(s.charAt(i)) || s.charAt(i) == '\'')) {
++            i--;
++        }
++        String w = s.substring(i + 1, fin).toLowerCase(Locale.ROOT);
++        if (w.isEmpty()) {
++            return false;
++        }
++        if (!MULETILLAS.contains(w)) {
++            return false;
++        }
++        // la muletilla debe ser ella misma el inicio de la frase
++        int j = i;
++        while (j >= 0 && Character.isWhitespace(s.charAt(j))) {
++            j--;
++        }
++        return j < 0 || ".!?\n\u2026".indexOf(s.charAt(j)) >= 0;
++    }
++
++    private static boolean seguidoDeSigno(String s, int fin) {
++        int i = fin;
++        while (i < s.length() && Character.isWhitespace(s.charAt(i))) {
++            i++;
++        }
++        return i >= s.length() || ",.!?;".indexOf(s.charAt(i)) >= 0;
++    }
++
++    private static String palabraAnterior(String s, int pos) {
++        int i = pos - 1;
++        while (i >= 0 && Character.isWhitespace(s.charAt(i))) {
++            i--;
++        }
++        int fin = i + 1;
++        while (i >= 0 && (Character.isLetter(s.charAt(i)) || s.charAt(i) == '\'')) {
++            i--;
++        }
++        return s.substring(i + 1, fin).toLowerCase(Locale.ROOT).replace("'", "");
++    }
++
++    private static String palabraSiguiente(String s, int fin) {
++        Matcher m = Pattern.compile("^\\s+(\\p{L}[\\p{L}']*)").matcher(s.substring(fin));
++        return m.find() ? m.group(1).toLowerCase(Locale.ROOT) : "";
++    }
++
++    private static boolean contextoVerbo(String s, int pos) {
++        int i = pos - 1;
++        while (i >= 0 && Character.isWhitespace(s.charAt(i))) {
++            i--;
++        }
++        if (i < 0) {
++            return true;
++        }
++        char c = s.charAt(i);
++        if (".!?:;,\n(-\"".indexOf(c) >= 0) {
++            return true;
++        }
++        return ANTES_DE_VERBO.contains(palabraAnterior(s, pos));
++    }
++
++    /** a/an segun el sonido de la primera palabra. */
++    static String articuloPara(String palabra) {
++        String p = palabra.toLowerCase(Locale.ROOT);
++        boolean vocal = p.matches("^(?:[aeiou].*|honest.*|hour.*|honou?r.*|heir.*)");
++        if (p.matches("^(?:u(?:[sn]i|se|sed|ser|sual|tens|tili|k)|eu|one|once|ewe).*")) {
++            vocal = false;
+         }
+-        Matcher matcher = pattern.matcher(string);
+-        StringBuffer stringBuffer = new StringBuffer();
+-        while (matcher.find()) {
+-            String string2 = matcher.group(1);
+-            String string3 = map.get(string2.toLowerCase().replaceAll("\\s+", " "));
+-            if (map == MAPA_CONTRACCIONES && string3 != null && !string3.endsWith("n't") && !string.substring(matcher.end()).matches("(?s)^\\s+\\p{L}.*")) {
+-                string3 = null;
+-            }
+-            if (string3 == null) {
+-                string3 = string2;
+-            } else if (Character.isUpperCase(string2.charAt(0)) && !string2.equals("I")) {
+-                string3 = Character.toUpperCase(string3.charAt(0)) + string3.substring(1);
++        return vocal ? "an" : "a";
++    }
++
++    private static String ajustarMayusculas(String original, String rep) {
++        if (rep.matches("^i(?=[\\s']).*")) {
++            rep = "I" + rep.substring(1);
++        }
++        rep = rep.replaceAll("(?<=\\s)i(?=[\\s'])", "I");
++        if (!rep.isEmpty() && Character.isUpperCase(original.charAt(0))) {
++            rep = Character.toUpperCase(rep.charAt(0)) + rep.substring(1);
++        }
++        return rep;
++    }
++
++    private static String reemplazarVocabulario(Cfg c, String s) {
++        if (c.patronVocabulario == null) {
++            return s;
++        }
++        Matcher m = c.patronVocabulario.matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            String orig = m.group(1);
++            String k = clave(orig);
++            String rep = c.vocabulario.get(k);
++            sb.append(s, ultimo, m.start());
++            ultimo = m.end();
++            if (rep == null || esMayusculas(orig) || !permitido(s, m.start(), m.end(), k)) {
++                sb.append(orig);
++                continue;
++            }
++            String w = rep.toLowerCase(Locale.ROOT);
++            String part = PARTICIPIO.get(w);
++            if (part != null && (AUX_ANTES.matcher(sb).find() || DET_ANTES.matcher(sb).find())) {
++                rep = part;
++            } else if (w.equals("got") && (SER_ANTES.matcher(sb).find() || DET_ANTES.matcher(sb).find())) {
++                sb.append(orig); // "was received" / "the received message": "got" no encaja, se deja la palabra
++                continue;
++            }
++            rep = ajustarMayusculas(orig, rep);
++            Matcher art = ARTICULO_ANTES.matcher(sb);
++            if (art.find()) {
++                String ya = art.group(1);
++                String bien = articuloPara(rep.split("\\s+")[0]);
++                if (!ya.equalsIgnoreCase(bien)) {
++                    String nuevo = Character.isUpperCase(ya.charAt(0)) ? Character.toUpperCase(bien.charAt(0)) + bien.substring(1) : bien;
++                    sb.replace(art.start(1), art.end(1), nuevo);
++                }
++            }
++            sb.append(rep);
++        }
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    private static boolean permitido(String s, int ini, int fin, String k) {
++        if (SOLO_INICIO_COMA.contains(k) && !(inicioDeFrase(s, ini) && seguidoDeSigno(s, fin))) {
++            return false;
++        }
++        if (SOLO_INICIO.contains(k) && !inicioDeFrase(s, ini)) {
++            return false;
++        }
++        if (SOLO_VERBO.contains(k) && !contextoVerbo(s, ini)) {
++            return false;
++        }
++        Pattern no = NO_ANTES_DE.get(k);
++        if (no != null && no.matcher(palabraSiguiente(s, fin)).matches()) {
++            return false;
++        }
++        Pattern tras = NO_TRAS.get(k);
++        if (tras != null && tras.matcher(palabraAnterior(s, ini)).matches()) {
++            return false;
++        }
++        return true;
++    }
++
++    private static String contraer(Pattern patron, String s) {
++        Matcher m = patron.matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            String orig = m.group(1);
++            String k = clave(orig);
++            String rep = MAPA_CONTRACCIONES.get(k);
++            sb.append(s, ultimo, m.start());
++            ultimo = m.end();
++            boolean ok = rep != null && !esMayusculas(orig);
++            if (ok && !rep.endsWith("n't")) {
++                String sig = palabraSiguiente(s, m.end());
++                if (sig.isEmpty()) {
++                    ok = false;
++                } else if (sig.equals("it") && (k.equals("what is") || k.equals("who is"))) {
++                    Matcher w = Pattern.compile("^\\s+\\p{L}+(.*)$", Pattern.DOTALL).matcher(s.substring(m.end()));
++                    if (w.find() && w.group(1).matches("(?s)^\\s*(?:[?.!,;:)]|$).*")) {
++                        ok = false;
++                    }
++                } else if (k.equals("let us") && LET_US_NO.contains(sig)) {
++                    ok = false;
++                }
++            }
++            if (!ok) {
++                sb.append(orig);
++                continue;
++            }
++            if (Character.isUpperCase(orig.charAt(0)) && !rep.startsWith("I")) {
++                rep = Character.toUpperCase(rep.charAt(0)) + rep.substring(1);
++            }
++            sb.append(rep);
++        }
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    private static String reir(String s) {
++        Matcher m = RISA.matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            int veces = m.group().toLowerCase(Locale.ROOT).split("[\\s-]+").length;
++            StringBuilder risa = new StringBuilder();
++            for (int i = 0; i < veces; i++) {
++                risa.append(i == 0 && Character.isUpperCase(m.group().charAt(0)) ? "Ha" : "ha");
+             }
+-            matcher.appendReplacement(stringBuffer, Matcher.quoteReplacement(string3));
++            sb.append(s, ultimo, m.start()).append(risa);
++            ultimo = m.end();
+         }
+-        matcher.appendTail(stringBuffer);
+-        return stringBuffer.toString();
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
+     }
+ 
++    // ---------------------------------------------------------------- proteccion de enlaces, @nombres y :comandos
++
++    private static String proteger(String s, List<String> guardados) {
++        Matcher m = PROTEGIDO.matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            String g = m.group();
++            int fin = g.length();
++            while (fin > 0 && ".,;:!?)]}\"'".indexOf(g.charAt(fin - 1)) >= 0) {
++                fin--;
++            }
++            if (fin == 0) {
++                continue;
++            }
++            sb.append(s, ultimo, m.start());
++            sb.append('\ue000').append(guardados.size()).append('\ue001');
++            guardados.add(g.substring(0, fin));
++            ultimo = m.start() + fin;
++        }
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    private static String restaurar(String s, List<String> guardados) {
++        if (guardados.isEmpty()) {
++            return s;
++        }
++        Matcher m = Pattern.compile("\ue000(\\d+)\ue001").matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            sb.append(s, ultimo, m.start());
++            int i = Integer.parseInt(m.group(1));
++            sb.append(i < guardados.size() ? guardados.get(i) : "");
++            ultimo = m.end();
++        }
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    // ---------------------------------------------------------------- API
++
+     static String aplicar(String string) {
+         if (string == null || string.trim().isEmpty()) {
+             return string;
+         }
+         try {
+-            NivelB2.cargar();
+-            if (!activo) {
++            Cfg c = cargar();
++            if (!c.activo) {
+                 return string;
+             }
+-            String string2 = NivelB2.reemplazar(patronVocabulario, vocabulario, string);
+-            string2 = string2.replaceAll("(?i)(?<![\\p{L}'])will not(?![\\p{L}'])", "won't").replaceAll("(?i)(?<![\\p{L}'])would not(?![\\p{L}'])", "wouldn't");
+-            string2 = NivelB2.reemplazar(patronContracciones, MAPA_CONTRACCIONES, string2);
+-            string2 = string2.replaceAll("(?i)(^|[.!?]\\s+)(but still|but|so|also|then|maybe),\\s+", "$1$2 ");
+-            if (estiloChat) {
+-                string2 = NivelB2.chat(string2, new Random(string.hashCode()));
++            List<String> guardados = new ArrayList<String>();
++            String s = proteger(string.replace('\u2019', '\''), guardados);
++            s = reemplazarVocabulario(c, s);
++            s = contraer(PATRON_NEGATIVAS_PRIMERO, s);
++            s = contraer(PATRON_CONTRACCIONES, s);
++            s = s.replaceAll("(?i)(^|[.!?]\\s+)(but still|but|so|also|then|maybe),\\s+", "$1$2 ");
++            s = reir(s);
++            if (c.estiloChat) {
++                s = chat(s, azar(string));
+             }
+-            return string2.trim().isEmpty() ? string : string2;
+-        }
+-        catch (Throwable throwable) {
++            s = restaurar(s, guardados);
++            return s.trim().isEmpty() ? string : s;
++        } catch (Throwable t) {
+             return string;
+         }
+     }
+ 
+-    private static String chat(String string, Random random) {
+-        String string2 = string.trim();
+-        if (string2.endsWith(".") && !string2.endsWith("..")) {
+-            string2 = string2.substring(0, string2.length() - 1).trim();
++    /** Dados deterministas por mensaje (el mismo texto da siempre el mismo estilo), pero bien repartidos:
++     *  Random(hashCode) a pelo daba la MISMA primera moneda a textos casi iguales (99% en consecutivos). */
++    private static Random azar(String s) {
++        long z = s.hashCode() * 0x9E3779B97F4A7C15L + 0x632BE59BD9B4E019L;
++        z = (z ^ (z >>> 30)) * 0xBF58476D1CE4E5B9L;
++        z = (z ^ (z >>> 27)) * 0x94D049BB133111EBL;
++        z ^= z >>> 31;
++        return new Random(z);
++    }
++
++    private static String quitarPuntoFinal(String t) {
++        if (!t.endsWith(".") || t.endsWith("..")) {
++            return t;
+         }
+-        string2 = string2.replaceFirst("^(?i)(well|so|ok|okay|yeah|yes|no|hey|oh),\\s+", "$1 ");
+-        if (random.nextDouble() < 0.6) {
+-            string2 = string2.replaceAll("(?i)(?<![\\p{L}'])going to(?=\\s+\\p{L})", "gonna");
++        if (PUNTO_ABREVIATURA.matcher(t).find()) {
++            return t;
+         }
+-        if (random.nextDouble() < 0.35) {
+-            string2 = string2.replaceAll("(?i)(?<![\\p{L}'])want to(?=\\s+\\p{L})", "wanna");
++        String sin = t.substring(0, t.length() - 1).trim();
++        return sin.isEmpty() ? t : sin;
++    }
++
++    private static String gonna(String s) {
++        Matcher m = Pattern.compile("(?i)(?<![\\p{L}'])(going to)(\\s+)(\\p{L}+)").matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            if (!VERBOS_GONNA.contains(m.group(3).toLowerCase(Locale.ROOT)) || !Character.isLowerCase(m.group(3).charAt(0))) {
++                continue;
++            }
++            sb.append(s, ultimo, m.start(1)).append(Character.isUpperCase(m.group(1).charAt(0)) ? "Gonna" : "gonna");
++            ultimo = m.end(1);
+         }
+-        if (random.nextDouble() < 0.3) {
+-            string2 = string2.replaceAll("(?<=n)'(?=t(?![\\p{L}]))", "");
+-            string2 = string2.replaceAll("(?i)(?<![\\p{L}'])(that|what|let|there|here)'s(?![\\p{L}])", "$1s");
+-            string2 = string2.replaceAll("(?i)(?<![\\p{L}'])(you|they)'re(?![\\p{L}])", "$1re");
+-            string2 = string2.replaceAll("(?<![\\p{L}'])I'm(?![\\p{L}])", "im");
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    private static String wanna(String s) {
++        Matcher m = Pattern.compile("(?i)(?<![\\p{L}'])(want to)(\\s+)(\\p{L}+)").matcher(s);
++        StringBuilder sb = new StringBuilder();
++        int ultimo = 0;
++        while (m.find()) {
++            String sig = m.group(3);
++            if (!Character.isLowerCase(sig.charAt(0)) || NO_VERBO_TRAS_WANT.contains(sig.toLowerCase(Locale.ROOT))) {
++                continue;
++            }
++            sb.append(s, ultimo, m.start(1)).append(Character.isUpperCase(m.group(1).charAt(0)) ? "Wanna" : "wanna");
++            ultimo = m.end(1);
+         }
+-        if (string2.length() > 1 && Character.isUpperCase(string2.charAt(0)) && !string2.matches("^I(['\\s].*|m\\s.*|ll\\s.*|d\\s.*)") && !Character.isUpperCase(string2.charAt(1))) {
+-            string2 = Character.toLowerCase(string2.charAt(0)) + string2.substring(1);
++        sb.append(s, ultimo, s.length());
++        return sb.toString();
++    }
++
++    private static String minusculaInicial(String t) {
++        Matcher m = Pattern.compile("^([\\p{L}']+)").matcher(t);
++        if (!m.find() || t.length() < 2) {
++            return t;
++        }
++        String palabra = m.group(1);
++        if (!Character.isUpperCase(palabra.charAt(0)) || palabra.length() > 1 && Character.isUpperCase(palabra.charAt(1))) {
++            return t;
++        }
++        String sin = palabra.toLowerCase(Locale.ROOT).replace("'", "");
++        String cabeza = palabra.contains("'") ? palabra.substring(0, palabra.indexOf('\'')).toLowerCase(Locale.ROOT) : sin;
++        boolean baja = INICIOS_MINUSCULA.contains(sin) || sin.matches("(?:ha){2,}") || palabra.contains("'") && !cabeza.equals("i") && (INICIOS_MINUSCULA.contains(cabeza) || palabra.toLowerCase(Locale.ROOT).matches("(?:do|does|did|is|are|was|were|would|should|could|have|has|ca|wo|ai)n't"));
++        if (!baja) {
++            return t;
+         }
+-        return string2;
++        return Character.toLowerCase(t.charAt(0)) + t.substring(1);
+     }
+ 
+-    public static void main(String[] stringArray) {
+-        archivoPrueba = new File(stringArray[0]);
+-        for (int i = 1; i < stringArray.length; ++i) {
+-            System.out.println(stringArray[i] + "\n   => " + NivelB2.aplicar(stringArray[i]));
++    private static String chat(String string, Random random) {
++        String s = quitarPuntoFinal(string.trim());
++        s = s.replaceFirst("^(?i)(well|so|ok|okay|yeah|yes|no|hey|oh),\\s+", "$1 ");
++        s = minusculaInicial(s);
++        double a = random.nextDouble();
++        double b = random.nextDouble();
++        double c = random.nextDouble();
++        if (a < 0.6) {
++            s = gonna(s);
++        }
++        if (b < 0.35) {
++            s = wanna(s);
++        }
++        if (c < 0.3) {
++            s = s.replaceAll("(?<=n)'(?=t(?![\\p{L}]))", "");
++            s = s.replaceAll("(?i)(?<![\\p{L}'])(that|what|let|there|here)'s(?![\\p{L}])", "$1s");
++            s = s.replaceAll("(?i)(?<![\\p{L}'])(you|they)'re(?![\\p{L}])", "$1re");
++            s = s.replaceAll("(?<![\\p{L}'])I'm(?![\\p{L}])", "im");
+         }
++        return s;
+     }
+ 
+-    static {
+-        leidoEn = -1L;
+-        activo = true;
+-        estiloChat = true;
+-        vocabulario = new LinkedHashMap<String, String>();
+-        MAPA_CONTRACCIONES = new LinkedHashMap<String, String>();
+-        StringBuilder stringBuilder = new StringBuilder();
+-        for (String[] stringArray : CONTRACCIONES) {
+-            MAPA_CONTRACCIONES.put(stringArray[0], stringArray[1]);
+-            stringBuilder.append(stringBuilder.length() > 0 ? "|" : "").append(Pattern.quote(stringArray[0]).replace(" ", "\\E\\s+\\Q"));
++    public static void main(String[] args) {
++        archivoPrueba = new File(args[0]);
++        for (int i = 1; i < args.length; ++i) {
++            System.out.println(args[i] + "\n   => " + aplicar(args[i]));
+         }
+-        patronContracciones = Pattern.compile("(?i)(?<![\\p{L}'])(" + stringBuilder + ")(?![\\p{L}'])");
+     }
+-}
+ 
++    static {
++        StringBuilder sb = new StringBuilder();
++        for (String[] par : CONTRACCIONES) {
++            MAPA_CONTRACCIONES.put(par[0], par[1]);
++            sb.append(sb.length() > 0 ? "|" : "").append(Pattern.quote(par[0]).replace(" ", "\\E\\s+\\Q"));
++        }
++        PATRON_CONTRACCIONES = Pattern.compile("(?i)(?<![\\p{L}'])(" + sb + ")(?![\\p{L}'])");
++        NO_ANTES_DE.put("in addition", Pattern.compile("to"));
++        NO_ANTES_DE.put("immediately", Pattern.compile("after|before|following|upon|prior|next|below|above|behind|ahead|beside|adjacent|preceding"));
++        NO_ANTES_DE.put("at the moment", Pattern.compile("of|when|that|which"));
++        NO_ANTES_DE.put("at this moment", Pattern.compile("of|when|that|which"));
++        NO_TRAS.put("sufficient", Pattern.compile("a|an|the|this|that|any|no|more|most|very|quite|rather|so|too|really"));
++        NO_TRAS.put("additional", Pattern.compile("the|this|that"));
++        NO_TRAS.put("numerous", Pattern.compile("a|an|the"));
++        NO_TRAS.put("hello", Pattern.compile("say|says|said|saying|word"));
++        NO_TRAS.put("goodbye", Pattern.compile("say|says|said|saying|word"));
++        NO_TRAS.put("incorrect", Pattern.compile("a|an|the|this|that"));
++        PARTICIPIO.put("chose", "chosen");
++        PARTICIPIO.put("showed", "shown");
++        PARTICIPIO.put("gave", "given");
++        // entradas del defecto de la version 1 que rompian frases (clave=valor en minuscula -> valor nuevo; "" = borrar)
++        MIGRAR.put("permit=let", "allow");
++        MIGRAR.put("additional=more", "extra");
++        MIGRAR.put("immediately=right now", "right away");
++        MIGRAR.put("inform=tell", "");
++        MIGRAR.put("informed=told", "");
++        MIGRAR.put("provide=give", "");
++        MIGRAR.put("provided=gave", "");
++        MIGRAR.put("provides=gives", "");
++        MIGRAR.put("concerning=about", "");
++        MIGRAR.put("as well as=and", "");
++    }
++}

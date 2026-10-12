@@ -1,0 +1,63 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/tools/ChatTraductor.java	2026-10-12 02:00:43.118393851 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/final/src/extension/tools/ChatTraductor.java	2026-10-12 12:01:27.742372614 +0000
+@@ -121,7 +121,7 @@
+                 if (!"NONE".equals(String.valueOf(object3.getClass().getMethod("getState", new Class[0]).invoke(object3, new Object[0])))) {
+                     Field field = object3.getClass().getDeclaredField("state");
+                     field.setAccessible(true);
+-                    ?[] objArray = field.getType().getEnumConstants();
++                    Object[] objArray = field.getType().getEnumConstants();
+                     int n = objArray.length;
+                     int n2 = 0;
+                     while (n2 < n) {
+@@ -163,34 +163,26 @@
+         }
+     }
+ 
+-    /*
+-     * WARNING - Removed try catching itself - possible behaviour change.
+-     * Enabled aggressive block sorting
+-     * Enabled unnecessary exception pruning
+-     * Enabled aggressive exception aggregation
+-     */
+     private static boolean acabaDeCancelar(Object object) {
+         try {
+-            Object object2;
+-            String[] stringArray = object.getClass().getMethod("getDiagnostics", new Class[0]).invoke(object, new Object[0]);
+-            Object object3 = ChatTraductor.leer(stringArray, "chatLines");
+-            String[] stringArray2 = object2 = stringArray;
+-            synchronized (object2) {
+-                String string = (String)((Deque)object3).peekLast();
+-                // ** MonitorExit[var5_4] (shouldn't be in output)
+-                if (string == null || string.length() < 9) {
+-                    return false;
+-                }
+-                object2 = string.toLowerCase();
+-                if (!((String)object2).contains("cancelad") && !((String)object2).contains("aborted")) {
+-                    return false;
+-                }
+-                stringArray2 = string.substring(0, 8).split(":");
+-                int n = Integer.parseInt(stringArray2[0]) * 3600 + Integer.parseInt(stringArray2[1]) * 60 + Integer.parseInt(stringArray2[2]);
+-                Calendar calendar = Calendar.getInstance();
+-                int n2 = calendar.get(11) * 3600 + calendar.get(12) * 60 + calendar.get(13);
+-                return Math.abs(n2 - n) <= 3;
++            Object diagnostics = object.getClass().getMethod("getDiagnostics", new Class[0]).invoke(object, new Object[0]);
++            Object lineas = ChatTraductor.leer(diagnostics, "chatLines");
++            String string;
++            synchronized (diagnostics) {
++                string = (String)((Deque)lineas).peekLast();
++            }
++            if (string == null || string.length() < 9) {
++                return false;
++            }
++            String string2 = string.toLowerCase();
++            if (!string2.contains("cancelad") && !string2.contains("aborted")) {
++                return false;
+             }
++            String[] stringArray2 = string.substring(0, 8).split(":");
++            int n = Integer.parseInt(stringArray2[0]) * 3600 + Integer.parseInt(stringArray2[1]) * 60 + Integer.parseInt(stringArray2[2]);
++            Calendar calendar = Calendar.getInstance();
++            int n2 = calendar.get(11) * 3600 + calendar.get(12) * 60 + calendar.get(13);
++            return Math.abs(n2 - n) <= 3;
+         }
+         catch (Throwable throwable) {
+             return false;
