@@ -1,18 +1,10 @@
 package extension.tools;
 
-import extension.GPresets;
-import extension.tools.presetconfig.PresetConfigUtils;
-import gearth.protocol.HMessage;
-import java.io.File;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,9 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Port a Java de "wiredtool validar": revisa un preset .json antes de importarlo.
- * Comando de chat: ":validar" (preset elegido) o ":validar nombre". No toca la sala ni el preset;
- * solo lee el archivo y responde por susurro. El informe completo se guarda en "<nombre>.validacion.txt".
+ * Port a Java de "wiredtool validar". Lo usa GPresets.revisarPreset al elegir un preset: no tiene comandos
+ * ni ventanas; solo devuelve la lista de problemas y GPresets la escribe en el registro si hay algo.
  */
 public class PresetValidator {
     private static final String[][] SECCIONES = {
@@ -32,92 +23,8 @@ public class PresetValidator {
         "wf_floor_switch", "wf_button", "wf_firegate", "wf_glowball", "wf_colortile", "wf_teamcolortile",
         "wf_upcounter", "wf_numberscreen", "wf_teammeter", "wf_arrowplate", "wf_room_linker", "wf_blob", "wf_conf_"};
 
-    private final GPresets ext;
-
-    public PresetValidator(GPresets gPresets) {
-        this.ext = gPresets;
-        gPresets.intercept(HMessage.Direction.TOSERVER, "Chat", this::onChat);
-    }
-
-    private void onChat(HMessage hMessage) {
-        String texto;
-        try {
-            hMessage.getPacket().resetReadIndex();
-            texto = hMessage.getPacket().readString(StandardCharsets.UTF_8).trim();
-        } catch (Exception e) {
-            return;
-        }
-        String[] partes = texto.split("\\s+", 2);
-        String cmd = partes.length == 0 ? "" : partes[0].toLowerCase(Locale.ROOT);
-        final String arg = partes.length > 1 ? partes[1].trim() : "";
-        if (cmd.equals(":susurros")) {
-            hMessage.setBlocked(true);
-            susurros(arg);
-            return;
-        }
-        if (!cmd.equals(":validar")) {
-            return;
-        }
-        hMessage.setBlocked(true);
-        new Thread(() -> this.ejecutar(arg), "PresetValidator").start();
-    }
-
-    private void susurros(String arg) {
-        String a = arg.toLowerCase(Locale.ROOT);
-        if (a.equals("normal")) this.ext.setNivelSusurros(0);
-        else if (a.equals("bajo")) this.ext.setNivelSusurros(1);
-        else if (a.equals("minimo")) this.ext.setNivelSusurros(2);
-        else if (!a.isEmpty()) {
-            say("Uso: :susurros normal | bajo | minimo");
-            return;
-        }
-        String[] nombres = {"normal (todos)", "bajo (sin avisos de progreso, como mucho 1 cada 3 s)", "minimo (solo errores, resultados y preguntas)"};
-        say("susurros: " + nombres[this.ext.getNivelSusurros()]);
-    }
-
-    private void say(String s) {
-        this.ext.sendVisualChatInfo("G-Presets: " + s);
-    }
-
-    private void ejecutar(String nombre) {
-        try {
-            if (nombre.isEmpty()) {
-                nombre = this.ext.getCurrentPresetName();
-            }
-            if (nombre == null || nombre.isEmpty()) {
-                say("Elige un preset en la lista o escribe :validar <nombre>.");
-                return;
-            }
-            File f = new File(PresetConfigUtils.presetPath(), nombre + ".json");
-            if (!f.exists()) {
-                say("No existe el preset \"" + nombre + "\".");
-                return;
-            }
-            JSONObject d = new JSONObject(new String(Files.readAllBytes(f.toPath()), StandardCharsets.UTF_8));
-            List<String[]> res = validar(d);
-            int err = 0, avi = 0, inf = 0;
-            for (String[] r : res) {
-                if (r[0].equals("error")) err++; else if (r[0].equals("aviso")) avi++; else inf++;
-            }
-            File informe = new File(PresetConfigUtils.presetPath(), nombre + ".validacion.txt");
-            try (PrintWriter w = new PrintWriter(informe, "UTF-8")) {
-                w.println("Validacion de " + nombre + ".json");
-                for (String[] r : res) w.println("[" + r[0] + "] " + r[1]);
-                w.println(err + " errores, " + avi + " avisos, " + inf + " notas");
-            }
-            say("\"" + nombre + "\": " + err + " errores, " + avi + " avisos. Informe: " + informe.getName());
-            if (err > 0) {
-                for (String[] r : res) {
-                    if (r[0].equals("error")) { say(r[1]); break; }
-                }
-            }
-        } catch (Exception e) {
-            say("No pude validar: " + e.getMessage());
-        }
-    }
-
     // ------------------------------------------------------------------------------------------
-    static List<String[]> validar(JSONObject d) {
+    public static List<String[]> validar(JSONObject d) {
         List<String[]> res = new ArrayList<String[]>();
         JSONArray furniArr = d.optJSONArray("furni") == null ? new JSONArray() : d.getJSONArray("furni");
         JSONObject wired = d.optJSONObject("wired") == null ? new JSONObject() : d.getJSONObject("wired");

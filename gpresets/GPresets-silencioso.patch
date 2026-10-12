@@ -1,0 +1,98 @@
+--- GPresets.orig_fixed.java	2026-10-12 02:05:05.898539605 +0000
++++ src/extension/GPresets.java	2026-10-12 02:05:05.899253132 +0000
+@@ -42,6 +42,7 @@
+ import extension.tools.GPresetExporter;
+ import extension.tools.GPresetImporter;
+ import extension.tools.PresetUtils;
++import extension.tools.PresetValidator;
+ import extension.tools.RoomCrop;
+ import extension.tools.SimpleFlow;
+ import extension.tools.StackTileSetting;
+@@ -392,6 +393,7 @@
+         this.missingWarned = false;
+         HPoint hPoint = PresetUtils.presetDimensions(presetConfig);
+         this.logger.log(String.format("Dimensiones del preset: %dx%d", hPoint.getX(), hPoint.getY()), "green");
++        this.revisarPreset(string);
+         this.updateHomeInfo(presetConfig, string);
+         this.updateUI();
+     }
+@@ -526,6 +528,9 @@
+             WallItems.get().onImportFinished();
+         }
+         this.diagnostics.onChat(string);
++        if (!this.debeSusurrar(string)) {
++            return;
++        }
+         try {
+             this.sendToClient(new HPacket("Whisper", HMessage.Direction.TOCLIENT, -1, string, 0, 30, 0, -1));
+         }
+@@ -534,6 +539,69 @@
+         }
+     }
+ 
++    // ---- menos ruido en el chat: solo se filtra el susurro al cliente (el resto de G-Presets recibe el texto completo) ----
++    private volatile long ultimoSusurro = 0L;
++    private static final java.util.regex.Pattern SUSURRO_RUIDO = java.util.regex.Pattern.compile(
++        "^(Colocando|Configurando|Ajustando|Importando|Exportando|Leyendo|Quitar: recogiendo|Wired |Fetching|Placing)",
++        java.util.regex.Pattern.CASE_INSENSITIVE);
++    private static final java.util.regex.Pattern SUSURRO_IMPORTANTE = java.util.regex.Pattern.compile(
++        "^(ERROR|Error|No pude|No se pudo|No hay|No puedes|No existe|Ya hay|Primero|Solo el|Uso:|Haz clic|Select the|Enter |Invalid|Aborted|G-Presets:|Omitidos|Ojo:|Ni acomodando|Tal como esta|ANTES DE COLOCAR|Baldosa|Memoria de furnis|Firmas|Leer:|Atuendos|Paredes|Quitar|Texto:|Altura|Margen|Modo:|Opciones para|Para fijar)"
++        + "|importado correctamente|importado con omisiones|Exported|cancelad|Listo|Piso aplicado|Plano recortado|Sala recortada|Diagnostico guardado");
++
++    private boolean debeSusurrar(String string) {
++        if (string == null) {
++            return true;
++        }
++        if (SUSURRO_RUIDO.matcher(string).find()) {
++            return false;
++        }
++        if (SUSURRO_IMPORTANTE.matcher(string).find()) {
++            return true;
++        }
++        long l = System.currentTimeMillis();
++        if (l - this.ultimoSusurro < 3000L) {
++            return false;
++        }
++        this.ultimoSusurro = l;
++        return true;
++    }
++
++    // ---- revision silenciosa del preset al elegirlo: solo habla si hay problemas (en el registro) y susurra solo ante errores ----
++    private void revisarPreset(String string) {
++        new Thread(() -> {
++            try {
++                File file = new File(PresetConfigUtils.presetPath(), string + ".json");
++                java.util.List<String[]> list = PresetValidator.validar(new org.json.JSONObject(new String(java.nio.file.Files.readAllBytes(file.toPath()), java.nio.charset.StandardCharsets.UTF_8)));
++                int n = 0;
++                int n2 = 0;
++                for (String[] stringArray : list) {
++                    if ("error".equals(stringArray[0])) {
++                        ++n;
++                        continue;
++                    }
++                    if (!"aviso".equals(stringArray[0])) continue;
++                    ++n2;
++                }
++                if (n + n2 == 0) {
++                    return;
++                }
++                this.logger.log(String.format("Revision del preset: %d errores, %d avisos", n, n2), n > 0 ? "red" : "orange");
++                int n3 = 0;
++                for (String[] stringArray : list) {
++                    if ("info".equals(stringArray[0])) continue;
++                    if (n3++ >= 12) break;
++                    this.logger.log("  [" + stringArray[0] + "] " + stringArray[1], "orange");
++                }
++                if (n > 0) {
++                    this.sendVisualChatInfo("ERROR: el preset tiene " + n + " errores (mira el registro)");
++                }
++            }
++            catch (Exception exception) {
++                // la revision es opcional: si falla no se dice nada
++            }
++        }, "PresetReview").start();
++    }
++
+     public void loadInventoryClick(ActionEvent actionEvent) {
+         this.inventory.requestInventory();
+     }
