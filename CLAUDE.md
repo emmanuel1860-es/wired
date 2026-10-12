@@ -39,3 +39,4 @@ Responde en español. Sé conciso: pide solo lo necesario y no repitas análisis
 - No ejecutar nada que intercepte el cliente de Habbo sin que el usuario lo pida expresamente.
 - `gpresets/`: mejoras al jar de G-Presets (traductor alemán/inglés/C2, ritmo de escritura, avisos restaurados). Ver `gpresets/README.md`; la auditoría pendiente está en `gpresets/informes/AUDITORIA.md`.
 - `Piano Halloween.json` y `wiredtool/ejemplos/piano_halloween.py`: piano como tabla de notas (formato de `piano_100ms.json`, ver la skill habbo-wired §12). Tecla 1 = Do3 es un supuesto sin confirmar.
+- `Piano Halloween.json` y `wiredtool/ejemplos/piano_halloween.py`: piano como tabla de notas (formato de `piano_100ms.json`, ver la skill habbo-wired §12). Tecla 1 = Do3 es un supuesto sin confirmar.
