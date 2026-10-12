@@ -1,0 +1,26 @@
+{
+  "origen": {"x": 0, "y": 0},
+  "variables": [
+    {"nombre": "vidas", "ambito": "usuario", "persistente": true},
+    {"nombre": "partida", "ambito": "sala"}
+  ],
+  "furnis": [
+    {"nombre": "caja", "clase": "wf_storage_coins2", "x": 3, "y": 0, "estado": "0"},
+    {"nombre": "contrato_vida", "clase": "wf_contract_payment", "x": 4, "y": 0},
+    {"nombre": "antena_inicio", "clase": "wf_antenna2", "x": 5, "y": 0, "estado": "0"}
+  ],
+  "pilas": [
+    {"x": 0, "y": 2, "trigger": {"tipo": "dice", "texto": ":vida"},
+     "efectos": [{"tipo": "cobrar", "monto": 5, "contrato": "contrato_vida", "caja": "caja", "delay": 1}]},
+    {"x": 1, "y": 2, "trigger": {"tipo": "pago_ok", "contrato": "contrato_vida"},
+     "efectos": [{"tipo": "dar_var", "var": "vidas", "inicial": 0},
+                 {"tipo": "sumar", "var": "vidas", "valor": 1, "delay": 1},
+                 {"tipo": "mensaje", "texto": "@green@ Compraste 1 vida extra", "delay": 2}]},
+    {"x": 2, "y": 2, "trigger": {"tipo": "dice", "texto": ":vidas"},
+     "condiciones": [{"tipo": "tiene_var", "var": "vidas"}],
+     "addons": [{"tipo": "texto_var", "nombre": "v", "var": "vidas"}],
+     "efectos": [{"tipo": "mensaje", "texto": "Tienes $(v) vida(s) extra"}]},
+    {"x": 3, "y": 2, "trigger": {"tipo": "senal", "antena": "antena_inicio"},
+     "efectos": [{"tipo": "asignar", "var": "partida", "valor": 1}]}
+  ]
+}

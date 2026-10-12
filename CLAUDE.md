@@ -7,6 +7,9 @@ Responde en español. Sé conciso: pide solo lo necesario y no repitas análisis
 - `lista_compra_individual_8.json`: versión con la sala completa (2.244 furnis).
 - `LISTA_COMPRA_INDIVIDUAL.md`: reglas, comandos, cambios y qué probar en el hotel.
 
+## Herramienta
+- `wiredtool/`: validador y generador de presets (solo archivos). Uso en `wiredtool/README.md`: `python3 -m wiredtool validar <preset.json>`.
+
 ## Juego: Lista de Compra individual
 - Hasta 8 jugadores, 1 asiento cada uno. Cada ronda hay 1 item y se elimina por velocidad.
 - Secuencia: 8 → 6 → 4 → 3 → 2 → final (gana el primero en entregar).
