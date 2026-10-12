@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="gp-root" prefHeight="730.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.411" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extension.GPresets">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="gp-header">
+         <children>
+            <VBox spacing="1.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="gp-title" text="G-Presets" />
+                  <Label styleClass="gp-subtitle" text="Copia una sala (furnis, wireds y piso) y pégala en otra  ·  versión 1.2.11-premium30" />
+               </children>
+            </VBox>
+            <Label styleClass="gp-hint" text="Chat:  :ep all  ·  :ip  ·  :plano  ·  :crop  ·  :sugerir  ·  :leer  ·  :a" />
+         </children>
+      </HBox>
+      <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="gp-tabs" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="Inicio">
+               <content>
+                  <VBox spacing="8.0" styleClass="gp-page">
+                     <children>
+                        <!-- Franja de estado: sala, indicador unico de «listo» y acciones rapidas -->
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="gp-card, gp-card-slim">
+                           <children>
+                              <Label fx:id="homeRoomLbl" minWidth="150.0" styleClass="gp-pill, lblgrey" text="Entra a una sala" visible="false" managed="false" />
+                              <fx:include source="estado.fxml" HBox.hgrow="ALWAYS" />
+                              <fx:include fx:id="autoTile" source="autotile.fxml" />
+                              <Button fx:id="undoFloorBtn" minWidth="-Infinity" mnemonicParsing="false" onAction="#undoFloorClick" styleClass="gp-btn-sm" text="Deshacer piso" />
+                              <fx:include fx:id="undoPaste" source="undopaste.fxml" />
+                              <!-- Las seis comprobaciones siguen existiendo para el programa, pero las resume el indicador -->
+                              <VBox visible="false" managed="false">
+                                 <children>
+                                    <Label fx:id="cndConnectedLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Conectado a Habbo" />
+                                    <Label fx:id="cndRoomLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Sala detectada" />
+                                    <Label fx:id="cndFurnidataLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Datos de furni" />
+                                    <Label fx:id="cndInventoryLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Inventario cargado" />
+                                    <Label fx:id="cndStackTileLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Stack tile listo" />
+                                    <Label fx:id="cndPermissionsLbl" styleClass="gp-pill, gp-pill-sm, lblgrey" text="Permisos" />
+                                    <Button fx:id="loadInvBtn" mnemonicParsing="false" onAction="#loadInventoryClick" text="Cargar inventario" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="8.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <!-- Columna 1: copiar, pegar y registro -->
+                              <VBox spacing="8.0" prefWidth="335.0" minWidth="335.0" maxWidth="335.0">
+                                 <children>
+                                    <VBox spacing="6.0" styleClass="gp-card">
+                                       <children>
+                                          <Label styleClass="gp-card-title" text="PASO 1 · COPIAR ESTA SALA" />
+                                          <HBox spacing="8.0" alignment="CENTER_LEFT">
+                                             <children>
+                                                <TextField fx:id="copyNameField" minWidth="60.0" onAction="#copyBtnClick" promptText="Nombre de la copia" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="copyBtn" minWidth="-Infinity" mnemonicParsing="false" onAction="#copyBtnClick" styleClass="gp-btn-primary" text="Copiar" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="6.0" styleClass="gp-card">
+                                       <children>
+                                          <Label styleClass="gp-card-title" text="PASO 2 · PEGAR EN OTRA SALA" />
+                                          <HBox spacing="6.0" alignment="CENTER_LEFT">
+                                             <children>
+                                                <ComboBox fx:id="homePresetCombo" maxWidth="1.7976931348623157E308" minWidth="60.0" prefWidth="100.0" promptText="Elige una copia" HBox.hgrow="ALWAYS" />
+                                                <fx:include source="vistaprevia.fxml" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="homePresetInfoLbl" styleClass="gp-hint" wrapText="true" text="Elige una copia de la lista" />
+                                          <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                             <children>
+                                                <Label styleClass="gp-hint" minWidth="-Infinity" text="Qué pegar:" />
+                                                <RadioButton mnemonicParsing="false" selected="true" text="Todo" userData="ALL">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="content_tgl" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton mnemonicParsing="false" text="Furnis" toggleGroup="$content_tgl" userData="FURNI" />
+                                                <RadioButton mnemonicParsing="false" text="Wired" toggleGroup="$content_tgl" userData="WIRED" />
+                                             </children>
+                                          </HBox>
+                                          <HBox spacing="6.0">
+                                             <children>
+                                                <Button fx:id="pasteBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#pasteBtnClick" styleClass="gp-btn-primary" text="Pegar en esta sala" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="homeAbortBtn" minWidth="-Infinity" mnemonicParsing="false" onAction="#abortBtnClick" styleClass="gp-btn-danger-sm" text="Cancelar" />
+                                             </children>
+                                          </HBox>
+                                          <HBox spacing="6.0">
+                                             <children>
+                                                <Button fx:id="importBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#importBtnClick" styleClass="gp-btn-sm" text="Elegir posición" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="availabilityBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#availabilityBtnClick" styleClass="gp-btn-sm" text="¿Tengo los furnis?" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <Button fx:id="abortBtn" mnemonicParsing="false" onAction="#abortBtnClick" text="Cancelar" visible="false" managed="false" />
+                                          <Button fx:id="selfDonateBtn" mnemonicParsing="false" onAction="#selfDonateBtnClick" text="Autodonar furni" visible="false" managed="false" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <!-- Columna 2: lista de presets -->
+                              <VBox spacing="6.0" styleClass="gp-card" prefWidth="250.0" minWidth="250.0" maxWidth="250.0">
+                                 <children>
+                                    <Label styleClass="gp-card-title" text="PRESETS (doble clic = elegir)" />
+                                    <TextField fx:id="presetSearchField" promptText="Buscar preset..." styleClass="gp-search" />
+                                    <ListView fx:id="presetListView" styleClass="gp-list" VBox.vgrow="ALWAYS">
+                                       <placeholder>
+                                          <Label styleClass="gp-hint" textAlignment="CENTER" wrapText="true" text="Aún no hay copias.&#10;Copia una sala (paso 1) o deja&#10;un archivo .json en la carpeta." />
+                                       </placeholder>
+                                    </ListView>
+                                    <HBox spacing="6.0">
+                                       <children>
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openPresetsFolderClick" styleClass="gp-btn-sm" text="Carpeta" HBox.hgrow="ALWAYS" />
+                                          <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#reloadPresetsClick" styleClass="gp-btn-sm" text="Recargar" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="currentPresetBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openCurrentPresetClick" styleClass="gp-btn-sm" text="Editar" HBox.hgrow="ALWAYS">
+                                             <tooltip>
+                                                <Tooltip text="Abrir el preset elegido en el editor de texto" />
+                                             </tooltip>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <!-- Columna 3: ajustes compactos y reemplazos de furni -->
+                              <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox spacing="5.0" styleClass="gp-card">
+                                       <children>
+                                          <Label styleClass="gp-card-title" text="AJUSTES" />
+                                          <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                             <children>
+                                                <Label styleClass="gp-hint" minWidth="62.0" text="Stack tile" />
+                                                <fx:define><ToggleGroup fx:id="stacktile_tgl" /></fx:define>
+                                                <RadioButton mnemonicParsing="false" text="1x1" toggleGroup="$stacktile_tgl" />
+                                                <RadioButton mnemonicParsing="false" selected="true" text="2x2" toggleGroup="$stacktile_tgl" />
+                                                <RadioButton mnemonicParsing="false" text="4x4" toggleGroup="$stacktile_tgl" />
+                                                <RadioButton mnemonicParsing="false" text="6x6" toggleGroup="$stacktile_tgl" />
+                                                <RadioButton mnemonicParsing="false" text="8x8" toggleGroup="$stacktile_tgl" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                             <children>
+                                                <Label styleClass="gp-hint" minWidth="62.0" text="Origen" />
+                                                <RadioButton fx:id="onlyInvCbx" mnemonicParsing="false" selected="true" text="Solo inventario" userData="ONLY_INVENTORY">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="item_src_tgl" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="preferInvCbx" mnemonicParsing="false" text="Preferir inventario" toggleGroup="$item_src_tgl" userData="PREFER_INVENTORY" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                             <children>
+                                                <Region minWidth="62.0" />
+                                                <RadioButton fx:id="preferBcCbx" mnemonicParsing="false" text="Preferir BC" toggleGroup="$item_src_tgl" userData="PREFER_BC" />
+                                                <RadioButton fx:id="onlyBcCbx" mnemonicParsing="false" text="Solo BC" toggleGroup="$item_src_tgl" userData="ONLY_BC" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                             <children>
+                                                <Label styleClass="gp-hint" minWidth="62.0" text="Velocidad">
+                                                   <tooltip>
+                                                      <Tooltip text="Más a la derecha = más lento y más seguro" />
+                                                   </tooltip>
+                                                </Label>
+                                                <Slider fx:id="ratelimiter" maxWidth="1.7976931348623157E308" value="22.0" HBox.hgrow="ALWAYS" />
+                                                <Label styleClass="gp-hint" minWidth="-Infinity" text="lento" />
+                                             </children>
+                                          </HBox>
+                                          <CheckBox fx:id="allowIncompleteBuildsCbx" mnemonicParsing="false" text="Omitir furni no disponibles y seguir" />
+                                          <HBox alignment="CENTER_LEFT" spacing="14.0">
+                                             <children>
+                                                <CheckBox fx:id="noExportWiredCbx" mnemonicParsing="false" text="No exportar wired" />
+                                                <CheckBox fx:id="onTopCbx" mnemonicParsing="false" onAction="#alwaysOnTopClick" text="Siempre encima" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="donateLabel" text="Autodonar" visible="false" managed="false" />
+                                          <RadioButton fx:id="donateMissing" mnemonicParsing="false" selected="true" text="Solo los que faltan" userData="MISSING_ITEMS" visible="false" managed="false">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="donate_tgl" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="donateAll" mnemonicParsing="false" text="Todos los de la exportacion" toggleGroup="$donate_tgl" userData="ALL_ITEMS" visible="false" managed="false" />
+                                          <HBox spacing="6.0">
+                                             <children>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createDiagnosticClick" styleClass="gp-btn-sm" text="Diagnóstico" HBox.hgrow="ALWAYS">
+                                                   <tooltip>
+                                                      <Tooltip text="Crear un diagnóstico ahora (igual que :diag)" />
+                                                   </tooltip>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#copyLastDiagnosticClick" styleClass="gp-btn-sm" text="Copiar" HBox.hgrow="ALWAYS">
+                                                   <tooltip>
+                                                      <Tooltip text="Copiar el último diagnóstico al portapapeles" />
+                                                   </tooltip>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openDiagnosticsClick" styleClass="gp-btn-sm" text="Carpeta" HBox.hgrow="ALWAYS">
+                                                   <tooltip>
+                                                      <Tooltip text="Abrir la carpeta de diagnósticos" />
+                                                   </tooltip>
+                                                </Button>
+                                                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearWiredClick" styleClass="gp-btn-sm" text="Caché" HBox.hgrow="ALWAYS">
+                                                   <tooltip>
+                                                      <Tooltip text="Borrar la caché de wired" />
+                                                   </tooltip>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="6.0" styleClass="gp-card" visible="false" managed="false">
+                                       <children>
+                                          <Label styleClass="gp-card-title" text="USAR UN FURNI QUE YA TENGO" />
+                                          <HBox spacing="6.0">
+                                             <children>
+                                                <TextField fx:id="furniNamePC_txt" minWidth="60.0" promptText="Furni: nombre[x]" HBox.hgrow="ALWAYS" />
+                                                <TextField fx:id="replacementIdPC_txt" minWidth="60.0" prefWidth="110.0" promptText="ID existente" />
+                                                <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#updatePostconfigClick" styleClass="gp-btn-primary" text="Guardar" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="postconfigErrorLbl" textFill="#e12121" wrapText="true" managed="false" />
+                                          <GridPane fx:id="pcgrid" VBox.vgrow="ALWAYS">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="ALWAYS" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                    <VBox styleClass="gp-card" VBox.vgrow="ALWAYS" spacing="6.0">
+                                       <children>
+                                          <Label styleClass="gp-card-title" text="REGISTRO" />
+                                          <BorderPane fx:id="logsBorderPane" styleClass="gp-log" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <!-- Estado y avance en una sola linea, con barra fina -->
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="gp-card, gp-card-slim">
+                           <children>
+                              <Label fx:id="homeStatusLbl" maxWidth="1.7976931348623157E308" styleClass="gp-status" text="Listo. Entra a una sala para empezar." HBox.hgrow="ALWAYS" />
+                              <Label fx:id="progressLbl" minWidth="-Infinity" styleClass="gp-hint" text="En espera" />
+                              <ProgressBar fx:id="progressBar" minWidth="150.0" prefWidth="170.0" progress="0.0" styleClass="gp-progress, gp-progress-min" />
+                              <Label fx:id="progressPctLbl" minWidth="34.0" alignment="CENTER_RIGHT" styleClass="gp-hint" text="0%" />
+                              <Label fx:id="homeProgressLbl" text="En espera" visible="false" managed="false" />
+                              <ProgressBar fx:id="homeProgressBar" progress="0.0" visible="false" managed="false" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Pixel art">
+               <content>
+                  <fx:include fx:id="pixelArt" source="pixelart.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Sala llena">
+               <content>
+                  <fx:include fx:id="sniper" source="sniper.fxml" />
+               </content>
+            </Tab>
+            <Tab text="Extras">
+               <content>
+                  <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" styleClass="gp-scroll"><content><fx:include fx:id="extras" source="extras.fxml" /></content></ScrollPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>

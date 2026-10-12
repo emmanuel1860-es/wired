@@ -1,0 +1,36 @@
+--- /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/src_all/extension/GPresetsLauncher.java	2026-10-12 02:00:39.974393664 +0000
++++ /tmp/claude-0/-home-user-wired/07f3ecc1-8f98-5c55-8b13-34fe1b96edab/scratchpad/tr/final/src/extension/GPresetsLauncher.java	2026-10-12 12:35:58.981051737 +0000
+@@ -10,6 +10,9 @@
+ import gearth.extensions.ExtensionInfo;
+ import gearth.extensions.ThemedExtensionFormCreator;
+ import java.net.URL;
++import javafx.geometry.Rectangle2D;
++import javafx.scene.layout.Region;
++import javafx.stage.Screen;
+ import javafx.stage.Stage;
+ 
+ public class GPresetsLauncher
+@@ -26,7 +29,22 @@
+ 
+     @Override
+     protected void initialize(Stage stage) {
+-        stage.getScene().getStylesheets().add((Object)this.getClass().getResource("ui/styles.css").toExternalForm());
++        stage.getScene().getStylesheets().add(this.getClass().getResource("ui/styles.css").toExternalForm());
++        // pantallas bajas (portatiles de 768 px): la ventana es fija, asi que se acota su alto al area visible para que no se corte la barra inferior
++        try {
++            Rectangle2D area = Screen.getPrimary().getVisualBounds();
++            if (stage.getScene().getRoot() instanceof Region) {
++                Region root = (Region)stage.getScene().getRoot();
++                double alto = Math.max(620.0, Math.min(730.0, area.getHeight() - 70.0));
++                if (alto < root.getPrefHeight()) {
++                    root.setPrefHeight(alto);
++                    stage.sizeToScene();
++                }
++            }
++        }
++        catch (Throwable throwable) {
++            // ajuste opcional: si falla se queda el tamano de siempre
++        }
+     }
+ 
+     public static void main(String[] stringArray) {

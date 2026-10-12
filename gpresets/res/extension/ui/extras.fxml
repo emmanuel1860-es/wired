@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox minHeight="590.0" spacing="10.0" styleClass="gp-page" xmlns="http://javafx.com/javafx/8.0.411" xmlns:fx="http://javafx.com/fxml/1" fx:controller="extension.tools.ExtrasController">
+   <children>
+      <VBox spacing="7.0" styleClass="gp-card" prefWidth="290.0" minWidth="290.0" maxWidth="290.0">
+         <children>
+            <Label styleClass="gp-card-title" text="ATUENDOS" />
+            <TextField fx:id="userSearch" promptText="Buscar a alguien de la sala…" styleClass="gp-search" />
+            <ListView fx:id="usersList" styleClass="gp-list" VBox.vgrow="ALWAYS" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#copyClick" styleClass="gp-btn-primary" text="Copiar su atuendo" />
+            <HBox spacing="6.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#headClick" styleClass="gp-btn-sm" text="Solo su cabeza" HBox.hgrow="ALWAYS" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clothesClick" styleClass="gp-btn-sm" text="Solo su ropa" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="6.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#randomClick" styleClass="gp-btn-sm" text="Al azar" HBox.hgrow="ALWAYS" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#randomMineClick" styleClass="gp-btn-sm" text="Con mi colección" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+               <children>
+                  <CheckBox fx:id="hcCbx" mnemonicParsing="false" text="Soy HC" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                  <Button mnemonicParsing="false" onAction="#restoreClick" styleClass="gp-btn-danger-sm" text="Volver al mío" />
+               </children>
+            </HBox>
+            <fx:include source="looks.fxml" />
+            <Label fx:id="outfitLbl" minHeight="-Infinity" styleClass="gp-hint" wrapText="true" text="Entra a una sala para ver a quién copiar" />
+         </children>
+      </VBox>
+      <VBox spacing="10.0" prefWidth="290.0" minWidth="290.0" maxWidth="290.0">
+         <children>
+            <VBox spacing="7.0" styleClass="gp-card" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label styleClass="gp-card-title" text="TRADUCTOR DEL CHAT" />
+                  <CheckBox fx:id="transInCbx" mnemonicParsing="false" text="Traducir lo que dicen a…" />
+                  <ComboBox fx:id="myLangCombo" maxWidth="1.7976931348623157E308" />
+                  <CheckBox fx:id="showOrigCbx" mnemonicParsing="false" text="Mostrar también el original" />
+                  <CheckBox fx:id="transOutCbx" mnemonicParsing="false" text="Traducir lo que yo digo a…">
+                     <VBox.margin>
+                        <Insets top="6.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <ComboBox fx:id="roomLangCombo" maxWidth="1.7976931348623157E308" />
+                  <CheckBox fx:id="informalCbx" mnemonicParsing="false" wrapText="true" visible="false" managed="false" text="Tono informal de vez en cuando (español, inglés y portugués)" />
+                  <Label fx:id="transLbl" minHeight="-Infinity" styleClass="gp-hint" wrapText="true" text="Apagado" />
+                  <fx:include source="traductorregistro.fxml" />
+                  <Region VBox.vgrow="ALWAYS" />
+                  <Label fx:id="slangLbl" minHeight="-Infinity" styleClass="gp-hint" wrapText="true" text="Entiende modismos y abreviaturas." />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#slangClick" styleClass="gp-btn-sm" text="Agregar mis modismos…" />
+                  <Label styleClass="gp-hint" wrapText="true" text="Usa un servicio web: los mensajes salen de tu PC para traducirse. El registro guarda en tu PC lo que se tradujo." />
+               </children>
+            </VBox>
+            <VBox spacing="7.0" styleClass="gp-card">
+               <children>
+                  <Label styleClass="gp-card-title" text="COLOR DE MI CHAT" />
+                  <ComboBox fx:id="colorCombo" maxWidth="1.7976931348623157E308" />
+                  <Label styleClass="gp-hint" wrapText="true" text="Se aplica a todo lo que escribas (no a los comandos)." />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox spacing="7.0" styleClass="gp-card" HBox.hgrow="ALWAYS">
+         <children>
+            <Label styleClass="gp-card-title" text="REGLAS DE PAQUETES (avanzado)" />
+            <ComboBox fx:id="ruleDirCombo" maxWidth="1.7976931348623157E308" />
+            <TextField fx:id="rulePacketField" onAction="#addRuleClick" promptText="Nombre del paquete (ej. Chat)" />
+            <ComboBox fx:id="ruleTypeCombo" maxWidth="1.7976931348623157E308" />
+            <TextField fx:id="ruleFromField" onAction="#addRuleClick" promptText="Texto exacto a cambiar" />
+            <TextField fx:id="ruleToField" onAction="#addRuleClick" promptText="Texto nuevo" />
+            <HBox spacing="6.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addRuleClick" styleClass="gp-btn-primary" text="Agregar regla" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#removeRuleClick" styleClass="gp-btn-danger-sm" text="Quitar" />
+               </children>
+            </HBox>
+            <ListView fx:id="rulesList" styleClass="gp-list" VBox.vgrow="ALWAYS" />
+            <Label fx:id="ruleLbl" minHeight="-Infinity" styleClass="gp-hint" wrapText="true" text="Bloquea un paquete o cambia un texto que venga exactamente igual dentro de él." />
+         </children>
+      </VBox>
+   </children>
+</HBox>
