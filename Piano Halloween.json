@@ -1,0 +1,1008 @@
+{
+  "wired": {
+    "triggers": [],
+    "effects": [],
+    "conditions": [],
+    "selectors": [],
+    "addons": [],
+    "variables": [],
+    "variables_map": {
+      "nextplay": "244585",
+      "order": "244584",
+      "notas": "244583"
+    }
+  },
+  "bindings": [],
+  "furni": [
+    {
+      "id": 1,
+      "name": "room_invisible_block4[0]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1,
+        "notas": 34
+      }
+    },
+    {
+      "id": 2,
+      "name": "room_invisible_block4[1]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 3,
+        "notas": 32
+      }
+    },
+    {
+      "id": 3,
+      "name": "room_invisible_block4[2]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 5,
+        "notas": 34
+      }
+    },
+    {
+      "id": 4,
+      "name": "room_invisible_block4[3]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 21,
+        "notas": 32
+      }
+    },
+    {
+      "id": 5,
+      "name": "room_invisible_block4[4]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 23,
+        "notas": 30
+      }
+    },
+    {
+      "id": 6,
+      "name": "room_invisible_block4[5]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 25,
+        "notas": 29
+      }
+    },
+    {
+      "id": 7,
+      "name": "room_invisible_block4[6]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 27,
+        "notas": 27
+      }
+    },
+    {
+      "id": 8,
+      "name": "room_invisible_block4[7]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 29,
+        "notas": 26
+      }
+    },
+    {
+      "id": 9,
+      "name": "room_invisible_block4[8]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 33,
+        "notas": 27
+      }
+    },
+    {
+      "id": 10,
+      "name": "room_invisible_block4[9]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 53,
+        "notas": 22
+      }
+    },
+    {
+      "id": 11,
+      "name": "room_invisible_block4[10]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 55,
+        "notas": 20
+      }
+    },
+    {
+      "id": 12,
+      "name": "room_invisible_block4[11]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 57,
+        "notas": 22
+      }
+    },
+    {
+      "id": 13,
+      "name": "room_invisible_block4[12]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 73,
+        "notas": 20
+      }
+    },
+    {
+      "id": 14,
+      "name": "room_invisible_block4[13]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 75,
+        "notas": 18
+      }
+    },
+    {
+      "id": 15,
+      "name": "room_invisible_block4[14]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 77,
+        "notas": 17
+      }
+    },
+    {
+      "id": 16,
+      "name": "room_invisible_block4[15]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 79,
+        "notas": 15
+      }
+    },
+    {
+      "id": 17,
+      "name": "room_invisible_block4[16]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 81,
+        "notas": 14
+      }
+    },
+    {
+      "id": 18,
+      "name": "room_invisible_block4[17]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 85,
+        "notas": 15
+      }
+    },
+    {
+      "id": 19,
+      "name": "room_invisible_block4[18]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 105,
+        "notas": 10
+      }
+    },
+    {
+      "id": 20,
+      "name": "room_invisible_block4[19]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 107,
+        "notas": 8
+      }
+    },
+    {
+      "id": 21,
+      "name": "room_invisible_block4[20]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 109,
+        "notas": 10
+      }
+    },
+    {
+      "id": 22,
+      "name": "room_invisible_block4[21]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 125,
+        "notas": 8
+      }
+    },
+    {
+      "id": 23,
+      "name": "room_invisible_block4[22]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 127,
+        "notas": 6
+      }
+    },
+    {
+      "id": 24,
+      "name": "room_invisible_block4[23]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 129,
+        "notas": 5
+      }
+    },
+    {
+      "id": 25,
+      "name": "room_invisible_block4[24]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 131,
+        "notas": 3
+      }
+    },
+    {
+      "id": 26,
+      "name": "room_invisible_block4[25]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 133,
+        "notas": 2
+      }
+    },
+    {
+      "id": 27,
+      "name": "room_invisible_block4[26]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 137,
+        "notas": 3
+      }
+    },
+    {
+      "id": 28,
+      "name": "room_invisible_block4[27]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 159,
+        "notas": 3
+      }
+    },
+    {
+      "id": 29,
+      "name": "room_invisible_block4[28]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 159,
+        "notas": 10
+      }
+    },
+    {
+      "id": 30,
+      "name": "room_invisible_block4[29]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 159,
+        "notas": 15
+      }
+    },
+    {
+      "id": 31,
+      "name": "room_invisible_block4[30]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 173,
+        "notas": 3
+      }
+    },
+    {
+      "id": 32,
+      "name": "room_invisible_block4[31]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 173,
+        "notas": 10
+      }
+    },
+    {
+      "id": 33,
+      "name": "room_invisible_block4[32]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 173,
+        "notas": 18
+      }
+    },
+    {
+      "id": 34,
+      "name": "room_invisible_block4[33]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 187,
+        "notas": 3
+      }
+    },
+    {
+      "id": 35,
+      "name": "room_invisible_block4[34]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 187,
+        "notas": 10
+      }
+    },
+    {
+      "id": 36,
+      "name": "room_invisible_block4[35]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 187,
+        "notas": 15
+      }
+    },
+    {
+      "id": 37,
+      "name": "room_invisible_block4[36]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1001,
+        "notas": 3
+      }
+    },
+    {
+      "id": 38,
+      "name": "room_invisible_block4[37]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1001,
+        "notas": 10
+      }
+    },
+    {
+      "id": 39,
+      "name": "room_invisible_block4[38]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1001,
+        "notas": 18
+      }
+    },
+    {
+      "id": 40,
+      "name": "room_invisible_block4[39]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1006,
+        "notas": 17
+      }
+    },
+    {
+      "id": 41,
+      "name": "room_invisible_block4[40]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1011,
+        "notas": 18
+      }
+    },
+    {
+      "id": 42,
+      "name": "room_invisible_block4[41]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1016,
+        "notas": 15
+      }
+    },
+    {
+      "id": 43,
+      "name": "room_invisible_block4[42]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1021,
+        "notas": 17
+      }
+    },
+    {
+      "id": 44,
+      "name": "room_invisible_block4[43]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1026,
+        "notas": 13
+      }
+    },
+    {
+      "id": 45,
+      "name": "room_invisible_block4[44]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1031,
+        "notas": 15
+      }
+    },
+    {
+      "id": 46,
+      "name": "room_invisible_block4[45]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1046,
+        "notas": 3
+      }
+    },
+    {
+      "id": 47,
+      "name": "room_invisible_block4[46]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1046,
+        "notas": 10
+      }
+    },
+    {
+      "id": 48,
+      "name": "room_invisible_block4[47]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1046,
+        "notas": 18
+      }
+    },
+    {
+      "id": 49,
+      "name": "room_invisible_block4[48]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1051,
+        "notas": 17
+      }
+    },
+    {
+      "id": 50,
+      "name": "room_invisible_block4[49]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1056,
+        "notas": 18
+      }
+    },
+    {
+      "id": 51,
+      "name": "room_invisible_block4[50]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1061,
+        "notas": 15
+      }
+    },
+    {
+      "id": 52,
+      "name": "room_invisible_block4[51]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1066,
+        "notas": 17
+      }
+    },
+    {
+      "id": 53,
+      "name": "room_invisible_block4[52]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1071,
+        "notas": 13
+      }
+    },
+    {
+      "id": 54,
+      "name": "room_invisible_block4[53]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1076,
+        "notas": 15
+      }
+    },
+    {
+      "id": 55,
+      "name": "room_invisible_block4[54]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1091,
+        "notas": 3
+      }
+    },
+    {
+      "id": 56,
+      "name": "room_invisible_block4[55]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1091,
+        "notas": 10
+      }
+    },
+    {
+      "id": 57,
+      "name": "room_invisible_block4[56]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1091,
+        "notas": 30
+      }
+    },
+    {
+      "id": 58,
+      "name": "room_invisible_block4[57]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1096,
+        "notas": 29
+      }
+    },
+    {
+      "id": 59,
+      "name": "room_invisible_block4[58]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1101,
+        "notas": 30
+      }
+    },
+    {
+      "id": 60,
+      "name": "room_invisible_block4[59]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1106,
+        "notas": 27
+      }
+    },
+    {
+      "id": 61,
+      "name": "room_invisible_block4[60]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1111,
+        "notas": 29
+      }
+    },
+    {
+      "id": 62,
+      "name": "room_invisible_block4[61]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1116,
+        "notas": 25
+      }
+    },
+    {
+      "id": 63,
+      "name": "room_invisible_block4[62]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1121,
+        "notas": 27
+      }
+    },
+    {
+      "id": 64,
+      "name": "room_invisible_block4[63]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1146,
+        "notas": 3
+      }
+    },
+    {
+      "id": 65,
+      "name": "room_invisible_block4[64]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1146,
+        "notas": 10
+      }
+    },
+    {
+      "id": 66,
+      "name": "room_invisible_block4[65]",
+      "className": "room_invisible_block4",
+      "rotation": 0,
+      "location": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "variables": {
+        "order": 1146,
+        "notas": 15
+      }
+    }
+  ]
+}
